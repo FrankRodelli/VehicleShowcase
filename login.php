@@ -69,7 +69,9 @@ if($_POST && isset($_POST['login'])){
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-
+	
+	$username = $conn->real_escape_string($username);
+	$password = $conn->real_escape_string($password);
 	//Check if credentials match database annd login accordingly
 	$sql = "SELECT * FROM UserList WHERE USERNAME = '$username' and PASSWORD = '$password'";
 	$result = $conn->query($sql);
