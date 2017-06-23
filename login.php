@@ -31,7 +31,7 @@ Website: https://htmlcssphptutorial.wordpress.com
 
 <div id="inner-wrapper">
 
-<img src="images/logo.png" alt="GrapeVine logo">
+<img src="images/logo.png" alt="Logo">
 
 <br />
 <br />
