@@ -1,0 +1,29 @@
+.column {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 1% 0 1%;
+	padding: 0;
+	background-color: #f2f2f2;
+	min-height: 500px;
+}
+#column1 {
+	width: 15%;
+	height: 100%;
+	min-height: 0px;
+}
+#column2 {
+	width: 63%;
+}
+#column3 {
+	width: 15%;
+}
+.propic-page {
+	margin: 5%;
+}
+#user-data a {
+	display: inline-block;
+	margin: 2.5%;
+}
+#left-lower {
+	float: left;
+}

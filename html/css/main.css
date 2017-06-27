@@ -1,0 +1,63 @@
+/* Go away, wireshark isn't going to work */
+
+body {
+
+  background-color:  #f2f2f2;
+}
+
+#center-wrapper {
+
+  width: 350px;
+  height: 600px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: .5em;
+}
+
+#inner-wrapper {
+
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 2.5em;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#token {
+
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+#token input {
+
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+#button input,button { 
+  width: 200px;
+  padding: 15px;
+  background-color: #000000;
+  border: 0;
+  font-family: 'Noto Sans', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#button input:hover,button:hover {
+
+  background-color: #808080;
+}
+#error {
+  font-size: 12px;
+  color: red;
+  text-align: center;
+}
