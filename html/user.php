@@ -59,7 +59,7 @@
 
 				echo '<div id="user-header">
 				<a class="propic-click" href ="../user.php/?u='.$loggedinuser .'">
-				<img class="propic-header" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2u0RWmYALKJ431XNoTKjzu77ERLBIvXKlOEA-Q3DPo2h2rCB" height="30px"></a>
+				<img class="propic-header" src="../uploads/images/'.$row["PICTURE"].'" height="30px"></a>
 				<a>Welcome '. $row["FIRSTNAME"] . '!</a>
 				<img id="propic" class="menu-icon" src="../images/menu.png">
 				</div>
@@ -69,7 +69,7 @@
 					<li><a href="../mycars.php" accesskey="1" title="">My Vehicles</a></li>
 					<li><a href="../add.php" accesskey="2" title="">Add Vehicles</a></li>
 					<li><a href="../user.php/?u='.$loggedinuser .'" accesskey="3" title="">Profile</a></li>
-					<li><a href="" accesskey="4" title="">Settings</a></li>
+					<li><a href="../settings.php" accesskey="4" title="">Settings</a></li>
 					<li><a href="logout.php" accesskey="5" title="">Logout</a></li>
 				</ul>
 			</div>
@@ -93,9 +93,9 @@ if($result->num_rows == 1){
 
 	echo '
 	<div id="page-wrapper">
-	<div id="stream-container">
+	<div id="container">
 	<div class="column" id="column1">
-	<img class="propic-page" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2u0RWmYALKJ431XNoTKjzu77ERLBIvXKlOEA-Q3DPo2h2rCB" height="150px"></a>
+	<img class="propic-page" src="../uploads/images/'.$row["PICTURE"].'" height="150px"></a>
 	<div id="user-data">
 	<a>'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
 	<a>'.$age.'</a><br>
@@ -136,15 +136,44 @@ if($result->num_rows == 1){
 	</div>
 
 	<div class="column" id="column3">
-	<h2>Vehicles</h2>
-	</div>
+	<h2>Vehicles</h2>';
 
-	<div class="column" id="left-lower">
-	<h2>leftlower</h2>
-	</div>
+	// Create connection for populating vehicles into user page
+	$conncars = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
+	// Check connection
+	if ($conncars->connect_error) {
+    	die("Connection failed: " . $conncars->connect_error);
+    }
+	$sqlcars = "SELECT * FROM Cars WHERE USER = '$username'";
+	$resultcars = $conncars->query($sqlcars);
+
+	if ($resultcars->num_rows > 0) {
+
+	    // output data of each row
+	    while($rowcars = $resultcars->fetch_assoc()) {
+	    	$uuid = $rowcars ["HASH"];
+	    	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid' LIMIT 1";
+	    	$photoresult = $conncars->query($photosql);
+	    	echo '<div id="vehicle-item">';
+	    	while($photorow = $photoresult->fetch_assoc()){
+	    		echo '<img src="../uploads/images/'. $photorow["FNAME"] . '">';
+	    	}
+	        echo '<div id="title"><a href="https://showmeyouraxels.me/vehicle.php/?c=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
+	    }
+
+	} else {
+	    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
+	}
+
+	$conncars->close();
+
+    echo '
+	</div>
 	</div>
 	</div>';
+}else{
+	echo 'User does not exist';
 }
 
 if($_POST && isset($_POST['follow'])){

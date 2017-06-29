@@ -19,7 +19,7 @@ if($_POST && isset($_POST['addcar'])){
 	$mpg = $_POST['field14'];
 	$writeup = $_POST['field15'];
 	$displacement = $_POST['field16'];
-
+	$username = $_SESSION['token'];
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
@@ -32,13 +32,13 @@ if($_POST && isset($_POST['addcar'])){
 
 	$sql = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
 	HP='$horsepower',TORQUE='$torque',CYLINDERS='$cylinders',FUELTYPE='$fueltype',MODS='$mods',
-	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$uuid'";
+	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$uuid' AND USER = '$username'";
 	$result = $conn->query($sql);
 
 	if ($conn->query($sql) === TRUE) {
 
 	} else {
-    
+    header("Location: notyourcar.php");
 }
 
 	$conn->close();
@@ -95,7 +95,7 @@ if($_POST && isset($_POST['addcar'])){
     die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid'";
+	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid' AND USER = '$user'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -127,7 +127,7 @@ if($_POST && isset($_POST['addcar'])){
 
     	}
 } else {
-    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
+    header("Location: notyourcar.php");
 }
 $conn->close();
 ?>

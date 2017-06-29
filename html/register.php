@@ -90,7 +90,7 @@ if($_POST && isset($_POST['register'])){
 		header("Location: index.php");
 
 	} else {
-	    echo "Error: please try again or contact the support for more information."
+	    echo "Error: please try again or contact the support for more information.";
 	}
 
 	$conn->close();

@@ -26,7 +26,11 @@
 <div id="inner-wrapper">
 
 <img src="images/logo.png" alt="Logo">
-<center>Your IP has been blocked from logging in, or registering, please contact our support to get unblocked. You are still able to browse our website, but you cannot interact.</center>
+<center>The page you went to was not your car, please try again later, or contact support if the issue occurs again.</center>
+<center>You will be redirected in 5 seconds, if not, click <a href="../index.php"> this link</a> </center>
+<?php
+header( "refresh:5;url=index.php" );
+?>
 		</div>
 	</div>
 </div>
