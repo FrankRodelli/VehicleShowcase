@@ -19,7 +19,7 @@ if(isset($_POST['imagebase64'])){
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-    $sql = "UPDATE `UserList` SET `PICTURE`='$d.png' WHERE `USERNAME` = '$username'";
+    $sql = "UPDATE `UserList` SET `PICTURE`='$d.png' WHERE `UUID` = '$username'";
     
     $result = $conn->query($sql);
         if ($conn->query($sql) === TRUE) {

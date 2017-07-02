@@ -22,9 +22,10 @@ if($_POST && isset($_POST['addcar'])){
 	$occupation = $_POST['occupation'];
 	$dob = $_POST['dob'];
 	$bio = $_POST['bio'];
+	$newusername = $_POST['username'];
 
 	//Check t 
-	$sql = "SELECT * FROM UserList WHERE USERNAME = '$username'";
+	$sql = "SELECT * FROM UserList WHERE UUID = '$username'";
 	$result = $conn->query($sql);
 	if($result->num_rows == 1){
 		
@@ -32,7 +33,7 @@ if($_POST && isset($_POST['addcar'])){
 		if (password_verify($currentpassword, $row["PASSWORD"])){
 			if($newpassword == $confirmpassword){
 				$hashedpassword = password_hash($newpassword, PASSWORD_DEFAULT, ['cost' => 11]);
-				$sql = "UPDATE `UserList` SET `PASSWORD`='$hashedpassword' WHERE `USERNAME`='$username'";
+				$sql = "UPDATE `UserList` SET `PASSWORD`='$hashedpassword' WHERE `UUID`='$username'";
 				$result = $conn->query($sql);
 				if($result->num_rows == 1){
 					// password was changed successfully!!!
@@ -47,8 +48,8 @@ if($_POST && isset($_POST['addcar'])){
 		}
 	}
 
-	$sql = "UPDATE `UserList` SET `EMAIL`='$email',`USERNAME`='$username',
-	`FIRSTNAME`='$fname',`LASTNAME`='$lname',`BIO`='$bio',`OCCUPATION`='$occupation',`DOB`='$dob' WHERE `USERNAME` = '$username'";
+	$sql = "UPDATE `UserList` SET `EMAIL`='$email',`USERNAME`='$newusername',
+	`FIRSTNAME`='$fname',`LASTNAME`='$lname',`BIO`='$bio',`OCCUPATION`='$occupation',`DOB`='$dob' WHERE `UUID` = '$username'";
 	$result = $conn->query($sql);
 
 	if ($conn->query($sql) === TRUE) {

@@ -104,7 +104,7 @@ if($_POST && isset($_POST['addcar'])){
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO `Cars` (`HASH`, `DATE`, `MAKE`, `MODEL`, `USER`, `PHOTO`, `DISPLACEMENT`, `HP`, `TORQUE`, `CYLINDERS`, `FUELTYPE`, `MODS`, `TRANS`, `060`, `0100`, `14MILE`, `TOPSPEED`, `MPG`, `WRITEUP`) VALUES ('$carhash', '$year', '$make', '$model', '$user', '', '$displacement', '$horsepower', '$torque', '$cylinders', '$fueltype', '$mods', '$transmission', '$zerosixty', '$zerohundred', '$quartermile', '$topspeed', '$mpg', '$writeup')";
+	$sql = "INSERT INTO `Cars` (`HASH`, `DATE`, `MAKE`, `MODEL`, `UUID`, `PHOTO`, `DISPLACEMENT`, `HP`, `TORQUE`, `CYLINDERS`, `FUELTYPE`, `MODS`, `TRANS`, `060`, `0100`, `14MILE`, `TOPSPEED`, `MPG`, `WRITEUP`) VALUES ('$carhash', '$year', '$make', '$model', '$user', '', '$displacement', '$horsepower', '$torque', '$cylinders', '$fueltype', '$mods', '$transmission', '$zerosixty', '$zerohundred', '$quartermile', '$topspeed', '$mpg', '$writeup')";
 
 	if ($conn->query($sql) === TRUE) {
 	    echo "Car added!<br>";

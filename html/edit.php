@@ -95,7 +95,7 @@ if($_POST && isset($_POST['addcar'])){
     die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid' AND USER = '$user'";
+	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid' AND UUID = '$user'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {

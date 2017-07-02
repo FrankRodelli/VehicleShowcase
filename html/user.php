@@ -26,162 +26,37 @@
 				<li><a href="../about.php" accesskey="4" title="">About</a></li>
 			</ul>
 
-			<img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> 
+<img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> 
 
-			<div id="search-bar" style="display: none;">
-			Search here
-			</div>
+<div id="search-bar" style="display: none;">
+	Search here
+</div>
 
-			<?php
-			// Get username
-			$username = $_GET['u'];
-			$loggedinuser = $_SESSION['token'];
+<?php include("php/header.php"); ?>
+
+<div id="page-wrapper">
+<div id="container">
+<div class="column" id="column1">
+<?php include("php/populate-user-data.php");?>
+
+<div class="column" id="column3">
+<h2>Vehicles</h2>
+<?php include("php/populate-cars.php");?>
+</div>
+
+<div class="column" id="column2">
+<h2>Vehicle Feed</h2>
+<?php include("php/post-form.php");?>
+</div>
+
+<div class="column" id="column4">
+<h2>Bio</h2>
+</div>
+
+</div>
+</div>
 
 
-			// Create connection
-			$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
-
-			// Check connection
-			if ($conn->connect_error) {
-		    	die("Connection failed: " . $conn->connect_error);
-		    }
-
-		    //Check if credentials match database and login accordingly
-			$sql = "SELECT * FROM UserList WHERE USERNAME = '$loggedinuser'";
-
-			//set querry data to result variable
-			$result = $conn->query($sql);
-
-			//If there are results, run
-			if($result->num_rows == 1){
-				//Assigns row data to $row array
-				$row = $result->fetch_assoc();
-
-				echo '<div id="user-header">
-				<a class="propic-click" href ="../user.php/?u='.$loggedinuser .'">
-				<img class="propic-header" src="../uploads/images/'.$row["PICTURE"].'" height="30px"></a>
-				<a>Welcome '. $row["FIRSTNAME"] . '!</a>
-				<img id="propic" class="menu-icon" src="../images/menu.png">
-				</div>
-
-			<div id="popout-menu" style="display: none;">
-				<ul class="popout-menu-ul">
-					<li><a href="../mycars.php" accesskey="1" title="">My Vehicles</a></li>
-					<li><a href="../add.php" accesskey="2" title="">Add Vehicles</a></li>
-					<li><a href="../user.php/?u='.$loggedinuser .'" accesskey="3" title="">Profile</a></li>
-					<li><a href="../settings.php" accesskey="4" title="">Settings</a></li>
-					<li><a href="logout.php" accesskey="5" title="">Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>';
-
-}
-//Check if credentials match database and login accordingly
-$sql = "SELECT * FROM UserList WHERE USERNAME = '$username'";
-
-//set querry data to result variable
-$result = $conn->query($sql);
-
-//If there are results, run
-if($result->num_rows == 1){
-	//Assigns row data to $row array
-	$row = $result->fetch_assoc();
-	//calculates age based on dob
-	$age = floor((time() - strtotime($row["DOB"])) / 31556926);
-
-	echo '
-	<div id="page-wrapper">
-	<div id="container">
-	<div class="column" id="column1">
-	<img class="propic-page" src="../uploads/images/'.$row["PICTURE"].'" height="150px"></a>
-	<div id="user-data">
-	<a>'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
-	<a>'.$age.'</a><br>
-	<a>'.$row["OCCUPATION"] .'</a><br>';
-	
-	$followers = 0; 
-	$following = 0;
-
-	//Gets number of people user is following
-	$sql1 = "SELECT * FROM IsFollowing WHERE USER = '$username'";
-	$result1 = $conn->query($sql1);
-	if ($result1->num_rows > 0) {
-    	// output data of each row
-    	while($row1 = $result1->fetch_assoc()) {
-    		$following++;
-    	}
-    	echo '<a href="#">Following(' . $following . ')</a><br>';
-    }
-    $sql1 = "SELECT * FROM IsFollowing WHERE FOLLOWING = '$username'";
-	$result1 = $conn->query($sql1);
-	if ($result1->num_rows > 0) {
-    	// output data of each row
-    	while($row1 = $result1->fetch_assoc()) {
-    		$followers++;
-    	}
-    	echo '<a href="#">Followers(' .$followers;
-    }
-
-	echo')</a><br>
-	<form method = "POST" enctype = "multipart/form-data">
-	<input type="submit" name="follow" value="Follow '.$username .'!">
-	</form>
-	</div>
-	</div>
-
-	<div class="column" id="column2">
-	<h2>Vehicle Feed</h2>
-	</div>
-
-	<div class="column" id="column3">
-	<h2>Vehicles</h2>';
-
-	// Create connection for populating vehicles into user page
-	$conncars = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
-
-	// Check connection
-	if ($conncars->connect_error) {
-    	die("Connection failed: " . $conncars->connect_error);
-    }
-	$sqlcars = "SELECT * FROM Cars WHERE USER = '$username'";
-	$resultcars = $conncars->query($sqlcars);
-
-	if ($resultcars->num_rows > 0) {
-
-	    // output data of each row
-	    while($rowcars = $resultcars->fetch_assoc()) {
-	    	$uuid = $rowcars ["HASH"];
-	    	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid' LIMIT 1";
-	    	$photoresult = $conncars->query($photosql);
-	    	echo '<div id="vehicle-item">';
-	    	while($photorow = $photoresult->fetch_assoc()){
-	    		echo '<img src="../uploads/images/'. $photorow["FNAME"] . '">';
-	    	}
-	        echo '<div id="title"><a href="https://showmeyouraxels.me/vehicle.php/?c=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
-	    }
-
-	} else {
-	    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
-	}
-
-	$conncars->close();
-
-    echo '
-	</div>
-	</div>
-	</div>';
-}else{
-	echo 'User does not exist';
-}
-
-if($_POST && isset($_POST['follow'])){
-    $sql = "INSERT INTO `IsFollowing` (`USER`, `FOLLOWING`) VALUES ('$loggedinuser','$username')";
-    $result = $conn->query($sql);
-}
-$conn->close();
-?>
 <div id="copyright">
 <p>&copy; 2017 FBMotors Inc. All Rights Reserved.</p>
 </div>

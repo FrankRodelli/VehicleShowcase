@@ -74,7 +74,8 @@ if($_POST && isset($_POST['register'])){
 		}
 
 	$username = $conn->real_escape_string($_POST['username']);
-	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 11]);
+	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
+	$uuid = uniqid();
 	$email = $conn->real_escape_string($_POST['email']);
 	$fname = $conn->real_escape_string($_POST['fname']);
 	$lname = $conn->real_escape_string($_POST['lname']);
@@ -82,10 +83,10 @@ if($_POST && isset($_POST['register'])){
 	$occupation = $conn->real_escape_string($_POST['occupation']);
 	$dob = $conn->real_escape_string($_POST['dob']);
 	//Insert new user to database
-	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`) VALUES ('$email', '$username', '$password', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0)";
+	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0)";
 
 	if ($conn->query($sql) === TRUE) {
-		$cookie = $username;
+		$cookie = $uuid;
 		$_SESSION['token'] = $cookie;
 		header("Location: index.php");
 

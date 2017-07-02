@@ -103,7 +103,7 @@ Website: https://htmlcssphptutorial.wordpress.com
 			}else{
 			//If passwords match, log user in
 			if (password_verify($_POST['password'], $row["PASSWORD"])){
-				$cookie = $username;
+				$cookie = $row["UUID"];
 				$_SESSION['token'] = $cookie;
 				header("Location: index.php");
 				// this should make it so every time someone logs in, it clears it OR after 4 logins, it would ban them and suspend the account they are logging in with, however, this could cause a hacker to be able to 

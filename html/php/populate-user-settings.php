@@ -8,7 +8,7 @@
     die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT * FROM UserList WHERE USERNAME = '$user'";
+	$sql = "SELECT * FROM UserList WHERE UUID = '$user'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
