@@ -21,7 +21,7 @@ $loggedinuser = $_SESSION["token"];
 	    	$photoresult = $conncars->query($photosql);
 	    	echo '<div id="vehicle-item">';
 	    	while($photorow = $photoresult->fetch_assoc()){
-	    		echo '<img src="../uploads/images/'. $photorow["FNAME"] . '">';
+	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '">';
 	    	}
 	        echo '<div id="title"><a href="https://showmeyouraxels.me/vehicle.php/?c=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
 	    }

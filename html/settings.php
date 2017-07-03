@@ -19,15 +19,16 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="menu">
-		<img src="../images/logo.png" alt="Mycarlogo" height="40" width="40">
+		<img class="logo" src="../images/logo.png" alt="Mycarlogo" height="40" width="40">
 		<h1>FBMotors</h1>
 			<ul class="nav">
 				<li><a href="../index.php" accesskey="1" title="">Home</a></li>
 				<li><a href="../browse.php" accesskey="2" title="">Browse</a></li>
 				<li><a href="../events.php" accesskey="3" title="">Events</a></li>
 				<li><a href="../about.php" accesskey="4" title="">About</a></li>
+        <li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
 			</ul>
-			<img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> 
+
 
 			<div id="search-bar" style="display: none;">
 			Search here

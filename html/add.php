@@ -17,7 +17,7 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="menu">
-		<img src="images/logo.png" alt="Mycarlogo" height="40" width="40">
+		<img class="logo" src="images/logo.png" alt="Mycarlogo" height="40" width="40">
 		<h1>FBMotors</h1>
 			<ul class="nav">
 				<li><a href="index.php" accesskey="1" title="">Home</a></li>
@@ -117,7 +117,6 @@ if($_POST && isset($_POST['addcar'])){
 }
 
    if(isset($_FILES['image'])){
-   	echo "is it workin";
       $errors= array();
       $file_name = $_FILES['image']['name'];
       $file_size = $_FILES['image']['size'];
@@ -141,7 +140,7 @@ if($_POST && isset($_POST['addcar'])){
       if(empty($errors)==true) {
 
         //move_uploaded_file($file_tmp,"uploads/images/".$file_name);
-        move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/images/" . $newfilename);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/vehicles/" . $newfilename);
 
         // Create connection
 		$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');

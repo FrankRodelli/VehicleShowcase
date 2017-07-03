@@ -8,8 +8,9 @@ if(isset($_POST['imagebase64'])){
 
     $data = base64_decode($data);
     $d=uniqid();
-    file_put_contents('uploads/images/'.$d.'.png', $data);
-   echo json_encode($d);
+    file_put_contents('uploads/users/'.$d.'.png', $data);
+    echo json_encode($d);
+
      //Add photo to user entry
     $username = $_SESSION['token'];
 	// Create connection
