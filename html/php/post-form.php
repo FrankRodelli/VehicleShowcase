@@ -125,19 +125,19 @@ if ($result->num_rows > 0) {
     $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
 
     //set querry data to result variable
-    $result = $conn->query($sql);
+    $writecommentresult = $conn->query($wirtecommentsql);
 
     //If there are results, run
-    if($result->num_rows == 1){
+    if($writecommentresult->num_rows == 1){
       //Assigns row data to $row array
-      $row = $result->fetch_assoc();
+      $writecommentrow = $writecommentresult->fetch_assoc();
 
     echo '
     <div id="make-post-container">
     <div id="upper-column">
     <div class=frame>
         <span class="helper"></span>
-        <img src="uploads/users/'.$row["PICTURE"].'"/>
+        <img src="uploads/users/'.$writecommentrow["PICTURE"].'"/>
     </div>
     <form method = "POST" enctype = "multipart/form-data" class="post-text">
       <textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
