@@ -30,7 +30,7 @@ h1, h2, h3
 
 #header
 {
-	background-color: #f2f2f2;
+	background-color: #6b7c8c;
 	overflow: hidden;
 	height: 100%;
 }
@@ -38,7 +38,7 @@ h1, h2, h3
 #header h1 {
 	position: absolute;
 	left: 55px;
-	color: #000000;
+	color: #f2f2f2;
 }
 .logo {
 	float: left;
@@ -70,7 +70,7 @@ h1, h2, h3
     padding:10px;
 		font-family: 'Noto Sans', sans-serif;
 		text-decoration: none;
-		color: #000;
+		color: #f2f2f2;
 }
 .nav .active a
 {
@@ -99,6 +99,7 @@ h1, h2, h3
 	padding: 0 40px 0 40px;
 	margin-top: 2%;
 	float: left;
+	color: #f2f2f2;
 }
 .menu-icon {
 		float: right !important;
@@ -106,7 +107,7 @@ h1, h2, h3
 }
 .propic-header {
 	float:left;
-	border: 1px solid #ddd;
+	border: 1px solid #000;
 }
 .search {
 	position: fixed;
@@ -160,7 +161,7 @@ h1, h2, h3
 {
 	overflow: hidden;
 	padding-top: 70px;
-	background: #c3c3c3;
+	background: #f2f2f2;
 	text-align:center;
 }
 #page
