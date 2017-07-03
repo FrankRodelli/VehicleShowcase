@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 //Check if credentials match database and login accordingly
-$sql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
+$sql = "SELECT * FROM UserList WHERE UUID = '$username'";
 
 //set querry data to result variable
 $result = $conn->query($sql);
@@ -53,12 +53,12 @@ if($result->num_rows == 1){
     	while($row1 = $result1->fetch_assoc()) {
     		$followers++;
     	}
-    	echo '<a href="#">Followers(' .$followers;
+    	echo '<a href="#">Followers(' .$followers .')';
     }
 
-	echo')</a><br>
+	echo'</a><br>
 	<form method = "POST" enctype = "multipart/form-data">
-	<input type="submit" name="follow" value="Follow '.$row["FIRSTNAME"] .'!">
+	<input class="follow-button" type="submit" name="follow" value="Follow '.$row["FIRSTNAME"] .'!">
 	</form>
 	</div>
 	</div>';

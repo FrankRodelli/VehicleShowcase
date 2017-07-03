@@ -3,6 +3,9 @@
 // Get username
 $loggedinuser = $_SESSION['token'];
 
+// Get the username of the users page you are visiting 
+$userpageuuid = $_GET['u'];
+
 // Create connection
 $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 
@@ -27,15 +30,15 @@ echo '
 <div id="upper-column">
 <div class=frame>
     <span class="helper"></span>
-    <img src="uploads/images/'.$row["PICTURE"].'"/>
+    <img src="../uploads/images/'.$row["PICTURE"].'"/>
 </div>
 <form method = "POST" enctype = "multipart/form-data" class="post-text">
  	<textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
 </form>
 </div>
 <div id="lower-column">
-<img src="images/photo.png">
-<img src="images/video.png">
+<img src="../images/photo.png">
+<img src="../images/video.png">
 </div>
 </div>';
 
@@ -56,7 +59,7 @@ if($_POST['add-post']){
 	}
 }
 
-$sql = "SELECT * FROM Posts";
+$sql = "SELECT * FROM Posts WHERE USER = '$userpageuuid' ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -75,7 +78,7 @@ if ($result->num_rows > 0) {
     	$userresult = $conn->query($usersql);
 
     	while($userrow = $userresult->fetch_assoc()){
-    		echo '<img src="uploads/images/'. $userrow['PICTURE'] .'"><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div>';
+    		echo '<img src="../uploads/images/'. $userrow['PICTURE'] .'"><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div>';
     	}
 
 		echo '

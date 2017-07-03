@@ -46,7 +46,7 @@
 
 <div class="column" id="column2">
 <h2>Vehicle Feed</h2>
-<?php include("php/post-form.php");?>
+<?php include("php/user-post-form.php");?>
 </div>
 
 <div class="column" id="column4">
