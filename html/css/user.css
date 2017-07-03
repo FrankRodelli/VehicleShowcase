@@ -1,0 +1,157 @@
+body {
+	background-color: #9e9e9e;
+}
+
+#page-wrapper {
+	width: 1300px;
+	margin: auto;
+}
+
+input:hover {
+	background-color: #9e9e9e; 
+}
+a{
+	text-decoration: none;
+}
+.column {
+	margin: auto;
+	padding: 0;
+	background-color: #f2f2f2;
+	min-height: 500px;
+	border-radius: 5px;
+}
+#column1 {
+	width: 275px;
+	height: 100%;
+	min-height: 0px;
+	float: left;
+}
+#column2 {
+	width: 700px;
+	min-height: 700px;
+}
+#column3 {
+	width: 275px;
+	float: right;
+}
+#column4 {
+	width: 15%;
+	min-height: 200px;
+	float: left;
+	margin-top: 26px;
+}
+.propic-page {
+	margin: 5%;
+	border-bottom: 2px solid #ddd;
+	border-radius: 5px;
+}
+#user-data a {
+	display: inline-block;
+	margin: 2.5%;
+}
+.follow-button {
+    width: 75%;
+    padding: 15px;
+    background-color: #8d8d8d;
+    border: 0;
+    color: #ffffff;
+    margin: 2% 0;
+    border-radius: 5px;
+}
+#vehicle-item {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	margin: 1%;
+}
+
+#vehicle-item img {
+	height: 50px;
+	float: left;
+}
+
+#container h2 {
+	border-bottom: 2px solid #ddd;
+	margin: 0 5%;
+	color: #808080;
+}
+#post-item {
+	margin: 2%;
+	height: 150px;
+	overflow: hidden;
+	background-color: white;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+#post-item img{
+	float: left;
+	max-height: 35px;
+}
+#post-info {
+	float: left;
+	margin-left: 1%;
+}
+#top-post {
+	margin: 1%;
+	height: 50px;
+	border-bottom: 2px solid #ddd;
+}
+#bottom-post {
+		margin: 0 1%;
+}
+
+#make-post-container {
+	margin: 2%;
+	height: 100px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+#upper-column {
+	
+	height: 75%;
+}
+
+#upper-column img {
+    vertical-align: middle;
+    max-height: 35px;
+}
+
+.frame {
+    height: 75px;      /* equals max image height */
+    white-space: nowrap;
+    text-align: center;
+    float: left;
+}
+
+.helper {
+    display: inline-block;
+    height: 100px;
+    vertical-align: middle;
+}
+.post-text {
+	float: left;
+	margin-top: 2.3%;
+	margin-left:  .5%;
+}
+.post-text textarea {
+	   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+	width: 500px;
+	height: 50px;
+	vertical-align: center;
+	border-style: none;
+}
+
+#lower-column {
+	height: 20%;
+	width: 95.5%;
+	margin-left: 4.5%;
+	float: left;
+}
+#lower-column img {
+	height: 100%;
+	float: left;
+	margin-right: 20px;
+}
