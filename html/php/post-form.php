@@ -141,10 +141,7 @@ if ($result->num_rows > 0) {
     </div>
     <form method = "POST" enctype = "multipart/form-data" class="post-text">
       <textarea name="post-text-content" placeholder="Comment!"></textarea><input name="add-post" type="submit" value="Submit" />
-    </div>
-    <div id="lower-column">
-    <input type="file" name="image" />
-    </form>
+      </form>
     </div>
     </div>';
 
