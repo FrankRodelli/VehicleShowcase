@@ -46,60 +46,68 @@ echo '
 if($_POST['add-post']){
   $postid = uniqid();
   $text = $_POST['post-text-content'];
-  $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
-  $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-
-  $isPicture = false;
+  $contentType = '';
   $newfilename ='';
 
-  if ((($_FILES["file"]["type"] == "video/mp4")
-  || ($_FILES["file"]["type"] == "audio/mp3")
-  || ($_FILES["file"]["type"] == "audio/wma")
-  || ($_FILES["file"]["type"] == "image/pjpeg")
-  || ($_FILES["file"]["type"] == "image/gif")
-  || ($_FILES["file"]["type"] == "image/jpeg"))
+  if(empty($_FILES['file']['name'])){
+    $contentType = 'text';
+  }
+  else{
+    $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
+    $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
-  && in_array($extension, $allowedExts)){
+    if ((($_FILES["file"]["type"] == "video/mp4")
+    || ($_FILES["file"]["type"] == "audio/mp3")
+    || ($_FILES["file"]["type"] == "audio/wma")
+    || ($_FILES["file"]["type"] == "image/pjpeg")
+    || ($_FILES["file"]["type"] == "image/gif")
+    || ($_FILES["file"]["type"] == "image/jpeg"))
 
-    $filename = uniqid();
-    $temp = explode(".", $_FILES["file"]["name"]);
-    $newfilename = $filename . '.' . end($temp);
+    && in_array($extension, $allowedExts)){
 
-    if ($_FILES["file"]["error"] > 0)
-      {
-      echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
-      }
-    else
-      {
-      echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-      echo "Type: " . $_FILES["file"]["type"] . "<br />";
-      echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-      echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+      $filename = uniqid();
+      $temp = explode(".", $_FILES["file"]["name"]);
+      $newfilename = $filename . '.' . end($temp);
 
-      if (file_exists("uploads/posts/" . $newfilename))
+      if ($_FILES["file"]["error"] > 0)
         {
-        echo $_FILES["file"]["name"] . " already exists. ";
+        echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
         }
       else
         {
-        move_uploaded_file($_FILES["file"]["tmp_name"],
-        "uploads/posts/" . $newfilename);
-        echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+        echo "Upload: " . $_FILES["file"]["name"] . "<br />";
+        echo "Type: " . $_FILES["file"]["type"] . "<br />";
+        echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+        echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+
+        if (file_exists("uploads/posts/" . $newfilename))
+          {
+          echo $_FILES["file"]["name"] . " already exists. ";
+          }
+        else
+          {
+          move_uploaded_file($_FILES["file"]["tmp_name"],
+          "uploads/posts/" . $newfilename);
+          echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+          }
         }
+
+      if(($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/gif")|| ($_FILES["file"]["type"] == "image/jpeg")){
+        
+        $contentType = 'picture';
+      }
+      elseif ($_FILES["file"]["type"] == "video/mp4") {
+        $contentType = 'video';
       }
 
-    if(($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/gif")|| ($_FILES["file"]["type"] == "image/jpeg")){
-      
-      $isPicture = true;
-    }
-
-  }else
-    {
-    echo "Invalid file";
-    }
+    }else
+      {
+      echo "Invalid file";
+      }
+  }
 
   //Adds file to database 
-  if($isPicture){
+  if($contentType == 'picture'){
     $sql = "INSERT INTO `Posts` (`UUID`, `USER`, `TEXT`, `CONTENT`, `PHOTO`) VALUES ('$postid','$loggedinuser','$text','picture','$newfilename')";
 
     if ($conn->query($sql) === TRUE) {
@@ -109,8 +117,20 @@ if($_POST['add-post']){
           echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-  }else{
+  }
+  if($contentType == 'video'){
         $sql = "INSERT INTO `Posts` (`UUID`, `USER`, `TEXT`, `CONTENT`, `VIDEO`) VALUES ('$postid','$loggedinuser','$text','video','$newfilename')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Post saved!";
+
+    } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  }
+
+    if($contentType == 'text'){
+        $sql = "INSERT INTO `Posts` (`UUID`, `USER`, `TEXT`, `CONTENT`) VALUES ('$postid','$loggedinuser','$text','text')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Post saved!";
@@ -142,7 +162,7 @@ if ($result->num_rows > 0) {
     $playercounter = 0;
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      
+
     	echo '
     	<div id="post-item">
     	<div id="top-post">';
