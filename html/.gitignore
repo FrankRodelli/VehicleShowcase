@@ -1,2 +1,4 @@
-uploads/
-phpmyadmin/
+*.jpg
+*.jpeg
+*.gif
+*.png
