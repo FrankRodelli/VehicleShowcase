@@ -120,36 +120,37 @@ if ($result->num_rows > 0) {
 		</div>
 
     <div id="comment">';
+
     //Check if credentials match database and login accordingly
-$sql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
+    $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
 
-//set querry data to result variable
-$result = $conn->query($sql);
+    //set querry data to result variable
+    $result = $conn->query($sql);
 
-//If there are results, run
-if($result->num_rows == 1){
-  //Assigns row data to $row array
-  $row = $result->fetch_assoc();
+    //If there are results, run
+    if($result->num_rows == 1){
+      //Assigns row data to $row array
+      $row = $result->fetch_assoc();
 
-echo '
-<div id="make-post-container">
-<div id="upper-column">
-<div class=frame>
-    <span class="helper"></span>
-    <img src="uploads/users/'.$row["PICTURE"].'"/>
-</div>
-<form method = "POST" enctype = "multipart/form-data" class="post-text">
-  <textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
-</div>
-<div id="lower-column">
-<input type="file" name="image" />
-</form>
-</div>
-</div>';
+    echo '
+    <div id="make-post-container">
+    <div id="upper-column">
+    <div class=frame>
+        <span class="helper"></span>
+        <img src="uploads/users/'.$row["PICTURE"].'"/>
+    </div>
+    <form method = "POST" enctype = "multipart/form-data" class="post-text">
+      <textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
+    </div>
+    <div id="lower-column">
+    <input type="file" name="image" />
+    </form>
+    </div>
+    </div>';
 
-}else{
-  
-}
+    }else{
+      
+    }
 
 echo' 
     </div>
