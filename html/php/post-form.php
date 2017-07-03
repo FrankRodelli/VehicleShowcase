@@ -42,6 +42,7 @@ echo '
 	die($sql);
 }
 
+//Adds posts to database
 if($_POST['add-post']){
 	$postid = uniqid();
 	$text = $_POST['post-text-content'];
@@ -86,6 +87,21 @@ if($_POST['add-post']){
 	}
 }
 
+//Adds comments to database
+if($_POST['add-comment']){
+  $id = $_POST['postID'];
+  $text = $_POST['post-text-content'];
+  $sql = "INSERT INTO `PostComments` (`UUID`, `USER`, `TEXT`) VALUES ('$id','$loggedinuser','$text')";
+
+  if ($conn->query($sql) === TRUE) {
+      echo "Post saved!";
+
+  } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+}
+
+//Populates posts
 $sql = "SELECT * FROM Posts";
 $result = $conn->query($sql);
 
@@ -121,6 +137,9 @@ if ($result->num_rows > 0) {
 
     <div id="comment">';
 
+    //Gets post id for comment form reference
+    $postID = $row['UUID'];
+
     //Check if credentials match database and login accordingly
     $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
     //set querry data to result variable
@@ -138,14 +157,49 @@ if ($result->num_rows > 0) {
         <img src="uploads/users/'.$writecommentrow["PICTURE"].'"/>
     </div>
     <form method = "POST" enctype = "multipart/form-data" class="post-text">
-      <textarea name="post-text-content" placeholder="Comment!"></textarea><input name="add-post" type="submit" value="Submit" />
+      <textarea name="post-text-content" placeholder="Comment!"></textarea>
+      <input type="hidden" name="postID" value="'.$row['UUID'].'" />
+      <input name="add-comment" type="submit" value="Submit" />
       </form>
     </div>
     </div>';
 
-    }else{
-     die($wirtecommentsql); 
+
+
+  //Populate comments for post
+  $popcommentssql = "SELECT * FROM PostComments WHERE UUID = '$postID'";
+  $popcommentsresult = $conn->query($popcommentssql);
+
+  if ($popcommentsresult->num_rows > 0) {
+
+      // output data of each row
+      while($popcommentsrow = $popcommentsresult->fetch_assoc()) {
+
+        //Get data from comment owner profile
+        $commentowner = $popcommentsrow['USER'];
+        $commentownersql = "SELECT * FROM UserList WHERE UUID = '$commentowner'";
+        $commentownerresult = $conn->query($commentownersql);
+        $commentownerrow = $commentownerresult->fetch_assoc();
+
+        //Format date for comment
+        $oldDate = $popcommentsrow['DATE'];
+        $newDate = date("M-d", strtotime($oldDate));
+
+        //Display all comment information
+        echo '
+        <div id="comment"><div id="post-info">
+        <img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'"
+        <a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
+        <a>'.$newDate.'</a></div>
+        <a>'.$popcommentsrow['TEXT'].'</a>
+
+        </div>';
+      }
     }
+
+}else{
+ die($wirtecommentsql); 
+}
 
 echo' 
     </div>
