@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git --git-dir=/var/www/.git --work-tree=/var/www add .
+git --git-dir=/var/www/.git --work-tree=/var/www commit -m "automated system"
+git --git-dir=/var/www/.git --work-tree=/var/www push origin HEAD:web
