@@ -166,6 +166,11 @@ if ($result->num_rows > 0) {
         <div id="comment-text"><a>'.$popcommentsrow['TEXT'].'</a></div></div>';
       }
 
+}else{
+
+ 
+}
+
     //Check if credentials match database and login accordingly
     $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
     //set querry data to result variable
@@ -186,11 +191,6 @@ if ($result->num_rows > 0) {
       </form>
     </div>';
     }
-
-}else{
- die($wirtecommentsql); 
-}
-
 echo' 
     </div>';
     }
