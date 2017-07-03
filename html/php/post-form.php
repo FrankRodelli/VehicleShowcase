@@ -94,7 +94,6 @@ if($_POST['add-comment']){
   $sql = "INSERT INTO `PostComments` (`UUID`, `USER`, `TEXT`) VALUES ('$id','$loggedinuser','$text')";
 
   if ($conn->query($sql) === TRUE) {
-      echo "Post saved!";
 
   } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -121,11 +120,10 @@ if ($result->num_rows > 0) {
     	$userresult = $conn->query($usersql);
 
     	while($userrow = $userresult->fetch_assoc()){
-    		echo '<img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'"><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div>';
+    		echo '<img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'"><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div></div>';
     	}
 
 		echo '
-        </div>
 		<div id="bottom-post"><a>
 		'.$row['TEXT'].'</a>';
 
@@ -135,36 +133,10 @@ if ($result->num_rows > 0) {
         echo '
 		</div>
 
-    <div id="comment">';
+    <div id="comment-container">';
 
-    //Gets post id for comment form reference
+  //Gets post id for comment form reference
     $postID = $row['UUID'];
-
-    //Check if credentials match database and login accordingly
-    $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
-    //set querry data to result variable
-    $writecommentresult = $conn->query($wirtecommentsql);
-    //If there are results, run
-    if($writecommentresult->num_rows == 1){
-    //Assigns row data to $row array
-    $writecommentrow = $writecommentresult->fetch_assoc();
-
-    echo '
-    <div id="make-post-container">
-    <div id="upper-column">
-    <div class=frame>
-        <span class="helper"></span>
-        <img src="uploads/users/'.$writecommentrow["PICTURE"].'"/>
-    </div>
-    <form method = "POST" enctype = "multipart/form-data" class="post-text">
-      <textarea name="post-text-content" placeholder="Comment!"></textarea>
-      <input type="hidden" name="postID" value="'.$row['UUID'].'" />
-      <input name="add-comment" type="submit" value="Submit" />
-      </form>
-    </div>
-    </div>';
-
-
 
   //Populate comments for post
   $popcommentssql = "SELECT * FROM PostComments WHERE UUID = '$postID'";
@@ -190,11 +162,29 @@ if ($result->num_rows > 0) {
         <div id="comment"><div id="post-info">
         <img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'"
         <a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
-        <a>'.$newDate.'</a></div>
-        <a>'.$popcommentsrow['TEXT'].'</a>
-
-        </div>';
+        </div>
+        <div id="comment-text"><a>'.$popcommentsrow['TEXT'].'</a></div></div>';
       }
+
+    //Check if credentials match database and login accordingly
+    $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
+    //set querry data to result variable
+    $writecommentresult = $conn->query($wirtecommentsql);
+    //If there are results, run
+    if($writecommentresult->num_rows == 1){
+    //Assigns row data to $row array
+    $writecommentrow = $writecommentresult->fetch_assoc();
+
+    echo '
+    </div>
+    <div id="post-comment-container">
+    <img src="uploads/users/'.$writecommentrow["PICTURE"].'"/>
+    <form method = "POST" enctype = "multipart/form-data" class="post-comment">
+      <textarea name="post-text-content" placeholder="Comment!"></textarea>
+      <input type="hidden" name="postID" value="'.$row['UUID'].'" />
+      <input name="add-comment" type="submit" value="Submit" />
+      </form>
+    </div>';
     }
 
 }else{
@@ -202,8 +192,6 @@ if ($result->num_rows > 0) {
 }
 
 echo' 
-    </div>
-
     </div>';
     }
 

@@ -37,6 +37,7 @@
 
 }
 
+/*CSS for creating posts*/
 #make-post-container {
 	margin: 2%;
 	height: 100px;
@@ -93,6 +94,8 @@
 	float: left;
 	margin-right: 20px;
 }
+
+/*CSS for Post items*/
 #post-item {
 	margin: 2%;
 	height: 100%;
@@ -121,8 +124,42 @@
 }
 .post-image {
 	width: 100%;
-	border: 1px solid #ddd;
+}
+
+/*CSS for posting comments*/
+#post-comment-container {
+	min-height: 37px;
+	background-color: white;
+	float: left;
+	padding: 1%;
+	width: 98%;
+}
+#post-comment-container img {
+	width: 37px;
+	float: left;
+}
+.post-comment {
+	float: right;
+	border: none;
+}
+.post-comment textarea {
+	   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+	width: 550px;
+	vertical-align: center;
+}
+
+/*CSS for populated comments*/
+#comment-container {
+	width: 650px;
+	float: right;
 }
 #comment {
 	height: 37px;
+	margin: 1%;
+	border-bottom: 1px solid #ddd;
+}
+#comment-text a {
+	margin-left: 2%;
 }
