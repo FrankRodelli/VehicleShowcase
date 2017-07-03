@@ -120,6 +120,7 @@ if ($result->num_rows > 0) {
 		</div>
 
     <div id="comment">
+    <a>Comment here</a>
     </div>
 
     </div>';
