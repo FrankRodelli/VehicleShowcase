@@ -123,14 +123,12 @@ if ($result->num_rows > 0) {
 
     //Check if credentials match database and login accordingly
     $wirtecommentsql = "SELECT * FROM UserList WHERE UUID = '$loggedinuser'";
-
     //set querry data to result variable
     $writecommentresult = $conn->query($wirtecommentsql);
-
     //If there are results, run
     if($writecommentresult->num_rows == 1){
-      //Assigns row data to $row array
-      $writecommentrow = $writecommentresult->fetch_assoc();
+    //Assigns row data to $row array
+    $writecommentrow = $writecommentresult->fetch_assoc();
 
     echo '
     <div id="make-post-container">
