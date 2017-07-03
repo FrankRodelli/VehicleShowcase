@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+
 
 </head>
 

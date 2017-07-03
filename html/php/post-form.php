@@ -33,7 +33,7 @@ echo '
  	<textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
 </div>
 <div id="lower-column">
-<input type="file" name="image" />
+<input type="file" name="file" id="file" />
 </form>
 </div>
 </div>';
@@ -44,47 +44,47 @@ echo '
 
 //Adds posts to database
 if($_POST['add-post']){
-	$postid = uniqid();
-	$text = $_POST['post-text-content'];
+  $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
+  $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
-    if(isset($_FILES['image'])){
-      $errors= array();
-      $file_name = $_FILES['image']['name'];
-      $file_size = $_FILES['image']['size'];
-      $file_tmp = $_FILES['image']['tmp_name'];
-      $file_type = $_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-      $filename = uniqid();
-      $temp = explode(".", $_FILES["image"]["name"]);
-      $newfilename = $filename . '.' . end($temp);
-      
-      $photoextensions= array("jpeg","jpg","png","avi","mp4","mov");
+if ((($_FILES["file"]["type"] == "video/mp4")
+|| ($_FILES["file"]["type"] == "audio/mp3")
+|| ($_FILES["file"]["type"] == "audio/wma")
+|| ($_FILES["file"]["type"] == "image/pjpeg")
+|| ($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg"))
 
-      if(in_array($file_ext,$photoextensions) === false){
-         $errors[]="extension not allowed, please choose a JPEG, PNG, AVI, mp4, or MOV file.";
-         $newfilename = null;
+&& in_array($extension, $allowedExts))
+
+  {
+  if ($_FILES["file"]["error"] > 0)
+    {
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+    }
+  else
+    {
+    echo "Upload: " . $_FILES["file"]["name"] . "<br />";
+    echo "Type: " . $_FILES["file"]["type"] . "<br />";
+    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+
+    if (file_exists("uploads/posts/" . $_FILES["file"]["name"]))
+      {
+      echo $_FILES["file"]["name"] . " already exists. ";
       }
-
-      /*Not sure what I want the limits to be yet
-      if($file_size > 2097152) {
-         $errors[]='File size must be excately 2 MB';
-      }*/
-      
-      if(empty($errors)==true) {
-            move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/posts/" . $newfilename);
-      }else{
-         print_r($errors);
+    else
+      {
+      move_uploaded_file($_FILES["file"]["tmp_name"],
+      "uploads/posts/" . $_FILES["file"]["name"]);
+      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
       }
-   }
+    }
+  }
+else
+  {
+  echo "Invalid file";
+  }
 
-	$sql = "INSERT INTO `Posts` (`UUID`, `USER`, `TEXT`, `CONTENT`) VALUES ('$postid','$loggedinuser','$text','$newfilename')";
-
-	if ($conn->query($sql) === TRUE) {
-			echo "Post saved!";
-
-	} else {
-    		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
 }
 
 //Adds comments to database
