@@ -95,7 +95,6 @@ if($_POST && isset($_POST['addcar'])){
 	$displacement = $_POST['field16'];
 
 	$user = $_SESSION['token'];
-die($_FILES['image']);
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
@@ -116,17 +115,18 @@ die($_FILES['image']);
 	$conn->close();
 }
 if(isset($_FILES['image'])){
-	
+
    $total = count($_FILES['image']['name']);
       $errors= array();
       for($i=0; $i<$total; $i++) {
-      $file_name = $_FILES['image']['name'];
-      $file_size = $_FILES['image']['size'];
-      $file_tmp = $_FILES['image']['tmp_name'];
-      $file_type = $_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+
+      $file_name = $_FILES['image']['tmp_name'][$i];
+      $file_size = $_FILES['image']['size'][$i];
+      $file_tmp = $_FILES['image']['tmp_name'][$i];
+      $file_type = $_FILES['image']['type'][$i];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'][$i])));
       $filename = uniqid();
-      $temp = explode(".", $_FILES["image"]["name"]);
+      $temp = explode(".", $_FILES["image"]["name"][$i]);
 	  $newfilename = $filename . '.' . end($temp);
       
       $expensions= array("jpeg","jpg","png");
@@ -142,7 +142,7 @@ if(isset($_FILES['image'])){
       if(empty($errors)==true) {
 
         //move_uploaded_file($file_tmp,"uploads/images/".$file_name);
-        move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/vehicles/" . $newfilename);
+        move_uploaded_file($_FILES['image']['tmp_name'][$i], "uploads/vehicles/" . $newfilename);
 
         // Create connection
 		$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
