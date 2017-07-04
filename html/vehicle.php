@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
 
     	while($photorow = $photoresult->fetch_assoc()){
     		echo '<br><img src="../uploads/vehicles/'. $photorow["FNAME"] . '" width = "200" > <div class ="row" id="specs">
-<img class="expand" id="specs-img" src="../images/plus.png" height="100%;">
+<img class="expand" id="specs-img" src="../images/plus.png">
 <h2>Specifications</h2>
 
 <div id="spec-data" class="data" style="display: block;">
@@ -110,7 +110,7 @@ if ($result->num_rows > 0) {
 </div>
 
 <div class="row" id="photos">
-<img class="expand" id="photos-img" src="../images/plus.png" height="100%;">
+<img class="expand" id="photos-img" src="../images/plus.png"">
 <h2>Photos</h2>
 
 <div id="photo-data" class="data" style="display: none;">
@@ -120,7 +120,7 @@ if ($result->num_rows > 0) {
 </div>
 
 <div class="row" id="videos">
-<img class="expand" id="videos-img" src="../images/plus.png" height="100%">
+<img class="expand" id="videos-img" src="../images/plus.png">
 <h2>Videos</h2>
 
 <div id="video-data" class="data" style="display: none;">
