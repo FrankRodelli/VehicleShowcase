@@ -53,6 +53,7 @@ if($_POST['add-post']){
     $contentType = 'text';
   }
   else{
+    echo $_FILES["file"]["name"];
     $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
     $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 

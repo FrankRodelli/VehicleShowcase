@@ -17,17 +17,21 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="menu">
-		<img src="../images/logo.png" alt="Mycarlogo" height="40" width="40">
+		<img class="logo" src="../images/logo.png" alt="Mycarlogo" height="40" width="40">
 		<h1>FBMotors</h1>
 			<ul class="nav">
 				<li><a href="../index.php" accesskey="1" title="">Home</a></li>
-				<li><a href="../mycars.php" accesskey="2" title="">My Cars</a></li>
-				<li><a href="../add.php" accesskey="3" title="">Add Car</a></li>
-				<li><a href="../logout.php" accesskey="4" title="">Logout</a></li>
+				<li><a href="../browse.php" accesskey="2" title="">Browse</a></li>
+				<li><a href="../events.php" accesskey="3" title="">Events</a></li>
+				<li><a href="../about.php" accesskey="4" title="">About</a></li>
+								<li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
 			</ul>
-		</div>
-	</div>
+
+<div id="search-bar" style="display: none;">
+	Search here
 </div>
+
+<?php include("php/header.php"); ?>
 
 <div id="page-wrapper">
 
@@ -110,7 +114,7 @@ if ($result->num_rows > 0) {
 <h2>Photos</h2>
 
 <div id="photo-data" class="data" style="display: none;">
-<img class="photos-inrow" src="../uploads/images/'. $photorow["FNAME"] . '">
+<img class="photos-inrow" src="../uploads/vehicles/'. $photorow["FNAME"] . '">
 </div>
 
 </div>
@@ -201,3 +205,27 @@ div4.addEventListener("click", function() {
 </script>
 </body>
 </html>
+<script type="text/javascript">
+var div5 = document.getElementById('propic');
+var data5 = document.getElementById('popout-menu');
+div5.addEventListener("click", function() {
+    		if(data5.style.display !== 'none'){
+			data5.style.display = 'none';
+		}
+		else{
+			data5.style.display = 'block';
+		}
+}, false);
+</script>
+<script type="text/javascript">
+var div6 = document.getElementById('search-button');
+var data6 = document.getElementById('search-bar');
+div6.addEventListener("click", function() {
+    		if(data6.style.display !== 'none'){
+			data6.style.display = 'none';
+		}
+		else{
+			data6.style.display = 'block';
+		}
+}, false);
+</script>
