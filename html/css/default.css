@@ -71,6 +71,7 @@ h1, h2, h3
 		font-family: 'Noto Sans', sans-serif;
 		text-decoration: none;
 		color: #f2f2f2;
+		transition: .5s;
 }
 .nav .active a
 {
@@ -81,7 +82,7 @@ h1, h2, h3
 }
 .nav .active a:hover
 {
-	background-color: #808080;
+	background-color: #6b7c8c;
 	color: #fff;
 }
 .nav a:hover{
