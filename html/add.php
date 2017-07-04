@@ -61,12 +61,12 @@
 <div id="photos">
 <div class="form-style-2-heading">Upload Photos</div>
 
-<input type="file" name="image" />
+<input type="file" name="image[]" multiple/>
 
 </div>
 
 <div id="videos">
-<div class="form-style-2-heading">Uplaod Videos</div>
+<div class="form-style-2-heading">Upload Videos</div>
 
 <input type="file" name="video" />
 </div>
@@ -115,9 +115,10 @@ if($_POST && isset($_POST['addcar'])){
 	}
 	$conn->close();
 }
-
-   if(isset($_FILES['image'])){
+if(isset($_FILES['image'])){
+   $total = count($_FILES['image']['name']);
       $errors= array();
+      for($i=0; $i<$total; $i++) {
       $file_name = $_FILES['image']['name'];
       $file_size = $_FILES['image']['size'];
       $file_tmp = $_FILES['image']['tmp_name'];
@@ -169,7 +170,7 @@ if($_POST && isset($_POST['addcar'])){
          print_r($errors);
       }
    }
-
+}
 ?>
 </div>
 

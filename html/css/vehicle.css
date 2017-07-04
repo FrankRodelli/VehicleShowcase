@@ -58,3 +58,21 @@
 .photos-inrow {
 	height: 100px;
 }
+.propic-page {
+	margin: 5%;
+	border-bottom: 2px solid #ddd;
+	border-radius: 5px;
+}
+#user-data a {
+	display: inline-block;
+	margin: 2.5%;
+}
+.follow-button {
+    width: 75%;
+    padding: 15px;
+    background-color: #8d8d8d;
+    border: 0;
+    color: #ffffff;
+    margin: 2% 0;
+    border-radius: 5px;
+}

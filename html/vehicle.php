@@ -38,18 +38,10 @@
 <div id="container">
 
 <div id="leftside">
-<h2>The Driver</h2>
-<img src="https://scontent.ftpa1-1.fna.fbcdn.net/v/t1.0-9/18485590_1936089463294580_4805858462704313859_n.jpg?oh=8c0c5150de3889c611df2dcf8f88a5e4&oe=59A0F889" width="75%">
-<br>
-Frank Rodelli<br>
-23<br><br>
-<h2>Other Cars</h2>
-1974 Cheverolet Camaro<br>
-2017 Cheverolet Cruze
+<?php include("php/populate-user-data-vehicle.php");?>
 </div>
 
 <div id="rightside">
-<center>
 
 <?php
 $user = $_SESSION['token'];
@@ -146,7 +138,6 @@ This user has not added any videos yet!
 $conn->close();
 ?>
 
-</center>
 </div>
 </div>
 </div>
