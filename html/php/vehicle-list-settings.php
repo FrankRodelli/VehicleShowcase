@@ -21,7 +21,7 @@
 	    	while($photorow = $photoresult->fetch_assoc()){
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
-	        echo '<div id="title"><a href="https://showmeyouraxels.me/edit.php?e=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
+	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div></div>';
 	    }
 
 	} else {

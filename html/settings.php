@@ -85,7 +85,7 @@
 
 <div id="edit-vehicles" style="display: none;">
 <div id="vehicles">
-<div class="form-style-2-heading">Edit Vehilces</div>
+<div class="form-style-2-heading">Edit Vehicles</div>
 <!--Populates div with vehicles-->
 <?php include 'php/vehicle-list-settings.php';?>
 </div>
