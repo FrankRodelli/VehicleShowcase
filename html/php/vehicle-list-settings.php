@@ -11,7 +11,7 @@
 	$resultcars = $conncars->query($sqlcars);
 	$numberofcars = 0;
 	if ($resultcars->num_rows > 0) {
-		
+
 	    // output data of each row
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
@@ -22,7 +22,11 @@
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div></div>';
+
+	        $numberofcars++;
 	    }
+
+	    echo $numberofcars;
 
 	} else {
 	    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
