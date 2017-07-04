@@ -47,7 +47,7 @@
 <div id="page-container">
 
 <div class="column" id="left-column">
-
+<h2>Featured Vehicles</h2>
 <?php include('php/slide_show.php');?>
 
 </div>
@@ -58,7 +58,6 @@
 </div>
 
 <div class="column" id="center-column">
-
 <?php include("php/post-form.php");?>
 
 </div>
@@ -96,4 +95,21 @@ div2.addEventListener("click", function() {
 			data2.style.display = 'block';
 		}
 }, false);
+</script>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1} 
+    slides[slideIndex-1].style.display = "block"; 
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
 </script>
