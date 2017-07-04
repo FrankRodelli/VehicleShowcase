@@ -36,7 +36,6 @@ echo '
   </div>
 
 </div>
-<br>
 
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
