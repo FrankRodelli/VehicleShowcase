@@ -27,7 +27,7 @@ echo '
 <div id="upper-column">
 <div class=frame>
     <span class="helper"></span>
-    <img src="uploads/users/'.$row["PICTURE"].'"/>
+    <a href="user.php/?u='.$row['UUID'].'"><img src="uploads/users/'.$row["PICTURE"].'"/></a>
 </div>
 <form method = "POST" enctype = "multipart/form-data" class="post-text">
  	<textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
@@ -174,7 +174,7 @@ if ($result->num_rows > 0) {
     	$userresult = $conn->query($usersql);
 
     	while($userrow = $userresult->fetch_assoc()){
-    		echo '<img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'"><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div></div>';
+    		echo '<a href="user.php/?u='.$userrow['UUID'].'"><img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'"></a><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div></div>';
     	}
 
 		echo '
@@ -225,7 +225,7 @@ if ($result->num_rows > 0) {
         //Display all comment information
         echo '
         <div id="comment"><div id="post-info">
-        <img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'"
+        <a href="user.php/?u='.$commentownerrow['UUID'].'"><img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'"></a>
         <a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
         </div>
         <div id="comment-text"><a>'.$popcommentsrow['TEXT'].'</a></div></div>';
