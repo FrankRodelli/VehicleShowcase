@@ -55,18 +55,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM Cars WHERE HASH = '$uuid'";
+//Selects vehicle based on UUID in URL 
+$sql = "SELECT * FROM Cars WHERE HASH = '$uuid' LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    $row = $result->fetch_assoc();
     	echo "<br>" . $row["DATE"] . " " . $row["MAKE"] . " " . $row["MODEL"];
 
+    	//Obtains main picture for header (this will be depreciated when we allow user to select default photo, that will theb be handled with row and we can use a single query for photos)
     	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid'";
     	$photoresult = $conn->query($photosql);
 
-    	while($photorow = $photoresult->fetch_assoc()){
+    	$photorow = $photoresult->fetch_assoc();
     		echo '<br><img src="../uploads/vehicles/'. $photorow["FNAME"] . '" width = "200" > <div class ="row" id="specs">
 <img class="expand" id="specs-img" src="../images/plus.png">
 <h2>Specifications</h2>
@@ -129,9 +131,6 @@ This user has not added any videos yet!
 '. $row["WRITEUP"].'
 </div>
 </div>';
-    	}
-
-    }
 } else {
     echo "Vehicle does not exist";
 }
