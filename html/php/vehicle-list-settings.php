@@ -7,7 +7,7 @@
 	if ($conncars->connect_error) {
     	die("Connection failed: " . $conncars->connect_error);
     }
-	$sqlcars = "SELECT * FROM Cars WHERE USER = '$username'";
+	$sqlcars = "SELECT * FROM Cars WHERE UUID = '$username'";
 	$resultcars = $conncars->query($sqlcars);
 
 	if ($resultcars->num_rows > 0) {
@@ -19,7 +19,7 @@
 	    	$photoresult = $conncars->query($photosql);
 	    	echo '<div id="vehicle-item">';
 	    	while($photorow = $photoresult->fetch_assoc()){
-	    		echo '<img src="../uploads/images/'. $photorow["FNAME"] . '" height="100">';
+	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
 	        echo '<div id="title"><a href="https://showmeyouraxels.me/edit.php?e=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
 	    }
