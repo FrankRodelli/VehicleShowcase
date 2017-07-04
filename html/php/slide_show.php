@@ -9,6 +9,10 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT * FROM Cars LIMIT 5";
+$result = $conn->query($sql);
 
+while($row= $result->fetch_assoc()){
+	echo $row['MAKE'];
+}
 
 ?>

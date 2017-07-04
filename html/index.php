@@ -47,15 +47,8 @@
 <div id="page-container">
 
 <div class="column" id="left-column">
-	<div id="top-center">
-	<h2>Featured Vehicles</h2>
-	<img src="https://pbs.twimg.com/media/C6J6rz1WUAAjfXd.jpg:small" width="75%">
-	</div>
 
-	<div id="bottom-center">
-	<h2>Recently Added</h2>
-	<img src="https://pbs.twimg.com/media/C6J6rz1WUAAjfXd.jpg:small" width="75%">
-	</div>
+<?php include('php/slide_show.php');?>
 
 </div>
 
