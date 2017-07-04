@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
     	$photoresult = $conn->query($photosql);
 
     	while($photorow = $photoresult->fetch_assoc()){
-    		echo '<br><img src="../uploads/images/'. $photorow["FNAME"] . '" width = "200" > <div class ="row" id="specs">
+    		echo '<br><img src="../uploads/vehicles/'. $photorow["FNAME"] . '" width = "200" > <div class ="row" id="specs">
 <img class="expand" id="specs-img" src="../images/plus.png" height="100%;">
 <h2>Specifications</h2>
 

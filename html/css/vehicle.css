@@ -1,20 +1,24 @@
+#container {
+	width: 1150px;
+	margin: auto;
+}
 #leftside {
 	margin-left: 1%;
 	float: left;
-	width: 15%;
+	width: 275px;
 	background-color: #f2f2f2;
 	height: 100%;
 	border-style: solid;
 	border-width: 1px;
 }
 #rightside {
-	float: right;
-	width: 81%;
-	margin-right: 1%;
+	width: 750px;
+	margin-right: auto;
 	min-height: 600px;
 	background-color: #f2f2f2;
 	border-style: solid;
 	border-width: 1px;
+	float: right;
 }
 .row {
 	background-color: #ffffff;
