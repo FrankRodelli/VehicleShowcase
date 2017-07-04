@@ -61,7 +61,7 @@
 <div id="photos">
 <div class="form-style-2-heading">Upload Photos</div>
 
-<input type="file" name="image[]" multiple/>
+<input type="file" name="image[]" multiple>
 
 </div>
 
@@ -95,7 +95,7 @@ if($_POST && isset($_POST['addcar'])){
 	$displacement = $_POST['field16'];
 
 	$user = $_SESSION['token'];
-
+die($_FILES['image']);
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
@@ -116,6 +116,7 @@ if($_POST && isset($_POST['addcar'])){
 	$conn->close();
 }
 if(isset($_FILES['image'])){
+	
    $total = count($_FILES['image']['name']);
       $errors= array();
       for($i=0; $i<$total; $i++) {

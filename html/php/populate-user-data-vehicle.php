@@ -74,7 +74,6 @@ if($result->num_rows == 1){
 	<form method = "POST" enctype = "multipart/form-data">
 	<input class="follow-button" type="submit" name="follow" value="Follow '.$row["FIRSTNAME"] .'!">
 	</form>
-	</div>
 	</div>';
 }
 ?>
