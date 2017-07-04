@@ -22,19 +22,19 @@ echo '
 <div class="slideshow-container">
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
-    <img src="uploads/vehicles/5959c54d54728.png" style="width:100%">
+    <img src="uploads/vehicles/5959c54d54728.png">
     <div class="text">2017 Cheverolet Cruze</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-    <img src="http://s.hswstatic.com/gif/1982-1983-1984-1985-1986-ford-mustang-27.jpg" style="width:100%">
+    <img src="http://s.hswstatic.com/gif/1982-1983-1984-1985-1986-ford-mustang-27.jpg">
     <div class="text">1985 Ford Mustang</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-    <img src="http://st.motortrend.com/uploads/sites/5/2017/04/2017-Honda-Civic-Si-Sedan-front-three-quarter-01-1-e1491492357846.jpg?interpolation=lanczos-none&fit=around%7C660%3A440" style="width:100%">
+    <img src="http://st.motortrend.com/uploads/sites/5/2017/04/2017-Honda-Civic-Si-Sedan-front-three-quarter-01-1-e1491492357846.jpg?interpolation=lanczos-none&fit=around%7C660%3A440">
     <div class="text">2017 Civic SI</div>
   </div>
 

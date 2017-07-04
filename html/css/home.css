@@ -170,7 +170,11 @@ h2 {
 .slideshow-container {
   max-width: 1000px;
   position: relative;
-  margin: auto;
+  margin: 5%;
+}
+.slideshow-container img {
+	height: 100%;
+	width: 100%;
 }
 
 .mySlides {
