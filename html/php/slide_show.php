@@ -21,25 +21,20 @@ echo '
 
 <div class="slideshow-container">
   <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="uploads/vehicles/5959c54d54728.png">
-    <div class="text">2017 Cheverolet Cruze</div>
+    <img src="http://www.feslerbuilt.com/Site/images/gallery/1969%20Camaro%20Draco/Img0003.jpg">
+    <div class="text">1969 Cheverolet Camaro</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
     <img src="http://s.hswstatic.com/gif/1982-1983-1984-1985-1986-ford-mustang-27.jpg">
     <div class="text">1985 Ford Mustang</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
     <img src="http://st.motortrend.com/uploads/sites/5/2017/04/2017-Honda-Civic-Si-Sedan-front-three-quarter-01-1-e1491492357846.jpg?interpolation=lanczos-none&fit=around%7C660%3A440">
     <div class="text">2017 Civic SI</div>
   </div>
 
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <br>
 
