@@ -9,9 +9,9 @@
     }
 	$sqlcars = "SELECT * FROM Cars WHERE UUID = '$username'";
 	$resultcars = $conncars->query($sqlcars);
-
+	$numberofcars = 0;
 	if ($resultcars->num_rows > 0) {
-
+		
 	    // output data of each row
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
