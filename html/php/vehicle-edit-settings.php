@@ -1,3 +1,3 @@
 <?php
-echo 'anything';
+echo $_POST['carID'];
 ?>
