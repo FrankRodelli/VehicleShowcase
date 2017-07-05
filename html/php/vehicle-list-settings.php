@@ -1,4 +1,8 @@
 <?php
+
+if(isset($_POST['edit'])){
+	echo $_POST['UUID'];
+}
 	$username = $_SESSION['token'];
 	// Create connection for populating vehicles into user page
 	$conncars = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
@@ -25,15 +29,9 @@
 	        <form method = "POST" id="select-car">
 	        <input type="submit" name="edit" value="Edit">
 	        <input class="delete-button" type="button" name="delete" value="Delete">
-	        <input type="hidden" name="text" value="value here">
+	        <input type="hidden" name="UUID" value="'.$rowcars['HASH'].'">
 	        </form>
-	        <script>
 
-			$("#select-car").submit(function () {
-			 
-			 return false;
-			});
-			</script>
 	        </div></div>';
 
 	        $numberofcars++;
@@ -44,9 +42,5 @@
 	}
 
 	$conncars->close();
-
-if(isset($_POST['edit'])){
-	echo 'finally';
-}
 
 ?>
