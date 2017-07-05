@@ -228,3 +228,11 @@ $(function(){
 });
 </script>
 
+<script type="text/javascript">
+
+$('#select-car').submit(function ( event ) {
+
+ event.preventDefault();
+});
+</script>
+
