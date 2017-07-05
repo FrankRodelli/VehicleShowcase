@@ -21,7 +21,12 @@
 	    	while($photorow = $photoresult->fetch_assoc()){
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
-	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">Edit <br> Delete</div></div>';
+	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
+	        <input type="submit" name="edit" value="Edit">
+	        <input class="delete-button" type="submit" name="delete" value="Edit">
+	        <input type="hidden" name="text" value="value here">
+
+	        </div></div>';
 
 	        $numberofcars++;
 	    }
