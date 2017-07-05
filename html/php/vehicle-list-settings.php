@@ -27,7 +27,7 @@ if(isset($_POST['edit'])){
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
 	        <form method = "POST" id="select-car">
-	        <input type="submit" name="edit" value="Edit">
+	        <input type="submit" name="edit" value="Edit" id="edit">
 	        <input class="delete-button" type="button" name="delete" value="Delete">
 	        <input type="hidden" name="UUID" value="'.$rowcars['HASH'].'">
 	        </form>

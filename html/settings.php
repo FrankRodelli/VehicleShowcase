@@ -230,7 +230,7 @@ $(function(){
 
 <script type="text/javascript">
 
-$('#select-car').click(function ( event ) {
+$('#edit').click(function ( event ) {
 
  $.post("php/vehicle-list-settings.php")
  return false;
