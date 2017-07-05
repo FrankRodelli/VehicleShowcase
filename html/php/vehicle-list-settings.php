@@ -22,9 +22,11 @@
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
-	        <input type="submit" name="edit" value="Edit">
-	        <input class="delete-button" type="submit" name="delete" value="Edit">
+	        <form method = "POST" enctype = "multipart/form-data" class="post-comment">
+	        <input type="button" name="edit" value="Edit">
+	        <input class="delete-button" type="submit" name="delete" value="Delete">
 	        <input type="hidden" name="text" value="value here">
+	        </form>
 
 	        </div></div>';
 

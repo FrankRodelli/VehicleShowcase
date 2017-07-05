@@ -159,7 +159,13 @@
     width: 200px;
     font-weight: 900;
 }
-.delete {
+#options input {
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+}
+.delete-button {
     color: red;
 }
 
