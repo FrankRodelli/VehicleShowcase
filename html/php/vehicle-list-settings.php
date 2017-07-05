@@ -22,7 +22,7 @@
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
-	        <form method = "POST" enctype = "multipart/form-data" id="select-car">
+	        <form method = "POST" id="select-car">
 	        <input type="submit" name="edit" value="Edit">
 	        <input class="delete-button" type="button" name="delete" value="Delete">
 	        <input type="hidden" name="text" value="value here">
@@ -38,8 +38,6 @@
 
 	        $numberofcars++;
 	    }
-
-	    echo $numberofcars;
 
 	} else {
 	    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
