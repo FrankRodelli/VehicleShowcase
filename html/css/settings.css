@@ -133,6 +133,7 @@
 }
 #vehicle-item {
     height: 100px;
+    line-height: 100px;
 }
 #vehicle-item a{
     float: right;
@@ -142,6 +143,23 @@
     float: left;
 }
 
+#options {
+    float: right;
+    line-height: 50px;
+    text-align: center;
+    padding-right: 1%;
+}
+#title{ 
+    float: left;
+    line-height: 100px;
+    text-align: center;
+    font-size: 20px;
+    text-align: center;
+    width: 75%;
+}
+.delete {
+    color: red;
+}
 
 #following {
     width: 100%;
