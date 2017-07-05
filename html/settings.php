@@ -232,7 +232,8 @@ $(function(){
 
 $('#select-car').submit(function ( event ) {
 
- event.preventDefault();
+ $.get("php/vehicle-list-settings.php")
+ return false
 });
 </script>
 
