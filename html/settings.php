@@ -13,17 +13,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script>
-$(document).ready(function(){
-    $("edit").click(function(){
-        $.get("demo_test.asp", function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
-        });
-    });
-});
-</script>
 
 </head>
 
