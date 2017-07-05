@@ -230,10 +230,10 @@ $(function(){
 
 <script type="text/javascript">
 
-$('#select-car').submit(function ( event ) {
+$('#select-car').click(function ( event ) {
 
- $.get("php/vehicle-list-settings.php")
- return false
+ $.post("php/vehicle-list-settings.php")
+ return false;
 });
 </script>
 
