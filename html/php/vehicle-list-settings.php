@@ -27,7 +27,13 @@
 	        <input class="delete-button" type="button" name="delete" value="Delete">
 	        <input type="hidden" name="text" value="value here">
 	        </form>
+	        <script>
 
+			$("#select-car").submit(function () {
+			 
+			 return false;
+			});
+			</script>
 	        </div></div>';
 
 	        $numberofcars++;
@@ -40,5 +46,9 @@
 	}
 
 	$conncars->close();
+
+if(isset($_POST['edit'])){
+	echo 'finally';
+}
 
 ?>

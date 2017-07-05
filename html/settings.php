@@ -89,6 +89,7 @@
 <div class="form-style-2-heading">Edit Vehicles</div>
 <!--Populates div with vehicles-->
 <?php include 'php/vehicle-list-settings.php';?>
+
 </div>
 </div>
 </div>
@@ -227,9 +228,3 @@ $(function(){
 });
 </script>
 
-<script>
-$('#select-car').submit(function () {
- $.post("php/vehicle-edit-settings.php");
- return false;
-});
-</script>
