@@ -226,3 +226,10 @@ $(function(){
   }
 });
 </script>
+
+<script>
+$('#select-car').submit(function () {
+ $.post("php/vehicle-edit-settings.php");
+ return false;
+});
+</script>

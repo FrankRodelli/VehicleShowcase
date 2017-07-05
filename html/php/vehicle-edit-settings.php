@@ -1,3 +1,3 @@
 <?php
-echo 'it is working';
+echo '<script> alert("message here") </script>';
 ?>
