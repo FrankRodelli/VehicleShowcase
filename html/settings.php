@@ -230,6 +230,20 @@ $(function(){
 
 <script type="text/javascript">
 function carStuff(carHash){
-  window.alert(carHash);
+
+  var url="../php/vehicle-edit-settings.php"
+  var phprequest = new XMLHttpRequest();
+
+  phprequest.open("POST", url, true);
+  phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  phprequest.onreadystatechange = function(){
+    if(phprequest.readyState == 4 && phprequest.status == 200){
+      var return_data = phprequest.responseText;
+      document.getElementById("edit-vehicles").innerHTML = return_data;
+    }
+  }
+
+  phprequest.send("hash="+carHash);
+
 }
 </script>
