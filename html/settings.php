@@ -230,12 +230,9 @@ $(function(){
 
 <script type="text/javascript">
 
-$('#select-car').click(function ( event ) {
+function loadDetails(data){
+  window.alert(data);
+}
 
- $.get("php/vehicle-edit-settings.php", function(data){
-  $("#vehicle-item").html(data);
- })
- return false;
-});
 </script>
 
