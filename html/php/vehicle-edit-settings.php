@@ -4,15 +4,15 @@
 
 <?php
 	$carHash = $_POST['hash'];
-	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
+	$connone = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
 	// Check connection
-	if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	if ($connone->connect_error) {
+    die("Connection failed: " . $connone->connect_error);
 	} 
 
 	$sql = "SELECT * FROM Cars WHERE HASH = '$carHash'";
-	$result = $conn->query($sql);
+	$result = $connone->query($sql);
 
 	if ($result->num_rows > 0) {
 
@@ -46,9 +46,9 @@
 
     	}
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connone->error;
+$connone->close();
 }
-$conn->close();
 
 if(isset($_POST['update-car-settings'])){
 	$make = $_POST['field1'];
@@ -68,24 +68,24 @@ if(isset($_POST['update-car-settings'])){
 	$writeup = $_POST['field15'];
 	$displacement = $_POST['field16'];
 	// Create connection
-	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
+	$conntwo = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
 	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
+	if ($conntwo->connect_error) {
+	    die("Connection failed: " . $conntwo->connect_error);
 	} 
 
 	$sql2 = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
 	HP='$horsepower',TORQUE='$torque',CYLINDERS='$cylinders',FUELTYPE='$fueltype',MODS='$mods',
 	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$carHash'";
-	$result2 = $conn->query($sql2);
+	$result2 = $conntwo->query($sql2);
 
-	if ($conn->query($sql2) === TRUE) {
+	if ($conntwo->query($sql2) === TRUE) {
 
 	} else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    echo "Error: " . $sql2 . "<br>" . $conntwo->error;
 }
 
-	$conn->close();
+	$conntwo->close();
 }
 ?>
