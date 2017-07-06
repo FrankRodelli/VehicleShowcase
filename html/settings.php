@@ -229,8 +229,7 @@ $(function(){
 </script>
 
 <script type="text/javascript">
-function loadCarDetails(carHash){
+function carStuff(carHash){
   window.alert(carHash);
 }
 </script>
-

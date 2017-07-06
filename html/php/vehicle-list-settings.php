@@ -26,7 +26,9 @@ if(isset($_POST['edit'])){
 	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
-	        <a href="#" onclick="carStuff()">Edit</a>
+	        <a href="#" onclick="carStuff('; 
+	        echo "'".$rowcars['HASH']."'"; 
+	        echo')">Edit</a>
 
 	        </div></div>';
 
