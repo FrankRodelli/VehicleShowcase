@@ -2,6 +2,7 @@
 <!--Updates modified values-->
 <?php
 $carHash = $_POST['hash'];
+echo $carHash;
 
 if($_POST && isset($_POST['update-car-settings'])){
 	$make = $_POST['field1'];
