@@ -1,10 +1,6 @@
 <?php include("auth.php"); //include auth.php file on all secure pages ?>
 <!--Updates modified values-->
 
-<link href="css/add.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-<div class="form-style-2">
-<form method = "POST" enctype = "multipart/form-data">
 
 <?php
 	$carHash = $_POST['hash'];
@@ -24,8 +20,8 @@
     while($row = $result->fetch_assoc()) {
 
     	echo '
-    	<head>
-    	</head>
+    	<div class="form-style-2">
+		<form method = "POST" enctype = "multipart/form-data">
     	<div class="form-style-2-heading">Basic Information</div>
 		<label for="field1"><span>Make <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="' . $row["MAKE"] . '" /></label>
 		<label for="field2"><span>Model <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="' . $row["MODEL"] . '" /></label>
@@ -46,21 +42,15 @@
 		<label for="field14"><span>Fuel Economy </span><input type="number" class="input-field" name="field14" value="' . $row["MPG"] . '" /></label>
 		<div class="form-style-2-heading"></div>
 		<label for="field15"><span>Writeup </span><textarea name="field15" class="textarea-field" cols="750">' . $row["WRITEUP"] . '</textarea></label>
-		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>';
+		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label></form></div>';
 
     	}
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-?>
-</form>
-</div>
 
-<?php
-$carHash = $_POST['hash'];
-
-if($_POST && isset($_POST['addcar'])){
+if($_POST && isset($_POST['update-car-settings'])){
 	$make = $_POST['field1'];
 	$model = $_POST['field2'];
 	$year = $_POST['field3'];
@@ -85,15 +75,15 @@ if($_POST && isset($_POST['addcar'])){
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
+	$sql2 = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
 	HP='$horsepower',TORQUE='$torque',CYLINDERS='$cylinders',FUELTYPE='$fueltype',MODS='$mods',
 	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$carHash'";
-	$result = $conn->query($sql);
+	$result2 = $conn->query($sql2);
 
-	if ($conn->query($sql) === TRUE) {
+	if ($conn->query($sql2) === TRUE) {
 
 	} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
 	$conn->close();
