@@ -43,7 +43,9 @@ if($_POST && isset($_POST['addcar'])){
 	$conn->close();
 }
 ?>
-
+<link href="css/add.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+<div class="form-style-2">
 <form method = "POST" enctype = "multipart/form-data">
 <!--Populates values from previous entry-->
 <?php
@@ -67,8 +69,6 @@ if($_POST && isset($_POST['addcar'])){
 
     	echo '
     	<head>
-    	<link href="css/add.css" rel="stylesheet" type="text/css" media="all" />
-    	<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
     	</head>
     	<div class="form-style-2-heading">Basic Information</div>
 		<label for="field1"><span>Make <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="' . $row["MAKE"] . '" /></label>
@@ -98,3 +98,4 @@ if($_POST && isset($_POST['addcar'])){
 }
 $conn->close();
 ?>
+</div>
