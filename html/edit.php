@@ -32,13 +32,13 @@ if($_POST && isset($_POST['addcar'])){
 
 	$sql = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
 	HP='$horsepower',TORQUE='$torque',CYLINDERS='$cylinders',FUELTYPE='$fueltype',MODS='$mods',
-	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$uuid'";
+	TRANS='$transmission',`060`='$zerosixty',`0100`='$zerohundred',14MILE='$quartermile',TOPSPEED='$topspeed',MPG='$mpg',WRITEUP='$writeup' WHERE HASH = '$uuid' AND USER = '$username'";
 	$result = $conn->query($sql);
 
 	if ($conn->query($sql) === TRUE) {
 
 	} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    header("Location: notyourcar.php");
 }
 
 	$conn->close();
@@ -95,7 +95,7 @@ if($_POST && isset($_POST['addcar'])){
     die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid'";
+	$sql = "SELECT * FROM Cars WHERE HASH = '$uuid' AND UUID = '$user'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -127,7 +127,7 @@ if($_POST && isset($_POST['addcar'])){
 
     	}
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    header("Location: notyourcar.php");
 }
 $conn->close();
 ?>

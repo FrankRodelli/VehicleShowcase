@@ -50,7 +50,7 @@
 }
 $conn->close();
 
-if($_POST && isset($_POST['update-car-settings'])){
+if(isset($_POST['update-car-settings'])){
 	$make = $_POST['field1'];
 	$model = $_POST['field2'];
 	$year = $_POST['field3'];
