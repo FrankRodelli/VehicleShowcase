@@ -42,7 +42,7 @@ if(isset($_POST['edit'])){
 	$conncars->close();
 
 if(isset($_POST['update-car-settings'])){
-	echo $carHash;
+	$carHash = $_POST['carHash'];
 	$make = $_POST['field1'];
 	$model = $_POST['field2'];
 	$year = $_POST['field3'];
@@ -73,8 +73,6 @@ if(isset($_POST['update-car-settings'])){
 	$result2 = $conntwo->query($sql2);
 
 	if ($conntwo->query($sql2) === TRUE) {
-		echo 'it worked';
-		echo "Error: " . $sql2 . "<br>" . $conntwo->error;
 	} else {
     echo "Error: " . $sql2 . "<br>" . $conntwo->error;
 }
