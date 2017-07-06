@@ -74,7 +74,6 @@
 <!--Posts values to database-->
 <?php include("php/post-user-settings.php"); ?>
 
-
 </form>
 </div>
 </div>
@@ -90,16 +89,6 @@
 <div class="form-style-2-heading">Edit Vehicles</div>
 <!--Populates div with vehicles-->
 <?php include 'php/vehicle-list-settings.php';?>
-
-<script type="text/javascript">
-
-function loadDetails(carHash){
-      window.alert(carHash);
-  }
-
-</script>
-
-
 
 </div>
 </div>
@@ -225,9 +214,6 @@ $(function(){
 
       });
     });
-</script>
-
-<script type="text/javascript">
 
   function popupResult(result) {
     var html;
@@ -242,4 +228,9 @@ $(function(){
 });
 </script>
 
+<script type="text/javascript">
+function loadCarDetails(carHash){
+  window.alert(carHash);
+}
+</script>
 
