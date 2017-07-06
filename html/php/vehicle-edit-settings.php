@@ -42,7 +42,8 @@
 		<label for="field14"><span>Fuel Economy </span><input type="number" class="input-field" name="field14" value="' . $row["MPG"] . '" /></label>
 		<div class="form-style-2-heading"></div>
 		<label for="field15"><span>Writeup </span><textarea name="field15" class="textarea-field" cols="750">' . $row["WRITEUP"] . '</textarea></label>
-		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label></form></div>';
+		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>
+		<input type="hidden" name="carHash" value="'.$carHash.'"></form></div>';
 
     	}
 } else {
