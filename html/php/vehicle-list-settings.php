@@ -2,7 +2,9 @@
 
 if(isset($_POST['edit'])){
 	echo $_POST['UUID'];
+	echo 'please do this';
 }
+
 	$username = $_SESSION['token'];
 	// Create connection for populating vehicles into user page
 	$conncars = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
