@@ -3,7 +3,7 @@
 <?php
 $carHash = $_POST['hash'];
 
-if($_POST && isset($_POST['addcar'])){
+if($_POST && isset($_POST['update-car-settings'])){
 	$make = $_POST['field1'];
 	$model = $_POST['field2'];
 	$year = $_POST['field3'];
@@ -37,7 +37,7 @@ if($_POST && isset($_POST['addcar'])){
 	if ($conn->query($sql) === TRUE) {
 
 	} else {
-    header("Location: notyourcar.php");
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 	$conn->close();
@@ -90,12 +90,13 @@ if($_POST && isset($_POST['addcar'])){
 		<label for="field14"><span>Fuel Economy </span><input type="number" class="input-field" name="field14" value="' . $row["MPG"] . '" /></label>
 		<div class="form-style-2-heading"></div>
 		<label for="field15"><span>Writeup </span><textarea name="field15" class="textarea-field" cols="750">' . $row["WRITEUP"] . '</textarea></label>
-		<label><span>&nbsp;</span><input name="addcar" type="submit" value="Save Changes" /></label>';
+		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>';
 
     	}
 } else {
-    header("Location: notyourcar.php");
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
 ?>
+</form>
 </div>

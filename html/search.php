@@ -27,18 +27,22 @@ $result = $conn->query($sql);
 if($result->num_rows == 1){
 
 $row = $result->fetch_assoc();
+echo '<a href="../user.php/?u='. $row["UUID"] .'" title=""> ';
 echo $row["FIRSTNAME"];
 echo "  ";
 echo $row["LASTNAME"];
+echo '</a>';
+echo "<br>";
 }elseif($result->num_rows > 0){
-	echo 'two people, thanks frank';
 	while($row = $result->fetch_assoc()) {
-    		echo "Result " + i + "of " + $result->num_rows;
-
+		$i++;
+    		echo 'Result ' . $i . ' of ' . $result->num_rows . ' ';
+    		echo '<a href="../user.php/?u='. $row["UUID"] .'" title=""> ';
     		echo $row["FIRSTNAME"];
 echo "  ";
 echo $row["LASTNAME"];
-$i++;
+echo '</a>';
+echo "<br>";
     	}
 }else{
 	echo 'no results found';
