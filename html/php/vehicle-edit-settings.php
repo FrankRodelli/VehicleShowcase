@@ -66,6 +66,11 @@ if($_POST && isset($_POST['addcar'])){
     while($row = $result->fetch_assoc()) {
 
     	echo '
+    	<head>
+    	<link href="css/add.css" rel="stylesheet" type="text/css" media="all" />
+    	<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+    	</head>
+    	<div class="form-style-2-heading">Basic Information</div>
 		<label for="field1"><span>Make <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="' . $row["MAKE"] . '" /></label>
 		<label for="field2"><span>Model <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="' . $row["MODEL"] . '" /></label>
 		<label for="field3"><span>Year <span class="required">*</span></span><input type="number" class="input-field" name="field3" value="' . $row["DATE"] . '" /></label>
