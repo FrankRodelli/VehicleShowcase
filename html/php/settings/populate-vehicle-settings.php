@@ -52,7 +52,7 @@
 				echo '<div id="vehicle-photos"><h2>Photos</h2>';
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
-		    	echo '<div id="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div>';
+		    	echo '<a href="#"><div id="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
 		    }
 		    echo '</div>';
 		}

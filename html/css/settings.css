@@ -223,7 +223,7 @@ button:focus {
 #vehicle-photos {
     width: 416px;
     position: absolute;
-    right: 100px;
+    right: 10%;
     top: 125px;
 }
 
