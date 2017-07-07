@@ -91,6 +91,9 @@
 <?php include 'php/settings/populate-vehicles.php';?>
 <?php include 'php/settings/post-vehicle-settings.php';?>
 
+<div id="demo-basic">
+</div>
+
 </div>
 </div>
 </div>
@@ -157,6 +160,7 @@ div2.addEventListener("click", function() {
 		}
 	}
 </script>
+
 <script type="text/javascript">
 $(function(){
   var $uploadCrop;
@@ -258,4 +262,22 @@ function displayCarID(carHash,elem){
   }
   selected.classList.add('selected');
 }
+</script>
+
+<script type="text/javascript">
+  var basic = $('#demo-basic').croppie({
+    viewport: {
+        width: 150,
+        height: 200
+    }
+});
+basic.croppie('bind', {
+    url: 'https://picturethismaths.files.wordpress.com/2016/03/fig6bigforblog.png?w=419&h=364',
+    points: [77,469,280,739]
+});
+//on button click
+basic.croppie('result', 'html').then(function(html) {
+    // html is div (overflow hidden)
+    // with img positioned inside.
+});
 </script>
