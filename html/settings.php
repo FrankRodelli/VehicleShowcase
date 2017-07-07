@@ -1,4 +1,4 @@
-<?php include("auth.php");?>
+<?php include("php/auth.php");?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -89,6 +89,7 @@
 <div class="form-style-2-heading">Edit Vehicles</div>
 <!--Populates div with vehicles-->
 <?php include 'php/settings/populate-vehicles.php';?>
+<?php include 'php/settings/post-vehicle-settings.php';?>
 
 </div>
 </div>
@@ -201,7 +202,7 @@ $(function(){
           src: resp
         });
         $.ajax({
-          url: 'upload.php',
+          url: 'php/settings/upload-propic.php',
           type: 'POST',
 
           data: {imagebase64: resp},

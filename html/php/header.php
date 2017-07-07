@@ -34,7 +34,7 @@
 					<li><a href="../add.php" accesskey="2" title="">Add Vehicles</a></li>
 					<li><a href="../user.php/?u='.$loggedinuser .'" accesskey="3" title="">Profile</a></li>
 					<li><a href="../settings.php" accesskey="4" title="">Settings</a></li>
-					<li><a href="logout.php" accesskey="5" title="">Logout</a></li>
+					<li><a href="php/logout.php" accesskey="5" title="">Logout</a></li>
 				</ul>
 			</div>
 		</div>
