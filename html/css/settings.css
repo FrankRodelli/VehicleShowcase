@@ -230,10 +230,15 @@ button:focus {
 #vehicle-photos img{
     width: 100px;
 }
-#photo-container {
+.photo-container {
     width: 100px;
     height: 100px;
     overflow: hidden;
     margin: 2px;
     display: inline-block;
+}
+.selected {
+    border: solid 2px #6b7c8c;
+    width: 100px;
+    height: 100px;
 }

@@ -51,10 +51,12 @@
 		if ($result->num_rows > 0) {
 				echo '<div id="vehicle-photos"><h2>Photos</h2>';
 		    // output data of each row
+				$photoCounter = 0;
 		    while($row = $result->fetch_assoc()) {
 		    			    	echo '<a href="#" onclick="displayCarID(';
 		    	echo "'".$row['FNAME']."'";
-		    	echo ',this)"><div id="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
+		    	echo ',this)"><div id="photo'.$photoCounter.'" class="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
+		    	$photoCounter++;
 		    }
 		    echo '</div>';
 		}
