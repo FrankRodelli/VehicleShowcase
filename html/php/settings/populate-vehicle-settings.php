@@ -58,7 +58,7 @@
 		    	echo ')"><div id="photo'.$photoCounter.'" class="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
 		    	$photoCounter++;
 		    }
-		    echo '</div>';
+		    echo '<br><button>Set Default</button><button>Delte</button></div>';
 		}
 
     }

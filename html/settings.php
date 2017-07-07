@@ -256,7 +256,6 @@ function displayCarID(carHash,elem){
   for (i=0; i < div.length; i++){
     div[i].classList.remove('selected')
   }
-  selected.classList.add('selected')
-  window.alert(carHash);
+  selected.classList.add('selected');
 }
 </script>
