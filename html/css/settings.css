@@ -219,3 +219,12 @@ button:focus {
     position: absolute;
     right: 20%;
 }
+
+#vehicle-photos {
+
+}
+
+#vehicle-photos img{
+    height: 100px;
+    margin: 2px;
+}

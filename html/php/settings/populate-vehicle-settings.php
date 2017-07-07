@@ -45,14 +45,16 @@
 		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>
 		<input type="hidden" name="carHash" value="'.$carHash.'"></form></div>';
 
-		$sql = "SELECT * FROM Cars WHERE HASH = '$carHash'";
+		$sql = "SELECT * FROM PhotoLink WHERE UNAME = '$carHash'";
 		$result = $connone->query($sql);
 
 		if ($result->num_rows > 0) {
-
+				echo '<div id="vehicle-photos">';
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
+		    	echo '<img src="uploads/vehicles/'.$row['FNAME'].'">';
 		    }
+		    echo '</div>';
 		}
 
     }
