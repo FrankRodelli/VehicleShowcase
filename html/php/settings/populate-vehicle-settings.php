@@ -45,8 +45,19 @@
 		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>
 		<input type="hidden" name="carHash" value="'.$carHash.'"></form></div>';
 
-    	}
-} else {
+		$sql = "SELECT * FROM Cars WHERE HASH = '$carHash'";
+		$result = $connone->query($sql);
+
+		if ($result->num_rows > 0) {
+
+		    // output data of each row
+		    while($row = $result->fetch_assoc()) {
+		    }
+		}
+
+    }
+
+}else {
     echo "Error: " . $sql . "<br>" . $connone->error;
 $connone->close();
 }
