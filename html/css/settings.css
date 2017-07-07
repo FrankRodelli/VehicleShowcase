@@ -239,6 +239,6 @@ button:focus {
 }
 .selected {
     border: solid 2px #6b7c8c;
-    width: 100px;
-    height: 100px;
+    margin: 0;
+
 }
