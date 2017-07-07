@@ -49,10 +49,10 @@
 		$result = $connone->query($sql);
 
 		if ($result->num_rows > 0) {
-				echo '<div id="vehicle-photos">';
+				echo '<div id="vehicle-photos"><h2>Photos</h2>';
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
-		    	echo '<img src="uploads/vehicles/'.$row['FNAME'].'">';
+		    	echo '<div id="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div>';
 		    }
 		    echo '</div>';
 		}
