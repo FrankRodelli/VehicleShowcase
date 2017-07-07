@@ -36,16 +36,16 @@
 <div id="page-wrapper">
 <div id="container">
 <div class="column" id="column1">
-<?php include("php/populate-user-data.php");?>
+<?php include("php/user/populate-user-data.php");?>
 
 <div class="column" id="column3">
 <h2>Vehicles</h2>
-<?php include("php/populate-cars.php");?>
+<?php include("php/user/populate-cars.php");?>
 </div>
 
 <div class="column" id="column2">
 <h2>Vehicle Feed</h2>
-<?php include("php/user-post-form.php");?>
+<?php include("php/user/post-form.php");?>
 </div>
 
 <div class="column" id="column4">
