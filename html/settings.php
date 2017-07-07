@@ -250,7 +250,7 @@ function carStuff(carHash){
 </script>
 
 <script type="text/javascript">
-function displayCarID(carHash){
+function displayCarID(carHash,elem){
     window.alert(carHash);
 }
 </script>
