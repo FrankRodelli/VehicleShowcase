@@ -70,9 +70,9 @@
 <form method = "POST" enctype = "multipart/form-data">
 
 <!--Populates values from previous entry-->
-<?php include("php/populate-user-settings.php"); ?>
+<?php include("php/settings/populate-user-settings.php"); ?>
 <!--Posts values to database-->
-<?php include("php/post-user-settings.php"); ?>
+<?php include("php/settings/post-user-settings.php"); ?>
 
 </form>
 </div>
@@ -88,7 +88,7 @@
 <div id="vehicles">
 <div class="form-style-2-heading">Edit Vehicles</div>
 <!--Populates div with vehicles-->
-<?php include 'php/vehicle-list-settings.php';?>
+<?php include 'php/settings/populate-vehicles.php';?>
 
 </div>
 </div>
@@ -231,7 +231,7 @@ $(function(){
 <script type="text/javascript">
 function carStuff(carHash){
 
-  var url="../php/vehicle-edit-settings.php"
+  var url="../php/settings/populate-vehicle-settings.php"
   var phprequest = new XMLHttpRequest();
 
   phprequest.open("POST", url, true);

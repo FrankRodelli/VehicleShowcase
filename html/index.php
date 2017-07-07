@@ -48,7 +48,7 @@
 
 <div class="column" id="left-column">
 <h2>Featured Vehicles</h2>
-<?php include('php/slide_show.php');?>
+<?php include('php/home/slide_show.php');?>
 
 </div>
 
@@ -58,7 +58,7 @@
 </div>
 
 <div class="column" id="center-column">
-<?php include("php/post-form.php");?>
+<?php include("php/home/post-form.php");?>
 
 </div>
 
