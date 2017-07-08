@@ -162,6 +162,24 @@ div2.addEventListener("click", function() {
 </script>
 
 <script type="text/javascript">
+  var basic = $('#demo-basic').croppie({
+    viewport: {
+        width: 500,
+        height: 281
+    }
+});
+basic.croppie('bind', {
+    url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png',
+    points: [77,469,280,739]
+});
+//on button click
+basic.croppie('result', 'html').then(function(html) {
+    // html is div (overflow hidden)
+    // with img positioned inside.
+});
+</script>
+
+<script type="text/javascript">
 $(function(){
   var $uploadCrop;
 
@@ -253,74 +271,3 @@ function carStuff(carHash){
 }
 </script>
 
-<script type="text/javascript">
-     $(function(){
-  var $uploadCrop;
-
-    function readFile(input) {
-      if (input.files && input.files[0]) {
-              var reader = new FileReader();
-
-              reader.onload = function (e) {
-                $uploadCrop.croppie('bind', {
-                  url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png'
-                });
-                $('#demo-basic').addClass('ready');
-                  // $('#blah').attr('src', e.target.result);
-              }
-
-              reader.readAsDataURL(input.files[0]);
-          }
-          else {
-            alert("Sorry - you're browser doesn't support the FileReader API");
-        }
-    }
-
-    $uploadCrop = $('#demo-basic').croppie({
-      viewport: {
-        width: 200,
-        height: 200,
-        type: 'square'
-      },
-      boundary: {
-        width: 300,
-        height: 250
-      }
-    });
-
-    $('#upload').on('change', function () { 
-      $(".crop").show();
-      readFile(this); 
-    });
-    $('.upload-result').on('click', function (ev) {
-      $uploadCrop.croppie('result', 'canvas').then(function (resp) {
-        popupResult({
-          src: resp
-        });
-        $.ajax({
-          url: 'php/settings/upload-propic.php',
-          type: 'POST',
-
-          data: {imagebase64: resp},
-          success:function(data)
-          {
-            console.log(data);
-          }
-        });
-
-
-      });
-    });
-
-  function popupResult(result) {
-    var html;
-    if (result.html) {
-      html = result.html;
-    }
-    if (result.src) {
-      html = '<img src="' + result.src + '" width="200px"/>';
-    }
-    $("#result").html(html);
-  }
-});
-</script>
