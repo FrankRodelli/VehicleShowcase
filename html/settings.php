@@ -91,9 +91,6 @@
 <?php include 'php/settings/populate-vehicles.php';?>
 <?php include 'php/settings/post-vehicle-settings.php';?>
 
-<div id="demo-basic">
-</div>
-
 </div>
 </div>
 </div>
@@ -160,25 +157,6 @@ div2.addEventListener("click", function() {
 		}
 	}
 </script>
-
-<script type="text/javascript">
-  var basic = $('#demo-basic').croppie({
-    viewport: {
-        width: 500,
-        height: 281
-    }
-});
-basic.croppie('bind', {
-    url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png',
-    points: [77,469,280,739]
-});
-//on button click
-basic.croppie('result', 'html').then(function(html) {
-    // html is div (overflow hidden)
-    // with img positioned inside.
-});
-</script>
-
 <script type="text/javascript">
 $(function(){
   var $uploadCrop;
@@ -253,10 +231,8 @@ $(function(){
 
 <script type="text/javascript">
 function carStuff(carHash){
-
   var url="../php/settings/populate-vehicle-settings.php"
   var phprequest = new XMLHttpRequest();
-
   phprequest.open("POST", url, true);
   phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   phprequest.onreadystatechange = function(){
@@ -265,9 +241,17 @@ function carStuff(carHash){
       document.getElementById("edit-vehicles").innerHTML = return_data;
     }
   }
-
   phprequest.send("hash="+carHash);
-
 }
 </script>
 
+<script type="text/javascript">
+function displayCarID(carHash,elem){
+  var div = document.getElementsByClassName('photo-container')
+  var selected = document.getElementById(elem)
+  for (i=0; i < div.length; i++){
+    div[i].classList.remove('selected')
+  }
+  selected.classList.add('selected')
+}
+</script>
