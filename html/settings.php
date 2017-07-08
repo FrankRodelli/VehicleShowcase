@@ -171,7 +171,7 @@ $(function(){
 
               reader.onload = function (e) {
                 $uploadCrop.croppie('bind', {
-                  url: 'e.target.result'
+                  url: e.target.result
                 });
                 $('.upload-demo').addClass('ready');
                   // $('#blah').attr('src', e.target.result);
@@ -257,22 +257,26 @@ function carStuff(carHash){
      $(function(){
   var $uploadCrop;
 
-    function displayImage(input) {
+    function readFile(input) {
       if (input.files && input.files[0]) {
+              var reader = new FileReader();
 
+              reader.onload = function (e) {
                 $uploadCrop.croppie('bind', {
                   url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png'
                 });
                 $('#demo-basic').addClass('ready');
                   // $('#blah').attr('src', e.target.result);
               }
+
+              reader.readAsDataURL(input.files[0]);
           }
           else {
             alert("Sorry - you're browser doesn't support the FileReader API");
         }
     }
 
-    $uploadCrop = $('#upload-demo').croppie({
+    $uploadCrop = $('#demo-basic').croppie({
       viewport: {
         width: 200,
         height: 200,
@@ -283,6 +287,26 @@ function carStuff(carHash){
         height: 250
       }
     });
+
+    $('#upload').on('change', function () { 
+      $(".crop").show();
+      readFile(this); 
+    });
+    $('.upload-result').on('click', function (ev) {
+      $uploadCrop.croppie('result', 'canvas').then(function (resp) {
+        popupResult({
+          src: resp
+        });
+        $.ajax({
+          url: 'php/settings/upload-propic.php',
+          type: 'POST',
+
+          data: {imagebase64: resp},
+          success:function(data)
+          {
+            console.log(data);
+          }
+        });
 
 
       });
