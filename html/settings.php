@@ -171,7 +171,7 @@ $(function(){
 
               reader.onload = function (e) {
                 $uploadCrop.croppie('bind', {
-                  url: e.target.result
+                  url: 'e.target.result'
                 });
                 $('.upload-demo').addClass('ready');
                   // $('#blah').attr('src', e.target.result);
@@ -254,5 +254,49 @@ function carStuff(carHash){
 </script>
 
 <script type="text/javascript">
-     
+     $(function(){
+  var $uploadCrop;
+
+    function displayImage(input) {
+      if (input.files && input.files[0]) {
+
+                $uploadCrop.croppie('bind', {
+                  url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png'
+                });
+                $('#demo-basic').addClass('ready');
+                  // $('#blah').attr('src', e.target.result);
+              }
+          }
+          else {
+            alert("Sorry - you're browser doesn't support the FileReader API");
+        }
+    }
+
+    $uploadCrop = $('#upload-demo').croppie({
+      viewport: {
+        width: 200,
+        height: 200,
+        type: 'square'
+      },
+      boundary: {
+        width: 300,
+        height: 250
+      }
+    });
+
+
+      });
+    });
+
+  function popupResult(result) {
+    var html;
+    if (result.html) {
+      html = result.html;
+    }
+    if (result.src) {
+      html = '<img src="' + result.src + '" width="200px"/>';
+    }
+    $("#result").html(html);
+  }
+});
 </script>

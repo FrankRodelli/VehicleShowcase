@@ -54,11 +54,12 @@
 				$photoCounter = 0;
 		    while($row = $result->fetch_assoc()) {
 		    	echo '<a href="#" onclick="displayCarID(';
-		    	echo "'".$row['FNAME']."','photo".$photoCounter."'";
+		    	echo "'uploads/vehicles/".$row['FNAME']."','photo".$photoCounter."'";
 		    	echo ')"><div id="photo'.$photoCounter.'" class="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
 		    	$photoCounter++;
 		    }
-		    echo '<br><button>Set Default</button><button>Delete</button></div>';
+		    echo '<br><a>Set Default</a><button>Delete</button></div><div id="demo-basic">
+</div>';
 		}
 
     }
