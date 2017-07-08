@@ -254,30 +254,33 @@ function carStuff(carHash){
 </script>
 
 <script type="text/javascript">
-function displayCarID(carHash,elem){
-  var div = document.getElementsByClassName('photo-container')
-  var selected = document.getElementById(elem)
-  for (i=0; i < div.length; i++){
-    div[i].classList.remove('selected')
-  }
-  selected.classList.add('selected');
-}
-</script>
+$('#demo-basic').croppie({
 
-<script type="text/javascript">
-  var basic = $('#demo-basic').croppie({
-    viewport: {
-        width: 150,
-        height: 200
-    }
+  // viewport options
+  viewport: {
+    width: 100,
+    height: 100,
+    type: 'square' // or 'circle'
+  },
+
+  // boundary options
+  boundary: {
+    width: 300,
+    height: 300
+  },
+
+  // addiontal CSS class
+  customClass: '',
+
+  // show image zoom control
+  show<a href="http://www.jqueryscript.net/zoom/">Zoom</a>: true,
+
+  // image zoom with mouse wheel
+  mouseWheelZoom: true,
+
+  // callback
+  up<a href="http://www.jqueryscript.net/time-clock/">date</a>: function () { }
+  
 });
-basic.croppie('bind', {
-    url: 'https://picturethismaths.files.wordpress.com/2016/03/fig6bigforblog.png?w=419&h=364',
-    points: [77,469,280,739]
-});
-//on button click
-basic.croppie('result', 'html').then(function(html) {
-    // html is div (overflow hidden)
-    // with img positioned inside.
-});
+           
 </script>
