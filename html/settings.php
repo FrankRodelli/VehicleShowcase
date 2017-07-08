@@ -254,33 +254,5 @@ function carStuff(carHash){
 </script>
 
 <script type="text/javascript">
-$('#demo-basic').croppie({
-
-  // viewport options
-  viewport: {
-    width: 100,
-    height: 100,
-    type: 'square' // or 'circle'
-  },
-
-  // boundary options
-  boundary: {
-    width: 300,
-    height: 300
-  },
-
-  // addiontal CSS class
-  customClass: '',
-
-  // show image zoom control
-  show<a href="http://www.jqueryscript.net/zoom/">Zoom</a>: true,
-
-  // image zoom with mouse wheel
-  mouseWheelZoom: true,
-
-  // callback
-  up<a href="http://www.jqueryscript.net/time-clock/">date</a>: function () { }
-  
-});
-           
+     
 </script>
