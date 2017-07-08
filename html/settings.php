@@ -102,6 +102,10 @@
 <p>&copy; 2017 FBMotors Inc. All Rights Reserved.</p>
 </div>
 
+<div id="demo-basic">
+</div>
+
+
 </body>
 </html>
 
@@ -254,4 +258,22 @@ function displayCarID(carHash,elem){
   }
   selected.classList.add('selected')
 }
+</script>
+
+<script type="text/javascript">
+  var basic = $('#demo-basic').croppie({
+    viewport: {
+        width: 500,
+        height: 281
+    }
+});
+basic.croppie('bind', {
+    url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png',
+    points: [77,469,280,739]
+});
+//on button click
+basic.croppie('result', 'html').then(function(html) {
+    // html is div (overflow hidden)
+    // with img positioned inside.
+});
 </script>
