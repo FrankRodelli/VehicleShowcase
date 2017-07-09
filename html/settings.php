@@ -175,6 +175,7 @@ function photoSelected(vehicleHash,elem){
 }
 
 var basic;
+var vehicleID = "<?php echo $carHash ?>";
 //Initializes coppie instance 
 /*function setDefault(){
   if(carId != undefined){
@@ -207,6 +208,7 @@ var basic;
 }*/
 
 function setDefault() {
+  alert(vehicleID);
     var $w = $('.basic-width'),
       $h = $('.basic-height'),
       basic = $('#demo-basic').croppie({

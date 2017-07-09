@@ -1,17 +1,20 @@
 <?php
 include("../auth.php");
 if(isset($_POST['imagebase64'])){
+    //Sets image to $data variable
     $data = $_POST['imagebase64'];
 
+    //Sets carhash to variable
+    $carHash = $_POST['vehicleID'];
+
+    //Formats json data
     list($type, $data) = explode(';', $data);
     list(, $data)      = explode(',', $data);
-
     $data = base64_decode($data);
     $d=uniqid();
     file_put_contents('../../uploads/vehicles/'.$d.'.png', $data);
     echo json_encode($d);
 
-    $carHash = substr($_POST['vehicleID'], 0,strrpos($_POST['vehicleID'], "."));
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
