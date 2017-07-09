@@ -98,7 +98,6 @@ if($_POST && isset($_POST['register'])){
 	$headers = 'From: webmaster@showmeyouraxels.me' . "\r\n" .
     'Reply-To: jake.lafountain@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
-
 mail($to, $subject, $message, $headers);
 		echo "Please check your email for the link to verify your email.";
 
