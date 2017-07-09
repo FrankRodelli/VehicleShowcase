@@ -1,5 +1,5 @@
 <?php
-include("php/settings/auth.php");
+include("php/auth.php");
 if(isset($_POST['imagebase64'])){
     $data = $_POST['imagebase64'];
 
@@ -8,7 +8,7 @@ if(isset($_POST['imagebase64'])){
 
     $data = base64_decode($data);
     $d=uniqid();
-    file_put_contents('uploads/users/'.$d.'.png', $data);
+    file_put_contents('../uploads/users/'.$d.'.png', $data);
     echo json_encode($d);
 
      //Add photo to user entry
@@ -25,6 +25,7 @@ if(isset($_POST['imagebase64'])){
     $result = $conn->query($sql);
         if ($conn->query($sql) === TRUE) {
         echo "Settings saved successfully";
+        echo "Error: " . $sql . "<br>" . $conn->error;
 
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
