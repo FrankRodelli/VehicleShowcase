@@ -1,4 +1,4 @@
-<?php include("auth.php"); //include auth.php file on all secure pages ?>
+<?php include("php/auth.php"); //include auth.php file on all secure pages ?>
 <!--Updates modified values-->
 
 

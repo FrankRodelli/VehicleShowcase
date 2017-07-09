@@ -1,5 +1,6 @@
 <?php
 include("php/auth.php");
+echo $_SESSION['token'];
 if(isset($_POST['imagebase64'])){
     $data = $_POST['imagebase64'];
 
@@ -13,6 +14,7 @@ if(isset($_POST['imagebase64'])){
 
      //Add photo to user entry
     $username = $_SESSION['token'];
+    echo 'the uuid is ' . $username;
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 
