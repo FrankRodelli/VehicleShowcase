@@ -194,7 +194,7 @@ function photoSelected(vehicleHash,elem){
 
 var basic;
 //Initializes coppie instance 
-function setDefault(){
+/*function setDefault(){
   if(carId != undefined){
     //If basic croppie instance already exists, destroy it
     if(basic != undefined){
@@ -222,17 +222,44 @@ function setDefault(){
   }else{
     alert('Select photo to make default');
   }
-}
+}*/
 
-//Uploads cropped image 
-function uploadDefaultPhoto(){
-  basic.croppie('result','html').then(function(result){
-  });
-}
+function setDefault() {
+    var $w = $('.basic-width'),
+      $h = $('.basic-height'),
+      basic = $('#demo-basic').croppie({
+      viewport: {
+        width: 150,
+        height: 200
+      },
+      boundary: {
+        width: 300,
+        height: 300
+      }
+    });
+    basic.croppie('bind', {
+      url: '../uploads/vehicles/'+carId,
+      points: [77,469,280,739]
+    });
 
-function deletePhoto(){
+    $('.basic-result').on('click', function() {
+      var w = parseInt($w.val(), 10),
+        h = parseInt($h.val(), 10),s
+        size = 'viewport';
+      if (w || h) {
+        size = { width: w, height: h };
+      }
+      basic.croppie('result', {
+        type: 'canvas',
+        size: size
+      }).then(function (resp) {
+        popupResult({
+          src: resp
+        });
+      });
+    });
+  }
 
-}
 </script>
 
 
