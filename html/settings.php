@@ -247,6 +247,7 @@ function setDefault() {
     alert('Select photo to set as default');
   }
 }
+carId = undefined;
 
 
 </script>
