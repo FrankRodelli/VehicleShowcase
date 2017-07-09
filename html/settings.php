@@ -177,10 +177,6 @@ function photoSelected(vehicleHash,elem){
 var basic;
 function setDefault() {
   if(carId != undefined){
-      //If basic croppie instance already exists, destroy it
-      if(basic != undefined){
-        basic.croppie('destroy');
-      }
       var $w = $('.basic-width'),
         $h = $('.basic-height'),
         basic = $('#demo-basic').croppie({
@@ -233,7 +229,7 @@ function setDefault() {
         html = result.html;
       }
       if (result.src) {
-        html = '<img src="' + result.src + '" />';
+        html = 'Default Photo Saved!<br><img src="' + result.src + '" />';
       }
       swal({
         title: '',
@@ -250,6 +246,8 @@ function setDefault() {
         });
       }, 1);
     }
+  }else{
+    alert('Select photo to set as default');
   }
 }
 

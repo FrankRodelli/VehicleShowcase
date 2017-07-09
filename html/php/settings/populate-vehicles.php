@@ -19,12 +19,8 @@ if(isset($_POST['edit'])){
 	    // output data of each row
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
-	    	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid' LIMIT 1";
-	    	$photoresult = $conncars->query($photosql);
 	    	echo '<div id="vehicle-item">';
-	    	while($photorow = $photoresult->fetch_assoc()){
-	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '" height="100">';
-	    	}
+	    	echo '<img src="../uploads/vehicles/'. $rowcars["PHOTO"] . '" height="100">';
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
 	        <a href="#" onclick="carStuff('; 
 	        echo "'".$rowcars['HASH']."'"; 
