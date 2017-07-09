@@ -76,6 +76,7 @@ if($_POST && isset($_POST['register'])){
 	$username = $conn->real_escape_string($_POST['username']);
 	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
 	$uuid = uniqid();
+	$emailcode = uniqid();
 	$email = $conn->real_escape_string($_POST['email']);
 	$fname = $conn->real_escape_string($_POST['fname']);
 	$lname = $conn->real_escape_string($_POST['lname']);
@@ -86,15 +87,24 @@ if($_POST && isset($_POST['register'])){
 	if(is_null($email)){
 		echo "You will need to put a email in for verification purposes.";
 	}else{
-	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`, `VERIFIEDEMAIL`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0, 0)";
+	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`, `VERIFIEDEMAIL`, `VERIFICATIONLINKCODE`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0, 0, '$emailcode')";
 
 	if ($conn->query($sql) === TRUE) {
 		//$cookie = $uuid;
-		//$_SESSION['token'] = $cookie;
-		header("Location: validateemail.php");
+		//$_SESSION['token'] = $cookie;	
+		$to      = $email;
+	$subject = 'Email Verification for Showmeyouraxels';
+	$message = 'Hello ' . $fname . ' ' . $lname . 'Here is the verification link as requested. https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . ' ';
+	$headers = 'From: webmaster@showmeyouraxels.me' . "\r\n" .
+    'Reply-To: jake.lafountain@gmail.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers);
+		echo "Please check your email for the link to verify your email.";
 
 	} else {
 	    echo "Error: please try again or contact the support for more information.";
+	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn->close();

@@ -1,5 +1,5 @@
 <?php
-include("../settings/auth.php");
+include("../auth.php");
 if(isset($_POST['imagebase64'])){
     $data = $_POST['imagebase64'];
 
