@@ -98,8 +98,14 @@ if($_POST && isset($_POST['register'])){
 	$headers = 'From: webmaster@showmeyouraxels.me' . "\r\n" .
     'Reply-To: jake.lafountain@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
+$success = mail($to, $subject, $message);
+if(!$success){
+	$errorMessage = error_get_last()['message'];
+	print_r(error_get_last());
+	echo $errorMessage;
+}
 		echo "Please check your email for the link to verify your email.";
+
 
 	} else {
 	    echo "Error: please try again or contact the support for more information.";
