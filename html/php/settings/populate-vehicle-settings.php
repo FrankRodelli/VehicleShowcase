@@ -49,7 +49,7 @@
 		$result = $connone->query($sql);
 
 		if ($result->num_rows > 0) {
-				echo '<div id="vehicle-photos"><h2>Photos</h2>';
+				echo '<div id="vehicle-photos"><div class="form-style-2-heading">Photos</div>';
 		    // output data of each row
 				$photoCounter = 0;
 		    while($row = $result->fetch_assoc()) {
