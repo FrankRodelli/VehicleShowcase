@@ -267,20 +267,14 @@ function vehicleSelected(vehicleHash,elem){
 
 function setDefault(){
   alert(carId);
-}
-
-
-</script>
-
-<script type="text/javascript">
-  var basic = $('#demo-basic').croppie({
+    var basic = $('#demo-basic').croppie({
     viewport: {
         width: 500,
         height: 281
     }
 });
 basic.croppie('bind', {
-    url: 'https://showmeyouraxels.me/uploads/vehicles/5959c54d54728.png',
+    url: '../uploads/vehicles/'+carId,
     points: [77,469,280,739]
 });
 //on button click
@@ -288,4 +282,6 @@ basic.croppie('result', 'html').then(function(html) {
     // html is div (overflow hidden)
     // with img positioned inside.
 });
+
+}
 </script>
