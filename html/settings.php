@@ -145,25 +145,6 @@ $(function(){
       $(".crop").show();
       readFile(this); 
     });
-    $('.upload-result').on('click', function (ev) {
-      $uploadCrop.croppie('result', 'canvas').then(function (resp) {
-        popupResult({
-          src: resp
-        });
-        $.ajax({
-          url: 'php/settings/upload-propic.php',
-          type: 'POST',
-
-          data: {imagebase64: resp},
-          success:function(data)
-          {
-            console.log(data);
-          }
-        });
-
-
-      });
-    });
 
   function popupResult(result) {
     var html;
@@ -257,10 +238,20 @@ function setDefault() {
         popupResult({
           src: resp
         });
+          $.ajax({
+          url: 'php/settings/upload-default-vepic.php',
+          type: 'POST',
+
+          data: {imagebase64: resp},
+          success:function(data)
+          {
+            console.log(data);
+          }
+        });
       });
     });
 
-      function popupResult(result) {
+    function popupResult(result) {
     var html;
     if (result.html) {
       html = result.html;

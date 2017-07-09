@@ -8,19 +8,19 @@ if(isset($_POST['imagebase64'])){
 
     $data = base64_decode($data);
     $d=uniqid();
-    file_put_contents('../../uploads/users/'.$d.'.png', $data);
+    file_put_contents('../../uploads/vehicles/'.$d.'.png', $data);
     echo json_encode($d);
 
      //Add photo to user entry
     $username = $_SESSION['token'];
 	// Create connection
-	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
+	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-    $sql = "UPDATE `UserList` SET `PICTURE`='$d.png' WHERE `UUID` = '$username'";
+    $sql = "UPDATE `Cars` SET `PHOTO`='$d.png' WHERE `HASH` = '$carHash'";
     
     $result = $conn->query($sql);
         if ($conn->query($sql) === TRUE) {
