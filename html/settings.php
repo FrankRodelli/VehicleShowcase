@@ -102,12 +102,6 @@
 <p>&copy; 2017 FBMotors Inc. All Rights Reserved.</p>
 </div>
 
-<div id="croppie-container">
-<div id="demo-basic">
-</div>
-</div>
-
-
 </body>
 </html>
 
@@ -166,7 +160,6 @@ div2.addEventListener("click", function() {
 <script type="text/javascript">
 $(function(){
   var $uploadCrop;
-
     function readFile(input) {
       if (input.files && input.files[0]) {
               var reader = new FileReader();
@@ -266,23 +259,27 @@ function vehicleSelected(vehicleHash,elem){
 }
 
 function setDefault(){
-  alert(carId);
+  
+if(carId != undefined){
     var basic = $('#demo-basic').croppie({
-    viewport: {
+      viewport: {
         width: 500,
         height: 281
-    }
-});
-basic.croppie('bind', {
-    url: '../uploads/vehicles/'+carId,
-    points: [77,469,280,739]
-});
+      }
+    });
 
-//on button click
-basic.croppie('result', 'html').then(function(html) {
-    // html is div (overflow hidden)
-    // with img positioned inside.
-});
+    basic.croppie('bind', {
+        url: '../uploads/vehicles/'+carId,
+        points: [77,469,280,739]
+    });
 
+    //on button click
+    basic.croppie('result', 'html').then(function(html) {
+        // html is div (overflow hidden)
+        // with img positioned inside.
+    });
+  }else{
+    alert('Select photo to make default');
+  }
 }
 </script>
