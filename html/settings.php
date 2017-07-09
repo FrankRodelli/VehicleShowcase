@@ -175,108 +175,84 @@ function photoSelected(vehicleHash,elem){
 }
 
 var basic;
-var vehicleID = "<?php echo $carHash ?>";
-//Initializes coppie instance 
-/*function setDefault(){
+function setDefault() {
   if(carId != undefined){
-    //If basic croppie instance already exists, destroy it
-    if(basic != undefined){
-      basic.croppie('destroy');
-    }
-    basic = $('#demo-basic').croppie({
-      viewport: {
-        width: 500,
-        height: 281
+      //If basic croppie instance already exists, destroy it
+      if(basic != undefined){
+        basic.croppie('destroy');
       }
-    });
-
-    basic.croppie('bind', {
+      var $w = $('.basic-width'),
+        $h = $('.basic-height'),
+        basic = $('#demo-basic').croppie({
+        viewport: {
+          width: 500,
+          height: 281
+        },
+        boundary: {
+          width: 500,
+          height: 281
+        }
+      });
+      basic.croppie('bind', {
         url: '../uploads/vehicles/'+carId,
         points: [77,469,280,739]
-    }).then(function(){
-      basic.croppie('setZoom', 0)
-    });
+      }).then(function(){
+        basic.croppie('setZoom', 0)
+      });
 
-    //on button click
-    basic.croppie('result', 'html').then(function(html) {
-        // html is div (overflow hidden)
-        // with img positioned inside.
-    });
-  }else{
-    alert('Select photo to make default');
-  }
-}*/
+      $('.basic-result').on('click', function() {
+        var w = parseInt($w.val(), 10),
+          h = parseInt($h.val(), 10),s
+          size = 'viewport';
+        if (w || h) {
+          size = { width: w, height: h };
+        }
+        basic.croppie('result', {
+          type: 'canvas',
+          size: size
+        }).then(function (resp) {
+          popupResult({
+            src: resp
+          });
+            $.ajax({
+            url: 'php/settings/upload-default-vepic.php',
+            type: 'POST',
 
-function setDefault() {
-  alert(vehicleID);
-    var $w = $('.basic-width'),
-      $h = $('.basic-height'),
-      basic = $('#demo-basic').croppie({
-      viewport: {
-        width: 150,
-        height: 200
-      },
-      boundary: {
-        width: 300,
-        height: 300
-      }
-    });
-    basic.croppie('bind', {
-      url: '../uploads/vehicles/'+carId,
-      points: [77,469,280,739]
-    });
-
-    $('.basic-result').on('click', function() {
-      var w = parseInt($w.val(), 10),
-        h = parseInt($h.val(), 10),s
-        size = 'viewport';
-      if (w || h) {
-        size = { width: w, height: h };
-      }
-      basic.croppie('result', {
-        type: 'canvas',
-        size: size
-      }).then(function (resp) {
-        popupResult({
-          src: resp
-        });
-          $.ajax({
-          url: 'php/settings/upload-default-vepic.php',
-          type: 'POST',
-
-          data: {imagebase64: resp,vehicleID: carId},
-          success:function(data)
-          {
-            console.log(data);
-          }
+            data: {imagebase64: resp,vehicleID: vehicleID},
+            success:function(data)
+            {
+              console.log(data);
+            }
+          });
         });
       });
-    });
 
-    function popupResult(result) {
-    var html;
-    if (result.html) {
-      html = result.html;
-    }
-    if (result.src) {
-      html = '<img src="' + result.src + '" />';
-    }
-    swal({
-      title: '',
-      html: true,
-      text: html,
-      allowOutsideClick: true
-    });
-    setTimeout(function(){
-      $('.sweet-alert').css('margin', function() {
-        var top = -1 * ($(this).height() / 2),
-          left = -1 * ($(this).width() / 2);
-
-        return top + 'px 0 0 ' + left + 'px';
+      function popupResult(result) {
+      var html;
+      if (result.html) {
+        html = result.html;
+      }
+      if (result.src) {
+        html = '<img src="' + result.src + '" />';
+      }
+      swal({
+        title: '',
+        html: true,
+        text: html,
+        allowOutsideClick: true
       });
-    }, 1);
+      setTimeout(function(){
+        $('.sweet-alert').css('margin', function() {
+          var top = -1 * ($(this).height() / 2),
+            left = -1 * ($(this).width() / 2);
+
+          return top + 'px 0 0 ' + left + 'px';
+        });
+      }, 1);
+    }
   }
-  }
+}
+
 
 </script>
 
@@ -336,7 +312,9 @@ div2.addEventListener("click", function() {
 </script>
 
 <script type="text/javascript">
+var vehicleID;
 function carStuff(carHash){
+  vehicleID = carHash;
   var url="../php/settings/populate-vehicle-settings.php"
   var phprequest = new XMLHttpRequest();
   phprequest.open("POST", url, true);
