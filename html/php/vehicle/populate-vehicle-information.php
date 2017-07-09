@@ -19,12 +19,8 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     	echo "<br>" . $row["DATE"] . " " . $row["MAKE"] . " " . $row["MODEL"];
 
-    	//Obtains main picture for header (this will be depreciated when we allow user to select default photo, that will theb be handled with row and we can use a single query for photos)
-    	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid'";
-    	$photoresult = $conn->query($photosql);
-
-    	$photorow = $photoresult->fetch_assoc();
-    		echo '<br><img src="../uploads/vehicles/'. $photorow["FNAME"] . '" width = "200" > <div class ="row" id="specs">
+    	//Obtains main picture for header
+    		echo '<br><img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" > <div class ="row" id="specs">
 		<img class="expand" id="specs-img" src="../images/plus.png">
 		<h2>Specifications</h2>
 
