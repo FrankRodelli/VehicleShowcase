@@ -17,12 +17,8 @@ $loggedinuser = $_SESSION["token"];
 	    // output data of each row
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
-	    	$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid' LIMIT 1";
-	    	$photoresult = $conncars->query($photosql);
 	    	echo '<div id="vehicle-item">';
-	    	while($photorow = $photoresult->fetch_assoc()){
-	    		echo '<img src="../uploads/vehicles/'. $photorow["FNAME"] . '">';
-	    	}
+	    		echo '<img src="../uploads/vehicles/'. $rowcars["PHOTO"] . '">';
 	        echo '<div id="title"><a href="https://showmeyouraxels.me/vehicle.php/?c=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
 	    }
 
