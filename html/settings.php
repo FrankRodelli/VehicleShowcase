@@ -13,7 +13,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.1/croppie.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 </head>
 
 <body>
@@ -258,6 +259,30 @@ function setDefault() {
         });
       });
     });
+
+      function popupResult(result) {
+    var html;
+    if (result.html) {
+      html = result.html;
+    }
+    if (result.src) {
+      html = '<img src="' + result.src + '" />';
+    }
+    swal({
+      title: '',
+      html: true,
+      text: html,
+      allowOutsideClick: true
+    });
+    setTimeout(function(){
+      $('.sweet-alert').css('margin', function() {
+        var top = -1 * ($(this).height() / 2),
+          left = -1 * ($(this).width() / 2);
+
+        return top + 'px 0 0 ' + left + 'px';
+      });
+    }, 1);
+  }
   }
 
 </script>
