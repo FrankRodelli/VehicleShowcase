@@ -277,6 +277,7 @@ basic.croppie('bind', {
     url: '../uploads/vehicles/'+carId,
     points: [77,469,280,739]
 });
+
 //on button click
 basic.croppie('result', 'html').then(function(html) {
     // html is div (overflow hidden)
