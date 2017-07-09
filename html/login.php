@@ -93,8 +93,9 @@
 		    //If user is rate limited, alert user
 			if($row["RATELIMITED"] == 1){
 				echo "<center>Your account has been ratelimited, please contact our support for more information on this issue.</center>";
-				echo $_SESSION['login_counter'];
-			}else{
+			}elseif($row["VERIFIEDEMAIL"] == 0){
+					echo "You will need to verify your email before you can move on.";
+				}else{
 			//If passwords match, log user in
 			if (password_verify($_POST['password'], $row["PASSWORD"])){
 				$cookie = $row["UUID"];

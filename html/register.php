@@ -83,12 +83,15 @@ if($_POST && isset($_POST['register'])){
 	$occupation = $conn->real_escape_string($_POST['occupation']);
 	$dob = $conn->real_escape_string($_POST['dob']);
 	//Insert new user to database
-	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0)";
+	if(is_null($email)){
+		echo "You will need to put a email in for verification purposes.";
+	}else{
+	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`, `VERIFIEDEMAIL`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0, 0)";
 
 	if ($conn->query($sql) === TRUE) {
-		$cookie = $uuid;
-		$_SESSION['token'] = $cookie;
-		header("Location: index.php");
+		//$cookie = $uuid;
+		//$_SESSION['token'] = $cookie;
+		header("Location: validateemail.php");
 
 	} else {
 	    echo "Error: please try again or contact the support for more information.";
@@ -96,7 +99,7 @@ if($_POST && isset($_POST['register'])){
 
 	$conn->close();
 }
-
+}
 if($_POST['back']){
 	header("Location: index.php");
 }
