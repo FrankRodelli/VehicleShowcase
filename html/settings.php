@@ -290,9 +290,19 @@ function setDefault(){
 }
 
 function uploadDefaultPhoto(){
-  basic.croppie('result','html').then(function(blob){
-    alert(blob)
+  basic.croppie('result','html').then(function(result){
+      var html;
+  if (result.html) {
+      html = result.html;
+    }
+    if (result.src) {
+      html = '<img src="' + result.src + '" width="200px"/>';
+      alert(html);
+    }
+    $("#demo-basic").html(html);
   });
+
+
 
 }
 
