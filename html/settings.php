@@ -257,11 +257,15 @@ function photoSelected(vehicleHash,elem){
   }
   selected.classList.add('selected')
 }
+var basic;
 
 function setDefault(){
   if(carId != undefined){
-    basic.croppie('destroy');
-    var basic = $('#demo-basic').croppie({
+    //If basic croppie instance already exists, destroy it
+    if(basic != undefined){
+      basic.croppie('destroy');
+    }
+    basic = $('#demo-basic').croppie({
       viewport: {
         width: 500,
         height: 281
