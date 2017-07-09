@@ -105,58 +105,7 @@
 </body>
 </html>
 
-<!--Popout menu script -->
-<script type="text/javascript">
-var div1 = document.getElementById('propic');
-var data1 = document.getElementById('popout-menu');
-div1.addEventListener("click", function() {
-    		if(data1.style.display !== 'none'){
-			data1.style.display = 'none';
-		}
-		else{
-			data1.style.display = 'block';
-		}
-}, false);
-</script>
-
-<!--Search Bar Script -->
-<script type="text/javascript">
-var div2 = document.getElementById('search-button');
-var data2 = document.getElementById('search-bar');
-div2.addEventListener("click", function() {
-    		if(data2.style.display !== 'none'){
-			data2.style.display = 'none';
-		}
-		else{
-			data2.style.display = 'block';
-		}
-}, false);
-</script>
-
-
-<script type="text/javascript">
-	var profile = document.getElementById('edit-profile');
-	var following = document.getElementById('edit-following');
-	var vehicles = document.getElementById('edit-vehicles');
-
-	function showSetting(target){
-		if(target == "profile"){
-			profile.style.display = 'block';
-			following.style.display = 'none';
-			vehicles.style.display = 'none';
-		}
-		else if(target == "following"){
-			profile.style.display = 'none';
-			following.style.display = 'block';
-			vehicles.style.display = 'none';
-		}
-		else if(target == "vehicles"){
-			profile.style.display = 'none';
-			following.style.display = 'none';
-			vehicles.style.display = 'block';
-		}
-	}
-</script>
+<!--Manages profile picture -->
 <script type="text/javascript">
 $(function(){
   var $uploadCrop;
@@ -228,26 +177,11 @@ $(function(){
 });
 </script>
 
+<!--Manages default photo for vehicle -->
 <script type="text/javascript">
-function carStuff(carHash){
-  var url="../php/settings/populate-vehicle-settings.php"
-  var phprequest = new XMLHttpRequest();
-  phprequest.open("POST", url, true);
-  phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  phprequest.onreadystatechange = function(){
-    if(phprequest.readyState == 4 && phprequest.status == 200){
-      var return_data = phprequest.responseText;
-      document.getElementById("edit-vehicles").innerHTML = return_data;
-    }
-  }
-  phprequest.send("hash="+carHash);
-}
-</script>
-
-<script type="text/javascript">
-
 var carId;
 
+//Sets selected vehicle hash and highlights image
 function photoSelected(vehicleHash,elem){
   carId = vehicleHash;
   var div = document.getElementsByClassName('photo-container')
@@ -257,8 +191,9 @@ function photoSelected(vehicleHash,elem){
   }
   selected.classList.add('selected')
 }
-var basic;
 
+var basic;
+//Initializes coppie instance 
 function setDefault(){
   if(carId != undefined){
     //If basic croppie instance already exists, destroy it
@@ -289,24 +224,84 @@ function setDefault(){
   }
 }
 
+//Uploads cropped image 
 function uploadDefaultPhoto(){
   basic.croppie('result','html').then(function(result){
-      var html;
-  if (result.html) {
-      html = result.html;
-    }
-    if (result.src) {
-      html = '<img src="' + result.src + '" width="200px"/>';
-      alert(html);
-    }
-    $("#demo-basic").html(html);
   });
-
-
-
 }
 
 function deletePhoto(){
 
+}
+</script>
+
+
+
+<!--Popout menu script -->
+<script type="text/javascript">
+var div1 = document.getElementById('propic');
+var data1 = document.getElementById('popout-menu');
+div1.addEventListener("click", function() {
+        if(data1.style.display !== 'none'){
+      data1.style.display = 'none';
+    }
+    else{
+      data1.style.display = 'block';
+    }
+}, false);
+</script>
+
+<!--Search Bar Script -->
+<script type="text/javascript">
+var div2 = document.getElementById('search-button');
+var data2 = document.getElementById('search-bar');
+div2.addEventListener("click", function() {
+        if(data2.style.display !== 'none'){
+      data2.style.display = 'none';
+    }
+    else{
+      data2.style.display = 'block';
+    }
+}, false);
+</script>
+
+
+<script type="text/javascript">
+  var profile = document.getElementById('edit-profile');
+  var following = document.getElementById('edit-following');
+  var vehicles = document.getElementById('edit-vehicles');
+
+  function showSetting(target){
+    if(target == "profile"){
+      profile.style.display = 'block';
+      following.style.display = 'none';
+      vehicles.style.display = 'none';
+    }
+    else if(target == "following"){
+      profile.style.display = 'none';
+      following.style.display = 'block';
+      vehicles.style.display = 'none';
+    }
+    else if(target == "vehicles"){
+      profile.style.display = 'none';
+      following.style.display = 'none';
+      vehicles.style.display = 'block';
+    }
+  }
+</script>
+
+<script type="text/javascript">
+function carStuff(carHash){
+  var url="../php/settings/populate-vehicle-settings.php"
+  var phprequest = new XMLHttpRequest();
+  phprequest.open("POST", url, true);
+  phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  phprequest.onreadystatechange = function(){
+    if(phprequest.readyState == 4 && phprequest.status == 200){
+      var return_data = phprequest.responseText;
+      document.getElementById("edit-vehicles").innerHTML = return_data;
+    }
+  }
+  phprequest.send("hash="+carHash);
 }
 </script>
