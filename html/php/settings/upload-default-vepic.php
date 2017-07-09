@@ -11,8 +11,7 @@ if(isset($_POST['imagebase64'])){
     file_put_contents('../../uploads/vehicles/'.$d.'.png', $data);
     echo json_encode($d);
 
-     //Add photo to user entry
-    $username = $_SESSION['token'];
+    $carHash = substr($_POST['vehicleID'], 0,strrpos($_POST['vehicleID'], "."));
 	// Create connection
 	$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
@@ -25,6 +24,7 @@ if(isset($_POST['imagebase64'])){
     $result = $conn->query($sql);
         if ($conn->query($sql) === TRUE) {
         echo "Settings saved successfully";
+        echo "Error: " . $sql . "<br>" . $conn->error;
 
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
