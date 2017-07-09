@@ -102,7 +102,7 @@
 <p>&copy; 2017 FBMotors Inc. All Rights Reserved.</p>
 </div>
 
-<div id="thecontainer">
+<div id="croppie-container">
 <div id="demo-basic">
 </div>
 </div>
