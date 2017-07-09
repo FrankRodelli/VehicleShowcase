@@ -58,9 +58,10 @@
 		    	echo ')"><div id="photo'.$photoCounter.'" class="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
 		    	$photoCounter++;
 		    }
-		    echo '<br><button onclick="setDefault()">Set Default</button><button class="basic-result">Save</button></div><div id="croppie-container">
+		    echo '<br><button onclick="setDefault()">Set Default</button></div><div id="croppie-container">
 <div id="demo-basic">
 </div>
+<button class="basic-result">Save</button>
 </div>';
 		}
 
