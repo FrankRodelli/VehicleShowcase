@@ -248,7 +248,7 @@ function carStuff(carHash){
 
 var carId;
 
-function vehicleSelected(vehicleHash,elem){
+function photoSelected(vehicleHash,elem){
   carId = vehicleHash;
   var div = document.getElementsByClassName('photo-container')
   var selected = document.getElementById(elem)
@@ -259,8 +259,8 @@ function vehicleSelected(vehicleHash,elem){
 }
 
 function setDefault(){
-  
-if(carId != undefined){
+  if(carId != undefined){
+    basic.croppie('destroy');
     var basic = $('#demo-basic').croppie({
       viewport: {
         width: 500,
@@ -281,5 +281,9 @@ if(carId != undefined){
   }else{
     alert('Select photo to make default');
   }
+}
+
+function deletePhoto(){
+
 }
 </script>
