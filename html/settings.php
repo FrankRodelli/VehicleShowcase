@@ -190,6 +190,8 @@ $(function(){
         height: 250
       }
     });
+    basic.croppie('setZoom','0.1');
+
 
     $('#upload').on('change', function () { 
       $(".crop").show();
