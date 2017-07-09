@@ -1,4 +1,6 @@
 <?php
+include('../auth.php');
+include 'post-vehicle-settings.php';
 
 if(isset($_POST['edit'])){
 	echo $_POST[''];
@@ -15,7 +17,7 @@ if(isset($_POST['edit'])){
 	$resultcars = $conncars->query($sqlcars);
 	$numberofcars = 0;
 	if ($resultcars->num_rows > 0) {
-
+		echo '<div class="form-style-2-heading">Edit Vehicles</div>';
 	    // output data of each row
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];

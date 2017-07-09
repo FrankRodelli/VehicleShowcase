@@ -38,7 +38,6 @@
 
 <?php include("php/header.php"); ?>
 
-
 <div id="page-wrapper">
 <div id="container">
 
@@ -87,10 +86,6 @@
 
 <div id="edit-vehicles" style="display: none;">
 <div id="vehicles">
-<div class="form-style-2-heading">Edit Vehicles</div>
-<!--Populates div with vehicles-->
-<?php include 'php/settings/populate-vehicles.php';?>
-<?php include 'php/settings/post-vehicle-settings.php';?>
 
 </div>
 </div>
@@ -306,6 +301,15 @@ div2.addEventListener("click", function() {
       profile.style.display = 'none';
       following.style.display = 'none';
       vehicles.style.display = 'block';
+      $.ajax({
+        url: 'php/settings/populate-vehicles.php',
+        type: 'POST',
+        success:function(data)
+        {
+          $('#vehicles').html(data);
+          console.log(data);
+        }
+      });
     }
   }
 </script>
@@ -321,7 +325,7 @@ function carStuff(carHash){
   phprequest.onreadystatechange = function(){
     if(phprequest.readyState == 4 && phprequest.status == 200){
       var return_data = phprequest.responseText;
-      document.getElementById("edit-vehicles").innerHTML = return_data;
+      document.getElementById("vehicles").innerHTML = return_data;
     }
   }
   phprequest.send("hash="+carHash);
