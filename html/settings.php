@@ -190,8 +190,6 @@ $(function(){
         height: 250
       }
     });
-    basic.croppie('setZoom','0.1');
-
 
     $('#upload').on('change', function () { 
       $(".crop").show();
@@ -277,6 +275,8 @@ function setDefault(){
     basic.croppie('bind', {
         url: '../uploads/vehicles/'+carId,
         points: [77,469,280,739]
+    }).then(function(){
+      basic.croppie('setZoom', 0)
     });
 
     //on button click
