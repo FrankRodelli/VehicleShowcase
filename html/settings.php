@@ -252,7 +252,11 @@ function carStuff(carHash){
 </script>
 
 <script type="text/javascript">
-function displayCarID(carHash,elem){
+
+var carId;
+
+function vehicleSelected(vehicleHash,elem){
+  carId = vehicleHash;
   var div = document.getElementsByClassName('photo-container')
   var selected = document.getElementById(elem)
   for (i=0; i < div.length; i++){
@@ -260,6 +264,12 @@ function displayCarID(carHash,elem){
   }
   selected.classList.add('selected')
 }
+
+function setDefault(){
+  alert(carId);
+}
+
+
 </script>
 
 <script type="text/javascript">
