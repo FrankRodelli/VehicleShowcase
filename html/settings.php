@@ -218,6 +218,7 @@ function setDefault() {
             success:function(data)
             {
               console.log(data);
+              basic.croppie('destroy');
             }
           });
         });
