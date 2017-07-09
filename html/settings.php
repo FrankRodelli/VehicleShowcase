@@ -85,6 +85,7 @@
 </div>
 
 <div id="edit-vehicles" style="display: none;">
+<?php include('php/settings/post-vehicle-settings.php'); ?>
 <div id="vehicles">
 
 </div>

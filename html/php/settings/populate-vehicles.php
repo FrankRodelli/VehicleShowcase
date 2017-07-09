@@ -1,7 +1,5 @@
 <?php
 include('../auth.php');
-include 'post-vehicle-settings.php';
-
 if(isset($_POST['edit'])){
 	echo $_POST[''];
 }
