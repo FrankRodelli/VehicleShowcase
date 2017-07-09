@@ -289,6 +289,13 @@ function setDefault(){
   }
 }
 
+function uploadDefaultPhoto(){
+  basic.croppie('result','html').then(function(blob){
+    alert(blob)
+  });
+
+}
+
 function deletePhoto(){
 
 }
