@@ -53,10 +53,16 @@ if($result->num_rows == 1){
     	while($row1 = $result1->fetch_assoc()) {
     		$followers++;
     	}
-    	echo '<a href="#">Followers('.$followers.')';
+    	echo '<a href="#">Followers('.$followers.')</a>';
     }
 
-	echo'</a><br>
+    if($username != $loggedinuser){
+    	echo 'this is not you';
+    }else{
+    	echo 'this is you';
+    }
+
+	echo'<br>
 	<button onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
 	</div>
 	</div>';

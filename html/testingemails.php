@@ -5,7 +5,7 @@
 require("sendgrid-php/sendgrid-php.php");
 $from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
 $subject = "Email Verification";
-$to = new SendGrid\Email("Jake L", "glenn.helping@");
+$to = new SendGrid\Email("Jake L", "glenn.helping@gmail.com");
 $content = new SendGrid\Content("text/plain", "Hi, here is the link. ");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 $apiKey = getenv('SENDGRID_API_KEY');
