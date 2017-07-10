@@ -65,6 +65,9 @@ a{
 #follow-button:focus {
 	outline: none;
 }
+#follow-button:hover{
+	background-color: #66e674 !important;
+}
 
 #unfollow-button {
     width: 75%;
@@ -81,18 +84,38 @@ a{
 #unfollow-button:hover {
 	background-color: #e45656 !important;
 }
-#unfollow-button:hover:span {
+#unfollow-button:hover span {
 	display: none;
 }
 #unfollow-button:hover:before {
-	content: 'Unfollow?';
+	content: 'Unfollow ';
 }
-
+#unfollow-button:hover:after {
+	content: '?';
+}
 .followed {
 	background-color: #66e674 !important;
 }
 .followed span{
 	display: none;
+}
+#unfollowed-button {
+    width: 75%;
+    padding: 15px;
+    background-color: #6b7c8c;
+    border: 0;
+    color: #ffffff;
+    margin: 2% 0;
+    border-radius: 5px;
+}
+#unfollowed-button:focus {
+	outline: none;
+}
+.unfollowed:before{
+	content: 'You Unfollowed '
+}
+.unfollowed:after {
+	content: ' ✖';
 }
 .unfollowed {
 	background-color: #e45656 !important;

@@ -104,7 +104,7 @@ function followUser(){
 	});
 	var button = document.getElementById('follow-button');
 	button.className = "followed";
-	button.innerText = "Followed! ✔";
+	button.innerText = "Following! ✔";
 	button.onclick = "";
 }
 
@@ -121,7 +121,7 @@ function unFollowUser(){
 	});
 	var button = document.getElementById('unfollow-button');
 	button.className = "unfollowed";
-	button.innerText = "Unfollowed! ✖";
+	button.id ="unfollowed-button"
 	button.onclick = "";
 }
 
