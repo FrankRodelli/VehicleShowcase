@@ -103,6 +103,11 @@ function followUser(){
 		  console.log(data);
 		}
 	});
+
+	var button = document.getElementById('follow-button');
+	button.className = "followed";
+	button.innerText = "Followed! ✔";
+	button.onclick = "";
 }
 
 </script>

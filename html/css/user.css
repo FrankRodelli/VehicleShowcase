@@ -64,8 +64,7 @@ a{
 }
 
 .followed {
-	background-color: #66e674;
-	content: "Followed! ✔";
+	background-color: #66e674 !important;
 }
 
 .followed span{
