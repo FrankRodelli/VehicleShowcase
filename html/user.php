@@ -75,6 +75,7 @@ div1.addEventListener("click", function() {
 		}
 }, false);
 </script>
+
 <script type="text/javascript">
 var div2 = document.getElementById('search-button');
 var data2 = document.getElementById('search-bar');
@@ -86,14 +87,14 @@ div2.addEventListener("click", function() {
 			data2.style.display = 'block';
 		}
 }, false);
-</script>
 
-<script type="text/javascript">
 
-function followUser(){
 
-	var uname = "<?php echo $username ?>";
-	alert(uname);
+var uname = "<?php echo $username; ?>";
+
+function follow(){
+
+	console.log(uname);
 	/*$.ajax({
 		url: 'php/user/follow.php',
 		type: 'POST',
@@ -106,4 +107,5 @@ function followUser(){
 		}
 	});*/
 }
+
 </script>
