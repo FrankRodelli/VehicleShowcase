@@ -21,7 +21,7 @@
 
     $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='' AND VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
     if($conn->query($sql) === TRUE){
-        echo 'email verified successfuly';
+        header("Location: index.php");
 
     }else{
         echo "Error: " . $sql . "<br>" . $conn->error;
