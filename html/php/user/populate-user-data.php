@@ -72,7 +72,7 @@ if($result->num_rows == 1){
 	    if($isUserFollowing){
 	    	echo '<br>
 	    	<div id="button-container">
-			<button id="unfollow-button" onclick="unFollowUser()" ><span>Following! ✔</span></button></div></div></div>';
+			<button class="followed" id="unfollow-button" onclick="unFollowUser()" ><span>Following! ✔</span></button></div></div></div>';
 
 	    }else{
 		    echo'<br>

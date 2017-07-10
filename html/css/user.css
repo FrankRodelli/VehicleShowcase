@@ -96,9 +96,7 @@ a{
 .followed {
 	background-color: #66e674 !important;
 }
-.followed span{
-	display: none;
-}
+
 #unfollowed-button {
     width: 75%;
     padding: 15px;
@@ -112,7 +110,7 @@ a{
 	outline: none;
 }
 .unfollowed:before{
-	content: 'You Unfollowed '
+	content: 'Unfollowed '
 }
 .unfollowed:after {
 	content: ' ✖';
