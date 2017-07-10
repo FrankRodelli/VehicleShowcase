@@ -69,10 +69,19 @@ if($result->num_rows == 1){
 	    	}
 	    }
 
-    	echo'<br>
-		<button onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
-		</div>
-		</div>';
+	    if($isUserFollowing){
+	    	echo '<br>
+	    	<div id="button-container">
+			<button class="follow-button" onclick="unFollowUser()" >You follow '.$row["FIRSTNAME"] .'</button></div></div></div>';
+
+	    }else{
+		    echo'<br>
+		    <div id="button-container">
+			<button class="follow-button" onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
+			</div>
+			</div>
+			</div>';
+	    }
     }else{
     	echo '</div></div>';
     }
