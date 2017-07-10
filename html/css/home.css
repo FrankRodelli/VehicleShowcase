@@ -164,8 +164,7 @@ textarea:focus{
 	float: left;
 }
 .post-comment {
-	float: right;
-	border: none;
+
 }
 .post-comment textarea {
 	   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -174,6 +173,17 @@ textarea:focus{
 	width: 540px;
 	vertical-align: center;
 	resize: none;
+	margin-left: 5px;
+}
+.post-comment input {
+	float: right;
+	height: 36px;
+	padding: 7px;
+	background-color: #6b7c8c;
+	border: 0;
+	color: #fff;
+	cursor: pointer;
+	transition: .5s;
 }
 
 /*CSS for populated comments*/
@@ -181,8 +191,8 @@ textarea:focus{
 	margin-top: 10px;
 }
 #comment {
-	height: 37px;
-	margin: 1%;
+	height: 50px;
+	padding: 5px;
 	border-bottom: 1px solid #ddd;
 }
 #comment-text a {
