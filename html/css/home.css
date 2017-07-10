@@ -55,16 +55,16 @@ h2 {
 }
 
 #upper-column img {
-    vertical-align: middle;
     max-height: 35px;
     border: 1px solid #ddd;
+    float: left;
+    margin: 2px;
 }
 
 
 .post-text {
 	float: left;
-	margin-top: 2.3%;
-	margin-left:  .5%;
+	margin-top: 7px;
 }
 .post-text textarea {
 	   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -74,9 +74,14 @@ h2 {
 	height: 50px;
 	vertical-align: center;
 	border-style: none;
+	resize: none;
+	font-size: 20px;
 }
 textarea:focus{
 	outline: 0;
+}
+.post-text input{
+	float: right;
 }
 
 #lower-column {
