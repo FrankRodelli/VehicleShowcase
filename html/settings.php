@@ -213,7 +213,6 @@ function setDefault() {
             data: {imagebase64: resp,vehicleID: vehicleID},
             success:function(data)
             {
-              console.log(data);
               basic.croppie('destroy');
             }
           });
@@ -304,7 +303,6 @@ div2.addEventListener("click", function() {
         success:function(data)
         {
           $('#following').html(data);
-          console.log(data);
         }
       });
     }
@@ -318,7 +316,6 @@ div2.addEventListener("click", function() {
         success:function(data)
         {
           $('#vehicles').html(data);
-          console.log(data);
         }
       });
     }

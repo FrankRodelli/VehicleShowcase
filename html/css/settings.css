@@ -253,11 +253,11 @@ button:focus {
 }
 
 .user {
-    width: 500px;
+    width: 480px;
     height: 75px;
     border: solid 1px #ddd;
     line-height: 75px;
-    margin: 1%;
+    margin: 10px;
 }
 .user a{
     float: left;
