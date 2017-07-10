@@ -47,6 +47,7 @@
 </center>
 
 <?php
+require("sendgrid-php.php");
 	//Creates session if one is not already active
 	if (!isset($_SESSION)) {
     session_start();
@@ -95,15 +96,19 @@ if($_POST && isset($_POST['register'])){
 		$to      = $email;
 	$subject = 'Email Verification for Showmeyouraxels';
 	$message = 'Hello ' . $fname . ' ' . $lname . 'Here is the verification link as requested. https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . ' ';
-	$headers = 'From: webmaster@showmeyouraxels.me' . "\r\n" .
-    'Reply-To: jake.lafountain@gmail.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-$success = mail($to, $subject, $message);
-if(!$success){
-	$errorMessage = error_get_last()['message'];
-	print_r(error_get_last());
-	echo $errorMessage;
-}
+
+require("sendgrid-php/sendgrid-php.php");
+$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
+$subject = "Email Verification for Showmeyouraxels";
+$to = new SendGrid\Email($fname . " " . $lname, $email);
+$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . 'Here is the verification link as requested. <a href="https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '"> https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '</a></body></html>');
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = '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';
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+echo $response->statusCode();
+print_r($response->headers());
+echo $response->body();
 		echo "Please check your email for the link to verify your email.";
 
 

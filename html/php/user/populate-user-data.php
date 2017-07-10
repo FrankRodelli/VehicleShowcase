@@ -62,8 +62,8 @@ if($result->num_rows == 1){
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 	    	// output data of each row
-	    	while($row = $result->fetch_assoc()) {
-	    		if($row['USER'] = $loggedinuser){
+	    	while($row1 = $result->fetch_assoc()) {
+	    		if($row1['USER'] = $loggedinuser){
 	    			$isUserFollowing = true;
 	    		}
 	    	}
@@ -80,7 +80,15 @@ if($result->num_rows == 1){
 			<button class="follow-button" onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
 			</div>
 			</div>
-			</div>';
+			</div>
+
+			<a class="button" href="#" role="button">
+				<span>remove</span>
+				<div class="icon">
+					<i class="fa fa-remove"></i>
+					<i class="fa fa-check"></i>
+				</div>
+			</a>';
 	    }
     }else{
     	echo '</div></div>';

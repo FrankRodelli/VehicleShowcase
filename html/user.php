@@ -106,3 +106,13 @@ function followUser(){
 }
 
 </script>
+
+<script type="text/coffeescript">
+	removeSuccess = ->
+	$('.button').removeClass 'success'
+
+$(document).ready ->
+	$('.button').click ->
+		$(@).addClass 'success'
+		setTimeout removeSuccess, 3000
+</script>
