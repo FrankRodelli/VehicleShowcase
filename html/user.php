@@ -87,25 +87,22 @@ div2.addEventListener("click", function() {
 			data2.style.display = 'block';
 		}
 }, false);
+</script>
 
+<script type="text/javascript">
 
-
-var uname = "<?php echo $username; ?>";
-
-function follow(){
-
-	console.log(uname);
-	/*$.ajax({
+function followUser(){
+	var uname = "<?php echo $username; ?>";
+	$.ajax({
 		url: 'php/user/follow.php',
 		type: 'POST',
 
-		data: {imagebase64: resp,vehicleID: vehicleID},
+		data: {username: uname},klkmn
 		success:function(data)
 		{
 		  console.log(data);
-		  basic.croppie('destroy');
 		}
-	});*/
+	});
 }
 
 </script>

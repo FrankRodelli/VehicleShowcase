@@ -57,7 +57,7 @@ if($result->num_rows == 1){
     }
 
 	echo'</a><br>
-	<button onclick="follow()" >Follow '.$row["FIRSTNAME"] .'!</button>
+	<button onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
 	</div>
 	</div>';
 }
