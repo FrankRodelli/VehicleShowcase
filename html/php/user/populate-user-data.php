@@ -57,14 +57,24 @@ if($result->num_rows == 1){
     }
 
     if($username != $loggedinuser){
-    	echo 'this is not you';
-    }else{
-    	echo 'this is you';
-    }
+		$isUserFollowing = false;
+	    $sql = "SELECT * FROM IsFollowing WHERE FOLLOWING = '$username'";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+	    	// output data of each row
+	    	while($row = $result->fetch_assoc()) {
+	    		if($row['USER'] = $loggedinuser){
+	    			$isUserFollowing = true;
+	    		}
+	    	}
+	    }
 
-	echo'<br>
-	<button onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
-	</div>
-	</div>';
+    	echo'<br>
+		<button onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
+		</div>
+		</div>';
+    }else{
+    	echo '</div></div>';
+    }
 }
 ?>
