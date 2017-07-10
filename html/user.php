@@ -90,7 +90,6 @@ div2.addEventListener("click", function() {
 </script>
 
 <script type="text/javascript">
-var button = document.getElementById('follow-button');
 var uname = "<?php echo $username; ?>";
 function followUser(){
 	$.ajax({
@@ -103,7 +102,7 @@ function followUser(){
 		  console.log(data);
 		}
 	});
-
+	var button = document.getElementById('follow-button');
 	button.className = "followed";
 	button.innerText = "Followed! ✔";
 	button.onclick = "";
@@ -120,7 +119,7 @@ function unFollowUser(){
 	  console.log(data);
 	}
 	});
-
+	var button = document.getElementById('unfollow-button');
 	button.className = "unfollowed";
 	button.innerText = "Unfollowed! ✖";
 	button.onclick = "";

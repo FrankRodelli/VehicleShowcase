@@ -65,6 +65,29 @@ a{
 #follow-button:focus {
 	outline: none;
 }
+
+#unfollow-button {
+    width: 75%;
+    padding: 15px;
+    background-color: #6b7c8c;
+    border: 0;
+    color: #ffffff;
+    margin: 2% 0;
+    border-radius: 5px;
+}
+#unfollow-button:focus {
+	outline: none;
+}
+#unfollow-button:hover {
+	background-color: #e45656 !important;
+}
+#unfollow-button:hover:span {
+	display: none;
+}
+#unfollow-button:hover:before {
+	content: 'Unfollow?';
+}
+
 .followed {
 	background-color: #66e674 !important;
 }

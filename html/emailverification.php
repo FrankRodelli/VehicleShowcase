@@ -28,13 +28,14 @@
                     $_SESSION['token'] = $cookie;
                     $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='NULL' WHERE VERIFICATIONLINKCODE = '$emailcode'";
                     $result = $conn->query($sql);
+                    $sql = "SELECT * FROM `UserList` WHERE VERIFICATIONLINKCODE = '$emailcode'";
+                    $result = $conn->query($sql);
                     if($result->num_rows == 1){
                         echo 'You are logged in, you will be redirected to our home page in 5 seconds, if not, click <a href="../index.php"> this link</a>';
                         header( "refresh:5;url=index.php" );
                     }else{
                         echo 'A error has occured, please contact support for more information';
                         echo "Error: " . $sql . "<br>" . $conn->error;
-
                     }
         }else{
             echo 'A problem has occured, please contact our support.';
