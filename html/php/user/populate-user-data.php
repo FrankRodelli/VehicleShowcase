@@ -80,15 +80,7 @@ if($result->num_rows == 1){
 			<button class="follow-button" onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
 			</div>
 			</div>
-			</div>
-
-			<a class="button" href="#" role="button">
-				<span>remove</span>
-				<div class="icon">
-					<i class="fa fa-remove"></i>
-					<i class="fa fa-check"></i>
-				</div>
-			</a>';
+			</div>';
 	    }
     }else{
     	echo '</div></div>';
