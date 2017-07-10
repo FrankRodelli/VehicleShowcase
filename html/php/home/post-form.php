@@ -31,6 +31,7 @@ echo '
 </div>
 <div id="lower-column">
 <input type="file" name="file" id="file" />
+<label for="file">Upload a Picture or Video!</label>
 </form>
 </div>
 </div>';
