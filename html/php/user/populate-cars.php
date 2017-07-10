@@ -26,10 +26,4 @@ $loggedinuser = $_SESSION["token"];
 	    echo '<br>You do not have any cars added yet! Add one <a href="../add.php">here!</a>';
 	}
 	$conncars->close();
-
-if($_POST && isset($_POST['follow'])){
-    $sql = "INSERT INTO `IsFollowing` (`USER`, `FOLLOWING`) VALUES ('$loggedinuser','$username')";
-    $result = $conn->query($sql);
-}
-$conn->close();
 ?>
