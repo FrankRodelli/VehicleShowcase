@@ -244,10 +244,26 @@ button:focus {
 
 }
 
-#croppie-container {
+.croppie-container {
     width: 500px;
     height: 281px;
     position: fixed;
     top: 420px;
     right: 125px;
+}
+
+.user {
+    width: 500px;
+    height: 75px;
+    border: solid 1px #ddd;
+    line-height: 75px;
+    margin: 1%;
+}
+.user a{
+    float: left;
+    margin-left: 5px;
+}
+.user img{
+    height: 75px;
+    float: left;
 }

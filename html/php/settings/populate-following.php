@@ -17,7 +17,15 @@ include('../auth.php');
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
 	    	$followedUser = $row['FOLLOWING'];
-	    	$sqluser = "SELECT * FROM UserList WHERE UUID = '$followedUser'"
+	    	$sqluser = "SELECT * FROM UserList WHERE UUID = '$followedUser'";
+	    	$resultuser = $conn->query($sqluser);
+	    	if ($resultuser->num_rows > 0){
+	    		while($userrow = $resultuser->fetch_assoc()) {
+	    			echo '<div class="user"><img src="uploads/users/'.$userrow['PICTURE'].'"><a>'.$userrow['FIRSTNAME'].' '.$userrow['LASTNAME'].'</a></div>';
+	    		}
+	    	}else{
+	    		echo "You aren't following anyone yet!";
+	    	}
 	    	
 	    }
 	}else{
