@@ -18,7 +18,7 @@
         
         $emailcode = $conn->real_escape_string($_GET['v']);
         //Check if credentials match database and login accordingly
-        $sql = "SELECT * FROM UserList WHERE VERIFICATIONLINKCODE = '$emailcode'";
+        $sql = "SELECT * FROM `UserList` WHERE VERIFICATIONLINKCODE = '$emailcode'";
 
         //set querry data to result variable
         $result = $conn->query($sql);
@@ -26,7 +26,7 @@
         if($result->num_rows == 1){
                     $cookie = $row['UUID'];
                     $_SESSION['token'] = $cookie;
-                    $sql = "UPDATE UserList SET VERIFICATIONLINKCODE='NULL' WHERE VERIFICATIONLINKCODE = '$emailcode'";
+                    $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='NULL' WHERE VERIFICATIONLINKCODE = '$emailcode'";
                     $result = $conn->query($sql);
                     if($result->num_rows == 1){
                         echo 'You are logged in, you will be redirected to our home page in 5 seconds, if not, click <a href="../index.php"> this link</a>';

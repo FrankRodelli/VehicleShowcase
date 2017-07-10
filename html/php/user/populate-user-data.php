@@ -44,7 +44,7 @@ if($result->num_rows == 1){
     	while($row1 = $result1->fetch_assoc()) {
     		$following++;
     	}
-    	echo '<a href="#">Following(' . $following . ')</a><br><title>'. $row['FIRSTNAME']. ' '.$row['LASTNAME'] .'</title>';
+    	echo '<a href="#">Following (' . $following . ')</a><br><title>'. $row['FIRSTNAME']. ' '.$row['LASTNAME'] .'</title>';
     }
     $sql1 = "SELECT * FROM IsFollowing WHERE FOLLOWING = '$username'";
 	$result1 = $conn->query($sql1);
@@ -53,7 +53,7 @@ if($result->num_rows == 1){
     	while($row1 = $result1->fetch_assoc()) {
     		$followers++;
     	}
-    	echo '<a href="#">Followers('.$followers.')</a>';
+    	echo '<a href="#">Followers ('.$followers.')</a>';
     }
 
     if($username != $loggedinuser){
