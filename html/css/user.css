@@ -62,12 +62,19 @@ a{
     margin: 2% 0;
     border-radius: 5px;
 }
-
+#follow-button:focus {
+	outline: none;
+}
 .followed {
 	background-color: #66e674 !important;
 }
-
 .followed span{
+	display: none;
+}
+.unfollowed {
+	background-color: #e45656 !important;
+}
+.unfollowed span{
 	display: none;
 }
 

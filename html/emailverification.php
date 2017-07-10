@@ -26,7 +26,7 @@
         if($result->num_rows == 1){
                     $cookie = $row['UUID'];
                     $_SESSION['token'] = $cookie;
-                    $sql = "UPDATE UserList SET VERIFICATIONLINKCODE='' WHERE VERIFICATIONLINKCODE = '$emailcode'";
+                    $sql = "UPDATE UserList SET VERIFICATIONLINKCODE='NULL' WHERE VERIFICATIONLINKCODE = '$emailcode'";
                     $result = $conn->query($sql);
                     if($result->num_rows == 1){
                         echo 'You are logged in, you will be redirected to our home page in 5 seconds, if not, click <a href="../index.php"> this link</a>';
