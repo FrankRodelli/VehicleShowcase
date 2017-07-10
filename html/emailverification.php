@@ -32,6 +32,7 @@
                     //update the code so no one else can use it
                     $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='NULL' AND VERIFIEDEMAIL = '1' WHERE VERIFICATIONLINKCODE = '$emailcode'";
                     $result = $conn->query($sql);
+                    //make sure it was removed
                     $sql = "SELECT * FROM `UserList` WHERE VERIFICATIONLINKCODE = '$emailcode'";
                     $result = $conn->query($sql);
                     if($result->num_rows == 1){

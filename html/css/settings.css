@@ -110,8 +110,9 @@
 }
 
 #edit-profile {
-    max-width: 70%;
-    margin: 0 11%;
+    max-width: 500px;
+    margin: 0 50px;
+    float: left;
 }
 
 #edit-vehicles {
@@ -121,9 +122,9 @@
 }
 
 #edit-following {
-    float: right;
-    max-width: 70%;
-    margin: 0 11%;
+    float: left;
+    max-width: 500px;
+    margin: 0 50px;
 }
 
 #vehicles {
