@@ -58,7 +58,7 @@ if($result->num_rows == 1){
 
 	echo'</a><br>
 	<form method = "POST" enctype = "multipart/form-data">
-	<input class="follow-button" type="submit" name="follow" value="Follow '.$row["FIRSTNAME"] .'!">
+	<button class="follow-button" onlick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
 	</form>
 	</div>
 	</div>';

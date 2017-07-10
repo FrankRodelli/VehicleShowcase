@@ -87,11 +87,23 @@ div2.addEventListener("click", function() {
 		}
 }, false);
 </script>
+
 <script type="text/javascript">
-function followUser() {
+
+function followUser(){
+
 	var uname = "<?php echo $username ?>";
-    
-    $.get("follow.php?f=" + uname);
-    return false;
+	alert(uname);
+	/*$.ajax({
+		url: 'php/user/follow.php',
+		type: 'POST',
+
+		data: {imagebase64: resp,vehicleID: vehicleID},
+		success:function(data)
+		{
+		  console.log(data);
+		  basic.croppie('destroy');
+		}
+	});*/
 }
 </script>
