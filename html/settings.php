@@ -80,7 +80,7 @@
 
 <div id="edit-following" style="display: none;">
 <div id="following">
-<div class="form-style-2-heading">Edit Following</div>
+
 </div>
 </div>
 
@@ -298,6 +298,15 @@ div2.addEventListener("click", function() {
       profile.style.display = 'none';
       following.style.display = 'block';
       vehicles.style.display = 'none';
+      $.ajax({
+        url: 'php/settings/populate-following.php',
+        type: 'POST',
+        success:function(data)
+        {
+          $('#following').html(data);
+          console.log(data);
+        }
+      });
     }
     else if(target == "vehicles"){
       profile.style.display = 'none';
