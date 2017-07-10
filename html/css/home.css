@@ -154,10 +154,10 @@ textarea:focus{
 /*CSS for posting comments*/
 #post-comment-container {
 	min-height: 37px;
-	background-color: white;
+	background-color: #f2f2f2;
 	float: left;
 	padding: 1%;
-	width: 98%;
+	width: 100%;
 }
 #post-comment-container img {
 	width: 37px;
@@ -189,6 +189,8 @@ textarea:focus{
 /*CSS for populated comments*/
 #comment-container {
 	margin-top: 10px;
+	background-color: #f2f2f2;
+	border-top: 2px solid #ddd;
 }
 #comment {
 	height: 50px;

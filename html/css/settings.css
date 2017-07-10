@@ -245,8 +245,8 @@ button:focus {
 }
 
 .croppie-container {
-    width: 500px;
-    height: 281px;
+    width: 500px !importnat;
+    height: 281px !importnat;
     position: fixed;
     top: 420px;
     right: 125px;
