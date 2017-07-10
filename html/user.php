@@ -94,10 +94,10 @@ div2.addEventListener("click", function() {
 function followUser(){
 	var uname = "<?php echo $username; ?>";
 	$.ajax({
-		url: 'php/user/follow.php',
+		url: '../php/user/follow.php',
 		type: 'POST',
 
-		data: {username: uname},klkmn
+		data: {username: uname},
 		success:function(data)
 		{
 		  console.log(data);
