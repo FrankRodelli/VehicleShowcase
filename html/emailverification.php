@@ -17,32 +17,13 @@
             }
         }
         
-        $emailcode = $conn->real_escape_string($_GET['v']);
-        //Check if the verification code matches anyone
-        $sql = "SELECT * FROM `UserList` WHERE VERIFICATIONLINKCODE = '$emailcode'";
+    $emailcode = $conn->real_escape_string($_GET['v']);
 
-        //set querry data to result variable
-        $result = $conn->query($sql);
-        //get row
-        $row = $result->fetch_assoc();
-        if($result->num_rows == 1){
-        	//set cookie and everything
-                    $cookie = $row['UUID'];
-                    $_SESSION['token'] = $cookie;
-                    //update the code so no one else can use it
-                    $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='NULL' AND VERIFIEDEMAIL = '1' WHERE VERIFICATIONLINKCODE = '$emailcode'";
-                    $result = $conn->query($sql);
-                    //make sure it was removed
-                    $sql = "SELECT * FROM `UserList` WHERE VERIFICATIONLINKCODE = '$emailcode'";
-                    $result = $conn->query($sql);
-                    if($result->num_rows == 1){
-						echo 'A error has occured, please contact support for more information';
-                    }else{
-                        echo 'You are logged in, you will be redirected to our home page in 5 seconds, if not, click <a href="../index.php"> this link</a>';
-                        header( "refresh:5;url=index.php" );
-                    }
-        }else{
-            echo 'A problem has occured, please contact our support.';
-        }
+    $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='' AND VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
+    if($conn->query($sql) === TRUE){
+        echo 'email verified successfuly';
 
-        ?>
+    }else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+?>
