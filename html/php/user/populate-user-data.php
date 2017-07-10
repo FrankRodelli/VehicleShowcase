@@ -77,7 +77,7 @@ if($result->num_rows == 1){
 	    }else{
 		    echo'<br>
 		    <div id="button-container">
-			<button class="follow-button" onclick="followUser()" >Follow '.$row["FIRSTNAME"] .'!</button>
+			<button id="follow-button" onclick="followUser()" ><span>Follow '.$row["FIRSTNAME"] .'!</span></button>
 			</div>
 			</div>
 			</div>';

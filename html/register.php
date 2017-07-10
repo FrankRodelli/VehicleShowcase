@@ -85,30 +85,23 @@ if($_POST && isset($_POST['register'])){
 	$occupation = $conn->real_escape_string($_POST['occupation']);
 	$dob = $conn->real_escape_string($_POST['dob']);
 	//Insert new user to database
-	if(is_null($email)){
-		echo "You will need to put a email in for verification purposes.";
+	if(is_null($email) || is_null($username) || is_null($password) || is_null($fname) || is_null($lname) || is_null($bio) || is_null($occupation) || is_null($dob) ){
+		echo "You will need to put all the information in.";
 	}else{
 	$sql = "INSERT INTO `UserList` (`EMAIL`, `USERNAME`, `PASSWORD`, `UUID`, `FIRSTNAME`, `LASTNAME`, `PICTURE`, `BIO`, `OCCUPATION`, `DOB`, `RATELIMITED`, `VERIFIEDEMAIL`, `VERIFICATIONLINKCODE`) VALUES ('$email', '$username', '$password', '$uuid', '$fname', '$lname', '', '$bio', '$occupation', '$dob', 0, 0, '$emailcode')";
 
 	if ($conn->query($sql) === TRUE) {
 		//$cookie = $uuid;
 		//$_SESSION['token'] = $cookie;	
-		$to      = $email;
-	$subject = 'Email Verification for Showmeyouraxels';
-	$message = 'Hello ' . $fname . ' ' . $lname . 'Here is the verification link as requested. https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . ' ';
-
 require("sendgrid-php/sendgrid-php.php");
 $from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
 $subject = "Email Verification for Showmeyouraxels";
 $to = new SendGrid\Email($fname . " " . $lname, $email);
-$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . 'Here is the verification link as requested. <a href="https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '"> https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '</a></body></html>');
+$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', here is the verification link as requested. <a href="https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '"> https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '</a></body></html>');
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 $apiKey = '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';
 $sg = new \SendGrid($apiKey);
 $response = $sg->client->mail()->send()->post($mail);
-echo $response->statusCode();
-print_r($response->headers());
-echo $response->body();
 		echo "Please check your email for the link to verify your email.";
 
 
