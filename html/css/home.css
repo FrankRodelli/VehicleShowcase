@@ -46,7 +46,7 @@ h2 {
 	float: left;
 	background-color: white;
 	border: 1px solid #ddd;
-
+	border-radius: 3px;
 }
 
 #upper-column {
@@ -76,6 +76,7 @@ h2 {
 	border-style: none;
 	resize: none;
 	font-size: 20px;
+	resize: none;
 }
 textarea:focus{
 	outline: 0;
@@ -111,8 +112,12 @@ textarea:focus{
 	z-index: -1;
 }
 #lower-column label{
-	margin-top: 7px;
+	margin-top: 8px;
 	cursor: pointer;
+	font-size: 13px;
+    font-weight: 700;
+    color: #6b7c8c;
+    display: inline-block;
 }
 
 /*CSS for Post items*/
@@ -123,6 +128,7 @@ textarea:focus{
 	background-color: white;
 	border: 1px solid #ddd;
 	text-align: left;
+	border-radius: 3px;
 }
 .post-pro-pic{
 	float: left;
