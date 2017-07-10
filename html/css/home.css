@@ -76,7 +76,6 @@ h2 {
 	border-style: none;
 	resize: none;
 	font-size: 20px;
-	resize: none;
 }
 textarea:focus{
 	outline: 0;
@@ -141,10 +140,12 @@ textarea:focus{
 #top-post {
 	margin: 1%;
 	height: 50px;
-	border-bottom: 2px solid #ddd;
 }
 #bottom-post {
-		margin: 0 1%;
+	margin: 0 1%;
+	font-size: 20px;
+	border-bottom: solid 2px #ddd;
+	padding-bottom: 5px;
 }
 .post-image {
 	width: 100%;
@@ -170,13 +171,14 @@ textarea:focus{
 	   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
-	width: 550px;
+	width: 540px;
 	vertical-align: center;
+	resize: none;
 }
 
 /*CSS for populated comments*/
 #comment-container {
-	
+	margin-top: 10px;
 }
 #comment {
 	height: 37px;
