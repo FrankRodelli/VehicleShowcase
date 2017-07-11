@@ -26,9 +26,32 @@ $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 		}
 
 if(isset($_POST['submit'])){
+	//checks passwordresetemail
 $passwordresetemail = $conn->real_escape_string($_POST['email']);
+if(is_null($passwordresetemail)){
+	echo 'You will need to enter a email';
 }else{
-	echo 'A email will need to be entered';
+$sql = "SELECT * FROM `UserList` WHERE `EMAIL`='$passwordresetemail'";
+
+$result = $conn->query($sql);
+ $row = $result->fetch_assoc();
+ $fname = $row["FIRSTNAME"];
+ $lname = $row["LASTNAME"];
+ $passwordcode = uniqid();
+if($result->num_rows == 1){
+
+	require("sendgrid-php/sendgrid-php.php");
+$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
+$subject = "Password Reset for Showmeyouraxels";
+$to = new SendGrid\Email($fname . " " . $lname, $passwordresetemail);
+$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', here is the password reset link as requested. <a href="https://showmeyouraxels.me/passwordreset.php?p=' . $passwordcode . '"> https://showmeyouraxels.me/passwordreset.php?p=' . $passwordcode . '</a></body></html>');
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = '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';
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+	echo 'If the email specified exists, a email was sent.';
+}else{
+	echo 'If the email specified exists, a email was sent.';
 }
 
 
