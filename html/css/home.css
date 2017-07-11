@@ -136,6 +136,7 @@ textarea:focus{
 }
 #post-info {
 	float: left;
+	margin-left: 5px;
 }
 #top-post {
 	margin: 1%;
