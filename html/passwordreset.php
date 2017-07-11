@@ -4,6 +4,7 @@
 <input name="submit" type="submit" value="Submit" />
 </form>
 
+</body>
 
 
 
@@ -57,5 +58,3 @@ $response = $sg->client->mail()->send()->post($mail);
 
 
 ?>
-
-</body>

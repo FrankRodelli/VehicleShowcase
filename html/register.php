@@ -93,15 +93,15 @@ if($_POST && isset($_POST['register'])){
 	if ($conn->query($sql) === TRUE) {
 		//$cookie = $uuid;
 		//$_SESSION['token'] = $cookie;	
-require("sendgrid-php/sendgrid-php.php");
-$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
-$subject = "Email Verification for Showmeyouraxels";
-$to = new SendGrid\Email($fname . " " . $lname, $email);
-$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', here is the verification link as requested. <a href="https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '"> https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '</a></body></html>');
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
-$apiKey = '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';
-$sg = new \SendGrid($apiKey);
-$response = $sg->client->mail()->send()->post($mail);
+		require("sendgrid-php/sendgrid-php.php");
+		$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
+		$subject = "Email Verification for Showmeyouraxels";
+		$to = new SendGrid\Email($fname . " " . $lname, $email);
+		$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', here is the verification link as requested. <a href="https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '"> https://showmeyouraxels.me/emailverification.php?v=' . $emailcode . '</a></body></html>');
+		$mail = new SendGrid\Mail($from, $subject, $to, $content);
+		$apiKey = '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';
+		$sg = new \SendGrid($apiKey);
+		$response = $sg->client->mail()->send()->post($mail);
 		echo "Please check your email for the link to verify your email.";
 
 
