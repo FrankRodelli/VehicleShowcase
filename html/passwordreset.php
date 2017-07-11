@@ -51,10 +51,11 @@ if(is_null($passwordresetemail)){
 		$sg = new \SendGrid($apiKey);
 		$response = $sg->client->mail()->send()->post($mail);
 		echo 'If the email specified exists, a email was sent.';
-	}else{
+	}
+}else{
 		echo 'If the email specified exists, a email was sent.';
 	}
-
+}
 
 
 ?>
