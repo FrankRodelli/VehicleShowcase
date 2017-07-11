@@ -197,6 +197,10 @@ if ($result->num_rows > 0) {
         echo '
 		</div>
 
+    <div id="like">
+    <img src="images/wheel.png">
+    </div>
+
     <div id="comment-container">';
 
   //Gets post id for comment form reference
