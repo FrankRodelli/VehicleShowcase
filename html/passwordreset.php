@@ -1,3 +1,12 @@
+<body>
+	<form method="POST" name="email">
+<input type="text" name="email" placeholder="email">
+<input name="submit" type="submit" value="Submit" />
+</form>
+
+
+
+
 <?php
 
 $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
@@ -16,10 +25,14 @@ $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 		}
 		}
 
-
-		
-
+if(isset($_POST['submit'])){
+$passwordresetemail = $conn->real_escape_string($_POST['email']);
+}else{
+	echo 'A email will need to be entered';
+}
 
 
 
 ?>
+
+</body>
