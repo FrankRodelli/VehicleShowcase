@@ -74,16 +74,16 @@ if($_POST && isset($_POST['register'])){
 		}
 		}
 
-	$username = $conn->real_escape_string($_POST['username']);
-	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
-	$uuid = uniqid();
-	$emailcode = uniqid();
-	$email = $conn->real_escape_string($_POST['email']);
-	$fname = $conn->real_escape_string($_POST['fname']);
-	$lname = $conn->real_escape_string($_POST['lname']);
-	$bio = $conn->real_escape_string($_POST['bio']);
-	$occupation = $conn->real_escape_string($_POST['occupation']);
-	$dob = $conn->real_escape_string($_POST['dob']);
+		$username = $conn->real_escape_string($_POST['username']);
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
+		$uuid = uniqid();
+		$emailcode = uniqid();
+		$email = $conn->real_escape_string($_POST['email']);
+		$fname = $conn->real_escape_string($_POST['fname']);
+		$lname = $conn->real_escape_string($_POST['lname']);
+		$bio = $conn->real_escape_string($_POST['bio']);
+		$occupation = $conn->real_escape_string($_POST['occupation']);
+		$dob = $conn->real_escape_string($_POST['dob']);
 	//Insert new user to database
 	if(is_null($email) || is_null($username) || is_null($password) || is_null($fname) || is_null($lname) || is_null($bio) || is_null($occupation) || is_null($dob) ){
 		echo "You will need to put all the information in.";
