@@ -248,6 +248,19 @@ function setDefault() {
 }
 carId = undefined;
 
+function uploadVePic(){
+  $.ajax({
+    url: 'php/settings/upload-vepic.php',
+    type: 'POST',
+
+    data: {imagebase64: resp,vehicleID: vehicleID},
+    success:function(data)
+    {
+      carStuff(vehicleID);
+    }
+  });
+
+}
 
 </script>
 
@@ -376,7 +389,7 @@ function loadFileSelect(){
       // Read in the image file as a data URL.
       reader.readAsDataURL(f);
     }
-    document.getElementById('upload-container').innerHTML = '<br><button>Upload</button>';
+    document.getElementById('upload-container').innerHTML = '<br><button onclick="uploadPropic()">Upload</button>';
   }
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
