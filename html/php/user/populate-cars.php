@@ -18,7 +18,11 @@ $loggedinuser = $_SESSION["token"];
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
 	    	echo '<div id="vehicle-item">';
+	    	if($rowcars['PHOTO'] != ""){
 	    		echo '<img src="../uploads/vehicles/'. $rowcars["PHOTO"] . '">';
+	    	}else{
+	    		echo '<img src="../images/DEFAULT-CAR.png">';
+	    	}
 	        echo '<div id="title"><a href="https://showmeyouraxels.me/vehicle.php/?c=' . $rowcars["HASH"] . '">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</a></div></div>';
 	    }
 

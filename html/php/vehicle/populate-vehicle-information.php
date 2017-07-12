@@ -20,7 +20,9 @@ if ($result->num_rows > 0) {
     	echo "<br>" . $row["DATE"] . " " . $row["MAKE"] . " " . $row["MODEL"];
 
     	//Obtains main picture for header
-    		echo '<br><img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" > <div class ="row" id="specs">
+    	echo '<br>'; echo '<img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" >';
+
+    	echo '<div class ="row" id="specs">
 		<img class="expand" id="specs-img" src="../images/plus.png">
 		<h2>Specifications</h2>
 
