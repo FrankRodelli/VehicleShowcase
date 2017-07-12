@@ -61,10 +61,10 @@
 		    echo '
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
-			<form method="post" action="upload-page.php" enctype="multipart/form-data">
-			<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" />
-			<label for="files">Upload a Photo..</label>
+			<form method="POST" enctype="multipart/form-data">
+			<input name="filesToUpload[]" id="files" type="file" multiple="multiple" />
 			</form>
+			<label for="files">Upload a Photo..</label>
 			<output id="list"></output>
 			<div id="upload-container">
 			</div>
