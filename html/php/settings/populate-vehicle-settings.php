@@ -61,7 +61,7 @@
 		    echo '
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
-			<input type="file" id="files" multiple />
+			<input type="file" name="attachments[]" id="files" multiple />
 			<label for="files">Upload a Photo..</label>
 			<output id="list"></output>
 			<div id="upload-container">
