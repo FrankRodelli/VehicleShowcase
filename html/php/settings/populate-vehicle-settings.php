@@ -45,9 +45,8 @@
 		<label><span>&nbsp;</span><input name="update-car-settings" type="submit" value="Save Changes" /></label>
 		<input type="hidden" name="carHash" value="'.$carHash.'"></form></div>';
     }
-
+    echo '<div id="vehicle-photos">';
     include('populate-vehicle-photos.php');
-
     echo '</div>';
 
 }else {
