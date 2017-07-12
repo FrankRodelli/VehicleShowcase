@@ -1,15 +1,11 @@
 <?php
 include("../auth.php");
+	echo $_POST['carID'];
 
 if(isset($_FILES['image'])){
-	echo 'are we even here';
-
    $total = count($_FILES['image']['name']);
       $errors= array();
       for($i=0; $i<$total; $i++) {
-
-      	echo 'how about here';
-
       $file_name = $_FILES['image']['tmp_name'][$i];
       $file_size = $_FILES['image']['size'][$i];
       $file_tmp = $_FILES['image']['tmp_name'][$i];
