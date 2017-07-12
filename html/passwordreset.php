@@ -48,7 +48,7 @@ if(is_null($passwordresetemail)){
 		$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
 		$subject = "Password Reset for Showmeyouraxels";
 		$to = new SendGrid\Email($fname . " " . $lname, $passwordresetemail);
-		$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', your temporary password is '. $passwordcode .'</body></html>');
+		$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', your temporary password is '. $passwordcode .' Please change the password after logging in.</body></html>');
 		$mail = new SendGrid\Mail($from, $subject, $to, $content);
 		$apiKey = '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';
 		$sg = new \SendGrid($apiKey);
