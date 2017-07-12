@@ -42,7 +42,7 @@ if(is_null($passwordresetemail)){
  		$passwordcode = uniqid();
 		$encpassword = password_hash($passwordcode, PASSWORD_DEFAULT, ['cost' => 12]);
 	if($result->num_rows == 1){
-		$sql = "UPDATE `UserList` SET `PASSWORD`='$encpassword' WHERE `EMAIL`='$passwordresetemail'"
+		$sql = "UPDATE `UserList` SET `PASSWORD`='$encpassword' WHERE `EMAIL`='$passwordresetemail'";
 	  if($conn->query($sql) === TRUE){
 
 		$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");

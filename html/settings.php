@@ -249,7 +249,8 @@ function setDefault() {
 carId = undefined;
 
 function uploadVePic(){
-  var files = document.getElementById("files").files;
+  var input = document.getElementById('filesToUpload');
+  var list = document.getElementById('fileList');
 
   $.ajax({
     url: 'php/settings/upload-vepic.php',
