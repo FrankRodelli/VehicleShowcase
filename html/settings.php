@@ -250,11 +250,11 @@ carId = undefined;
 
 function uploadVePic(){
   var formData = document.getElementById('files');
+  console.log(formData);
   $.ajax({
     url: 'php/settings/upload-vepic.php',
     type: 'POST',
-
-    data: formData,
+    data: {attachments: formData},
     processData: false,
     contentType: false,
     success:function(data)
