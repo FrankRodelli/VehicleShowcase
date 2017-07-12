@@ -64,6 +64,8 @@
 			<input type="file" id="files" multiple />
 			<label for="files">Upload a Photo..</label>
 			<output id="list"></output>
+			<div id="upload-container">
+			</div>
 			</div>
 
 			<div id="croppie-container">

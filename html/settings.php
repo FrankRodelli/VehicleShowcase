@@ -369,7 +369,6 @@ function loadFileSelect(){
             '" title="', escape(theFile.name), 
             '"/>'
           ].join('');
-          
           document.getElementById('list').insertBefore(span, null);
         };
       })(f);
@@ -377,6 +376,7 @@ function loadFileSelect(){
       // Read in the image file as a data URL.
       reader.readAsDataURL(f);
     }
+    document.getElementById('upload-container').innerHTML = '<br><button>Upload</button>';
   }
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
