@@ -1,6 +1,6 @@
 <?php
 include("../auth.php");
-	echo $_POST['carID'];
+	$carHash = $_POST['carID'];
 
 if(isset($_FILES['image'])){
    $total = count($_FILES['image']['name']);
@@ -46,7 +46,7 @@ if(isset($_FILES['image'])){
 		} else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
 		}
-		$sql = "INSERT INTO `PhotoLink` (`UNAME`, `FNAME`) VALUES ('ofwg','$newfilename')";
+		$sql = "INSERT INTO `PhotoLink` (`UNAME`, `FNAME`) VALUES ('$carHash','$newfilename')";
 
 		if ($conn->query($sql) === TRUE) {
 		} else {
