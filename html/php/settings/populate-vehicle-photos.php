@@ -12,9 +12,7 @@
 		    	echo ')"><div id="photo'.$photoCounter.'" class="photo-container"><img src="uploads/vehicles/'.$row['FNAME'].'"></div></a>';
 		    	$photoCounter++;
 		    }
-		}
-
-		echo '
+		    echo '
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
 			<form method="POST" id="vepics" enctype="multipart/form-data">
@@ -31,5 +29,15 @@
 			<div id="demo-basic">
 			<button class="basic-result">Save</button>
 			</div>';
+		}else{
+						echo '
+			<a>You have no pictures uploaded!</a>
+			<form method="POST" id="vepics" enctype="multipart/form-data">
+			<input name="image[]" id="files" type="file" multiple>
+			<input type="hidden" name="carID" value="'.$carHash.'">
+			</form></div>';
+		}
+
+
 
 ?>
