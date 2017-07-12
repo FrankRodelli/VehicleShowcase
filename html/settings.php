@@ -180,10 +180,6 @@ function setDefault() {
         viewport: {
           width: 500,
           height: 281
-        },
-        boundary: {
-          width: 500,
-          height: 281
         }
       });
       basic.croppie('bind', {
