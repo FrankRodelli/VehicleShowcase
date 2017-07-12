@@ -17,10 +17,15 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     $row = $result->fetch_assoc();
-    	echo "<br>" . $row["DATE"] . " " . $row["MAKE"] . " " . $row["MODEL"];
+    	echo "<br>" . $row["DATE"] . " " . $row["MAKE"] . " " . $row["MODEL"] .'<br>';
 
-    	//Obtains main picture for header
-    	echo '<br>'; echo '<img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" >';
+    	if($row['PHOTO'] != ""){
+    		//Obtains main picture for header
+    		 echo '<img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" >';
+    	}else{
+    		echo '<img src="../images/DEFAULT-CAR.png" width="200">';
+    	}
+
 
     	echo '<div class ="row" id="specs">
 		<img class="expand" id="specs-img" src="../images/plus.png">

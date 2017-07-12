@@ -20,7 +20,11 @@ if(isset($_POST['edit'])){
 	    while($rowcars = $resultcars->fetch_assoc()) {
 	    	$uuid = $rowcars ["HASH"];
 	    	echo '<div id="vehicle-item">';
-	    	echo '<img src="../uploads/vehicles/'. $rowcars["PHOTO"] . '" height="100">';
+	    	if($rowcars['PHOTO'] != ""){
+	    		echo '<img src="../uploads/vehicles/'. $rowcars["PHOTO"] . '" height="100">';
+	    	}else{
+	    		echo '<img src="../images/DEFAULT-CAR.png" height="100">';
+	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
 	        <a href="#" onclick="carStuff('; 
 	        echo "'".$rowcars['HASH']."'"; 
