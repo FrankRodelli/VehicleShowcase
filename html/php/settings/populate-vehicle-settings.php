@@ -46,8 +46,6 @@
 		<input type="hidden" name="carHash" value="'.$carHash.'"></form></div>';
     }
 
-    echo '<div id="vehicle-photos"><div class="form-style-2-heading">Photos</div>';
-
     include('populate-vehicle-photos.php');
 
     echo '</div>';

@@ -251,7 +251,6 @@ function setDefault() {
 function uploadVePic(){
 
   var formData = new FormData($("#vepics")[0]);
-  alert(carId);
 
   $.ajax({
     url: 'php/settings/upload-vepic.php',
@@ -266,11 +265,7 @@ function uploadVePic(){
       $.ajax({
         url: 'php/settings/populate-vehicle-photos.php',
         type: 'POST',
-        data: {carHash:carId},
-        mimeType: "multipart/form-data",
-        contentType: false,
-        cache: false,
-        processData: false,
+        data: {carHash:vehicleHashForPhotos},
         success:function(data)
         {
             console.log(data);
@@ -282,7 +277,7 @@ function uploadVePic(){
 }
 
 function carStuff(carHash){
-  vehicleID = carHash;
+  vehicleHashForPhotos= carHash;
   var url="../php/settings/populate-vehicle-settings.php"
   var phprequest = new XMLHttpRequest();
   phprequest.open("POST", url, true);
