@@ -281,6 +281,64 @@ function uploadVePic(){
 
 }
 
+function carStuff(carHash){
+  vehicleID = carHash;
+  var url="../php/settings/populate-vehicle-settings.php"
+  var phprequest = new XMLHttpRequest();
+  phprequest.open("POST", url, true);
+  phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  phprequest.onreadystatechange = function(){
+    if(phprequest.readyState == 4 && phprequest.status == 200){
+      var return_data = phprequest.responseText;
+      document.getElementById("vehicles").innerHTML = return_data;
+    }
+  }
+  phprequest.send("hash="+carHash);
+
+  window.setTimeout(loadFileSelect, 1000);
+
+
+}
+
+function loadFileSelect(){
+  function handleFileSelect(evt) {
+    var files = evt.target.files;
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = 
+          [
+            '<img style="height: 75px; border: 1px solid #000; margin: 5px" src="', 
+            e.target.result,
+            '" title="', escape(theFile.name), 
+            '"/>'
+          ].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+    document.getElementById('upload-container').innerHTML = '<br><button onclick="uploadVePic()">Upload</button>';
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+}
+
 </script>
 
 
@@ -356,61 +414,5 @@ div2.addEventListener("click", function() {
 
 <script type="text/javascript">
 var vehicleID;
-function carStuff(carHash){
-  vehicleID = carHash;
-  var url="../php/settings/populate-vehicle-settings.php"
-  var phprequest = new XMLHttpRequest();
-  phprequest.open("POST", url, true);
-  phprequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  phprequest.onreadystatechange = function(){
-    if(phprequest.readyState == 4 && phprequest.status == 200){
-      var return_data = phprequest.responseText;
-      document.getElementById("vehicles").innerHTML = return_data;
-    }
-  }
-  phprequest.send("hash="+carHash);
 
-  window.setTimeout(loadFileSelect, 1000);
-
-
-}
-
-function loadFileSelect(){
-  function handleFileSelect(evt) {
-    var files = evt.target.files;
-
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = files[i]; i++) {
-
-      // Only process image files.
-      if (!f.type.match('image.*')) {
-        continue;
-      }
-
-      var reader = new FileReader();
-
-      // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-        return function(e) {
-          // Render thumbnail.
-          var span = document.createElement('span');
-          span.innerHTML = 
-          [
-            '<img style="height: 75px; border: 1px solid #000; margin: 5px" src="', 
-            e.target.result,
-            '" title="', escape(theFile.name), 
-            '"/>'
-          ].join('');
-          document.getElementById('list').insertBefore(span, null);
-        };
-      })(f);
-
-      // Read in the image file as a data URL.
-      reader.readAsDataURL(f);
-    }
-    document.getElementById('upload-container').innerHTML = '<br><button onclick="uploadVePic()">Upload</button>';
-  }
-
-  document.getElementById('files').addEventListener('change', handleFileSelect, false);
-}
 </script>

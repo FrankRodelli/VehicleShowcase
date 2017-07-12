@@ -30,12 +30,14 @@
 			<button class="basic-result">Save</button>
 			</div>';
 		}else{
-						echo '
+			echo '
 			<a>You have no pictures uploaded!</a>
 			<form method="POST" id="vepics" enctype="multipart/form-data">
 			<input name="image[]" id="files" type="file" multiple>
 			<input type="hidden" name="carID" value="'.$carHash.'">
-			</form></div>';
+			</form><label for="files">Upload a Photo..</label>
+			<output id="list"></output>
+			</div>';
 		}
 
 
