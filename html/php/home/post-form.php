@@ -173,7 +173,13 @@ if ($result->num_rows > 0) {
     	$userresult = $conn->query($usersql);
 
     	while($userrow = $userresult->fetch_assoc()){
-    		echo '<a href="user.php/?u='.$userrow['UUID'].'"><img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'"></a><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div></div>';
+    		echo '<a href="user.php/?u='.$userrow['UUID'].'">';
+        if($userrow['PICTURE'] != ""){
+          echo '<img class="post-pro-pic" src="uploads/users/'. $userrow['PICTURE'] .'">';
+        }else{
+          echo '<img class="post-pro-pic" src="images/DEFAULT-PROPIC.png">';
+        }
+        echo '</a><div id="post-info"><a>'.$userrow['FIRSTNAME'] . ' ' . $userrow['LASTNAME'] .'</a><br><a>'. $newDate .'</a></div></div>';
     	}
 
 		echo '
@@ -228,8 +234,16 @@ if ($result->num_rows > 0) {
         //Display all comment information
         echo '
         <div id="comment"><div id="post-info">
-        <a href="user.php/?u='.$commentownerrow['UUID'].'"><img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'"></a>
-        <a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
+        <a href="user.php/?u='.$commentownerrow['UUID'].'">';
+
+        if($commentownerrow['PICTURE'] != ""){
+          echo '<img class="post-pro-pic" src="uploads/users/'.$commentownerrow['PICTURE'].'">';
+        }else{
+          echo '<img class="post-pro-pic" src="images/DEFAULT-PROPIC.png">';
+        }
+        
+
+        echo '</a><a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
         </div>
         <div id="comment-text"><a>'.$popcommentsrow['TEXT'].'</a></div></div>';
       }
