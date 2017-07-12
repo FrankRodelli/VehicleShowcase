@@ -61,9 +61,6 @@
 		    echo '
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
-			<input type="file" id="files" multiple />
-			<label for="files">Upload a Photo..</label>
-			<output id="list"></output>
 			</div>
 
 			<div id="croppie-container">
