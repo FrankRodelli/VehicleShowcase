@@ -59,9 +59,14 @@
 		    	$photoCounter++;
 		    }
 		    echo '
-		    <input type="file" name="file" id="file" />
-			<label for="file">Upload a Photo..</label>
-			<br><button onclick="setDefault()">Set Default</button><button>Delete</button></div><div id="croppie-container">
+		    <br>
+			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
+			<input type="file" id="files" multiple />
+			<label for="files">Upload a Photo..</label>
+			<output id="list"></output>
+			</div>
+
+			<div id="croppie-container">
 			<div id="demo-basic">
 			<button class="basic-result">Save</button>
 			</div>
