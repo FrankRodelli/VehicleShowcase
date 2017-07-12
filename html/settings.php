@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Home</title>
+<title>Settings</title>
 <link rel="shortcut icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css">
