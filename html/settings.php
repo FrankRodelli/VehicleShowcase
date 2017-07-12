@@ -255,7 +255,7 @@ function uploadVePic(){
   $.ajax({
     url: 'php/settings/upload-vepic.php',
     type: 'POST',
-    data: formData,
+    data: {formData,carID:vehicleID},
     mimeType: "multipart/form-data",
     contentType: false,
     cache: false,
