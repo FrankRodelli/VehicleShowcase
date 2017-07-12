@@ -158,6 +158,7 @@ $(function(){
 <!--Manages default photo for vehicle -->
 <script type="text/javascript">
 var carId;
+var vehicleHashForPhotos;
 
 //Sets selected vehicle hash and highlights image
 function photoSelected(vehicleHash,elem){
@@ -248,6 +249,8 @@ function setDefault() {
 }
 
 function uploadVePic(){
+  vehicleHashForPhotos = "<?php echo $vehicleHashForPhotos; ?>";
+  alert(vehicleHashForPhotos);
 
   var formData = new FormData($("#vepics")[0]);
   alert(carId);
