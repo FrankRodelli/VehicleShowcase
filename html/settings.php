@@ -249,8 +249,6 @@ function setDefault() {
 }
 
 function uploadVePic(){
-  vehicleHashForPhotos = "<?php echo $vehicleHashForPhotos; ?>";
-  alert(vehicleHashForPhotos);
 
   var formData = new FormData($("#vepics")[0]);
   alert(carId);

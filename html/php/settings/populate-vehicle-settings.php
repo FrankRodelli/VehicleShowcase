@@ -4,7 +4,6 @@
 
 <?php
 	$carHash = $_POST['hash'];
-	echo $carHash;
 	$connone = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
 	// Check connection

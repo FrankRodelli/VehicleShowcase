@@ -53,12 +53,12 @@ if(is_null($passwordresetemail)){
 		$apiKey = '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';
 		$sg = new \SendGrid($apiKey);
 		$response = $sg->client->mail()->send()->post($mail);
-		echo 'If the email specified exists, a email was sent.(email sent thru sendgrid)';
+		echo 'If the email specified exists, a email was sent.';
 	}else{
-		echo 'If the email specified exists, a email was sent.(2nd mysql)';
+		echo 'A error has occured, please contact support.';
 	}
 	}else{
-		echo 'If the email specified exists, a email was sent.(NO EMAIL FOUND OR MULTIPLE DEBUG MESSAGE, LEAVE OUT)';
+		echo 'If the email specified exists, a email was sent.';
 	}
 }
 }

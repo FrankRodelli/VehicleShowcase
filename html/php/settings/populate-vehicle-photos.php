@@ -1,5 +1,4 @@
 <?php
-		$vehicleHashForPhotos = $_POST['carHash'];
 		$connone = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 		$sql = "SELECT * FROM PhotoLink WHERE UNAME = '$carHash'";
 		$result = $connone->query($sql);
