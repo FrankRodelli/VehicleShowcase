@@ -61,7 +61,7 @@
 		    echo '
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
-			<form method="POST" enctype="multipart/form-data">
+			<form method="POST" id="vepics" enctype="multipart/form-data">
 			<input name="filesToUpload[]" id="files" type="file" multiple="multiple" />
 			</form>
 			<label for="files">Upload a Photo..</label>
