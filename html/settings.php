@@ -246,11 +246,11 @@ function setDefault() {
     alert('Select photo to set as default');
   }
 }
-carId = undefined;
 
 function uploadVePic(){
 
   var formData = new FormData($("#vepics")[0]);
+  alert(carId);
 
   $.ajax({
     url: 'php/settings/upload-vepic.php',
@@ -262,7 +262,19 @@ function uploadVePic(){
     processData: false,
     success:function(data)
     {
-        console.log(data);
+      $.ajax({
+        url: 'php/settings/populate-vehicle-photos.php',
+        type: 'POST',
+        data: {carHash:carId},
+        mimeType: "multipart/form-data",
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(data)
+        {
+            console.log(data);
+        }
+      });  
     }
   });
 
