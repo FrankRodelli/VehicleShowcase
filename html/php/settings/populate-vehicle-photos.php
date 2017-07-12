@@ -7,7 +7,7 @@
 		$sql = "SELECT * FROM PhotoLink WHERE UNAME = '$carHash'";
 		$result = $connone->query($sql);
 
-		echo '<div class="form-style-2-heading">Photos</div>';
+		echo '<div id="vehicle-photos"><div class="form-style-2-heading">Photos</div>';
 
 		if ($result->num_rows > 0) {
 				
@@ -36,6 +36,7 @@
 			<div id="demo-basic">
 			<button class="basic-result">Save</button>
 			</div>
+			</div>
 			</div>';
 		}else{
 			echo '
@@ -46,7 +47,7 @@
 			</form><label for="files">Upload a Photo..</label>
 			<output id="list"></output>
 			<div id="upload-container">
-			</div>';
+			</div></div>';
 		}
 
 
