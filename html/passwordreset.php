@@ -35,22 +35,28 @@ if(is_null($passwordresetemail)){
 		$sql = "SELECT * FROM `UserList` WHERE `EMAIL`='$passwordresetemail'";
 
 		$result = $conn->query($sql);
+
  		$row = $result->fetch_assoc();
  		$fname = $row["FIRSTNAME"];
  		$lname = $row["LASTNAME"];
  		$passwordcode = uniqid();
+		$encpassword = password_hash($passwordcode, PASSWORD_DEFAULT, ['cost' => 12]);
 	if($result->num_rows == 1){
+		$sql = "UPDATE `UserList` SET `PASSWORD`='$encpassword' WHERE `EMAIL`='$passwordresetemail'"
+	  if($conn->query($sql) === TRUE){
 
-	
 		$from = new SendGrid\Email("Showmeyouraxels Support", "support@showmeyouraxels.me");
 		$subject = "Password Reset for Showmeyouraxels";
 		$to = new SendGrid\Email($fname . " " . $lname, $passwordresetemail);
-		$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', here is the password reset link as requested. <a href="https://showmeyouraxels.me/passwordreset.php?p=' . $passwordcode . '"> https://showmeyouraxels.me/passwordreset.php?p=' . $passwordcode . '</a></body></html>');
+		$content = new SendGrid\Content("text/html", '<html> <head></head> <body> Hello ' . $fname . ' ' . $lname . ', your temporary password is '. $passwordcode .'</body></html>');
 		$mail = new SendGrid\Mail($from, $subject, $to, $content);
 		$apiKey = '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';
 		$sg = new \SendGrid($apiKey);
 		$response = $sg->client->mail()->send()->post($mail);
 		echo 'If the email specified exists, a email was sent.(email sent thru sendgrid)';
+	}else{
+		echo 'If the email specified exists, a email was sent.(2nd mysql)';
+	}
 	}else{
 		echo 'If the email specified exists, a email was sent.(NO EMAIL FOUND OR MULTIPLE DEBUG MESSAGE, LEAVE OUT)';
 	}

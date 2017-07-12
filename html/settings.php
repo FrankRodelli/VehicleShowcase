@@ -249,20 +249,18 @@ function setDefault() {
 carId = undefined;
 
 function uploadVePic(){
-  var formData = document.getElementById('files');
-  console.log(formData);
+  var files = document.getElementById("files").files;
+
   $.ajax({
     url: 'php/settings/upload-vepic.php',
     type: 'POST',
-    data: {attachments: formData},
-    processData: false,
-    contentType: false,
+
+    data: {attachments: files},
     success:function(data)
     {
-      alert(data);
+      console.log(data);
     }
   });
-
 }
 
 </script>
