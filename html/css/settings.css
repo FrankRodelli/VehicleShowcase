@@ -227,6 +227,22 @@ button:focus {
     right: 10%;
     top: 90px;
 }
+#vehicle-photos input{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+#vehicle-photos label{
+    margin-top: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7c8c;
+    display: inline-block;
+}
 
 #vehicle-photos img{
     width: 100px;
@@ -238,6 +254,7 @@ button:focus {
     margin: 2px;
     display: inline-block;
 }
+
 .selected {
     border: solid 2px #6b7c8c;
     margin: 0;
