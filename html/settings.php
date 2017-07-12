@@ -86,7 +86,6 @@
 
 <div id="edit-vehicles" style="display: none;">
 <?php include('php/settings/post-vehicle-settings.php'); ?>
-can you see this?
 <div id="vehicles">
 
 </div>
@@ -339,12 +338,12 @@ function carStuff(carHash){
   }
   phprequest.send("hash="+carHash);
 
+  window.setTimeout(loadFileSelect, 1000);
+
 
 }
 
 function loadFileSelect(){
-
-
   function handleFileSelect(evt) {
     var files = evt.target.files;
 
