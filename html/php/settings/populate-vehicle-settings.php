@@ -62,7 +62,7 @@
 		    <br>
 			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
 			<form method="POST" id="vepics" enctype="multipart/form-data">
-			<input name="filesToUpload[]" id="files" type="file" multiple="multiple" />
+			<input name="filesToUpload[]" id="files" type="file" multiple>
 			</form>
 			<label for="files">Upload a Photo..</label>
 			<output id="list"></output>

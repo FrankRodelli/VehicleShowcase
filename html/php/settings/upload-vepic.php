@@ -1,13 +1,8 @@
 <?php
 include("../auth.php");
-
-echo 'start here';
-
-foreach($_FILES['files'] as $key=>$value){
-	echo $key;
-	echo $value;
+echo 'here';
+foreach($_FILE['files']['name'] as $key=>$val){
+	echo 'anything?';
 }
-
-echo 'end here';
 	
 ?>
