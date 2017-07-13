@@ -89,6 +89,13 @@
 <div id="vehicles">
 
 </div>
+
+    <div id="croppie-container">
+      <div id="demo-basic">
+      <button class="basic-result">Save</button>
+      </div>
+      </div>
+
 </div>
 </div>
 </div>
@@ -101,59 +108,6 @@
 
 </body>
 </html>
-
-<!--Manages profile picture -->
-<script type="text/javascript">
-$(function(){
-  var $uploadCrop;
-    function readFile(input) {
-      if (input.files && input.files[0]) {
-              var reader = new FileReader();
-
-              reader.onload = function (e) {
-                $uploadCrop.croppie('bind', {
-                  url: e.target.result
-                });
-                $('.upload-demo').addClass('ready');
-                  // $('#blah').attr('src', e.target.result);
-              }
-
-              reader.readAsDataURL(input.files[0]);
-          }
-          else {
-            alert("Sorry - you're browser doesn't support the FileReader API");
-        }
-    }
-
-    $uploadCrop = $('#upload-demo').croppie({
-      viewport: {
-        width: 200,
-        height: 200,
-        type: 'square'
-      },
-      boundary: {
-        width: 300,
-        height: 250
-      }
-    });
-
-    $('#upload').on('change', function () { 
-      $(".crop").show();
-      readFile(this); 
-    });
-
-  function popupResult(result) {
-    var html;
-    if (result.html) {
-      html = result.html;
-    }
-    if (result.src) {
-      html = '<img src="' + result.src + '" width="200px"/>';
-    }
-    $("#result").html(html);
-  }
-});
-</script>
 
 <!--Manages default photo for vehicle -->
 <script type="text/javascript">

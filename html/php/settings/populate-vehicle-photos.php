@@ -31,10 +31,6 @@
 
 			<div id="upload-container">
 			</div>
-
-			<div id="demo-basic">
-			<button class="basic-result">Save</button>
-			</div>
 			</div>';
 		}else{
 			echo '
