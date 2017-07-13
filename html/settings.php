@@ -68,23 +68,24 @@
 <div class="form-style-2">
 <div class="form-style-2-heading">Edit Profile</div>
 <form method = "POST" enctype = "multipart/form-data">
-
 <!--Populates values from previous entry-->
 <?php include("php/settings/populate-user-settings.php"); ?>
 <!--Posts values to database-->
 <?php include("php/settings/post-user-settings.php"); ?>
-
 </form>
 
-<form method="POST" id="vepics" enctype="multipart/form-data">
-      <input name="image[]" id="files" type="file" multiple>
+<div id="pro-photo-container">
+  <form method="POST" id="propics" enctype="multipart/form-data">
+      <input name="propic-input" id="propic-input" type="file">
       <input type="hidden" name="carID" value="'.$carHash.'">
-      </form>
-      <label for="files">Upload a Photo..</label>
-      <output id="list"></output>
+  </form>
 
-      <div id="upload-container">
-      </div>
+  <label for="files">Upload a Photo..</label>
+  <output id="list"></output>
+
+  <div id="upload-container">
+  </div>
+</div>
 
 </div>
 </div>
