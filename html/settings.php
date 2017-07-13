@@ -90,7 +90,7 @@
 
 </div>
 
-    <div id="croppie-container">
+    <div id="croppie-container" style="display: none;">
       <div id="demo-basic">
       <button class="basic-result">Save</button>
       </div>

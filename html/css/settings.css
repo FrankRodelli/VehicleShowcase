@@ -268,12 +268,23 @@ button:focus {
 
 }
 
+#croppie-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background:rgba(0,0,0,0.6);
+}
+
 .croppie-container {
     width: 500px !important;
     height: 281px !important;
     position: fixed;
-    top: 420px;
-    right: 125px;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
 }
 
 .user {
