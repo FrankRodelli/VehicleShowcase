@@ -17,6 +17,9 @@
     while($row = $result->fetch_assoc()) {
 
     	echo '
+			<div class="form-style-2">
+			<div class="form-style-2-heading">Edit Profile</div>
+			<form method = "POST" enctype = "multipart/form-data">
 		<label for="fname">
 		<span>First Name </span>
 		<input type="text" class="input-field" name="fname" value="' .
@@ -67,7 +70,9 @@
 		<textarea name="bio" class="textarea-field" cols="750">' .
 		$row["BIO"] . '</textarea></label>
 		<label><span>&nbsp;</span>
-		<input name="addcar" type="submit" value="Save Changes" /></label>';
+		<input name="addcar" type="submit" value="Save Changes" /></label>
+		</form>
+		</div>';
 
     }
 }
