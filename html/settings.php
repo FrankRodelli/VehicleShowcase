@@ -92,7 +92,7 @@
 
     <div id="croppie-container" style="display: none;">
       <div id="demo-basic">
-      <button class="basic-result">Save</button>
+      
       </div>
       </div>
 
@@ -127,6 +127,7 @@ function photoSelected(vehicleHash,elem){
 
 var basic;
 function setDefault() {
+  document.getElementById('croppie-container').style.display = "block";
   if(carId != undefined){
       var $w = $('.basic-width'),
         $h = $('.basic-height'),
@@ -169,6 +170,7 @@ function setDefault() {
             success:function(data)
             {
               basic.croppie('destroy');
+              document.getElementById('croppie-container').style.display = "none";
             }
           });
         });

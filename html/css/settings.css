@@ -286,6 +286,9 @@ button:focus {
     margin-top: -250px;
     margin-left: -250px;
 }
+.croppie-container .cr-viewport{
+    border: none !important;
+}
 
 .user {
     width: 480px;
