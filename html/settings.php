@@ -75,6 +75,17 @@
 <?php include("php/settings/post-user-settings.php"); ?>
 
 </form>
+
+<form method="POST" id="vepics" enctype="multipart/form-data">
+      <input name="image[]" id="files" type="file" multiple>
+      <input type="hidden" name="carID" value="'.$carHash.'">
+      </form>
+      <label for="files">Upload a Photo..</label>
+      <output id="list"></output>
+
+      <div id="upload-container">
+      </div>
+
 </div>
 </div>
 
