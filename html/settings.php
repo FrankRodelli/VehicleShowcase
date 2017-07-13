@@ -244,6 +244,10 @@ function setDefault() {
   }
 }
 
+</script>
+
+<script type="text/javascript">
+
 function uploadVePic(){
 
   var formData = new FormData($("#vepics")[0]);
