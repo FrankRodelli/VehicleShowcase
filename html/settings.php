@@ -428,9 +428,15 @@ $('#upload').change(function(){
 			});
 		});
 	});
+
+	document.getElementById('upload-propic-button').innerHTML =
+	'<button class=".upload-result">Upload!</button>';
+
 });
 
-$(document).mouseup(function(e)
+
+
+/*$(document).mouseup(function(e)
 {
     var container = $("#upload-demo");
 		var hidecontainer = $("#propic-croppie");
@@ -441,6 +447,6 @@ $(document).mouseup(function(e)
         hidecontainer.hide();
 				console.log('it here');
     }
-});
+});*/
 
 </script>

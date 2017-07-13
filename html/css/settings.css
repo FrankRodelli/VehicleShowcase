@@ -322,3 +322,12 @@ button:focus {
   top: 0;
   background:rgba(0,0,0,0.6);
 }
+
+.upload-result {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -30px;
+  margin-top: 300px;
+  border: none;
+}

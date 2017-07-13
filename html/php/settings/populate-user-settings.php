@@ -79,6 +79,8 @@
 				<div id="propic-croppie" style="display:none;">
 				<div id="upload-demo">
 				</div>
+				<div id="upload-propic-button">
+				</div>
 				</div>
 		</div>';
 
