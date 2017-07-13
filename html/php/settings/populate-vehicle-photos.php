@@ -32,10 +32,8 @@
 			<div id="upload-container">
 			</div>
 
-			<div id="croppie-container">
 			<div id="demo-basic">
 			<button class="basic-result">Save</button>
-			</div>
 			</div>
 			</div>';
 		}else{

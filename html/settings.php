@@ -180,6 +180,10 @@ function setDefault() {
         viewport: {
           width: 500,
           height: 281
+        },
+        boundary: {
+          width: 500,
+          height: 281
         }
       });
       basic.croppie('bind', {
@@ -243,10 +247,6 @@ function setDefault() {
     alert('Select photo to set as default');
   }
 }
-
-</script>
-
-<script type="text/javascript">
 
 function uploadVePic(){
 
