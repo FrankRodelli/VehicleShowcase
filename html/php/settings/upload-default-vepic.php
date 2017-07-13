@@ -7,6 +7,8 @@ if(isset($_POST['imagebase64'])){
     //Sets carhash to variable
     $carHash = $_POST['vehicleID'];
 
+    echo $carHash;
+
     //Formats json data
     list($type, $data) = explode(';', $data);
     list(, $data)      = explode(',', $data);

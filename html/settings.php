@@ -166,7 +166,7 @@ function setDefault() {
             url: 'php/settings/upload-default-vepic.php',
             type: 'POST',
 
-            data: {imagebase64: resp,vehicleID: vehicleID},
+            data: {imagebase64: resp,vehicleID: vehicleHashForPhotos},
             success:function(data)
             {
               console.log(data);
