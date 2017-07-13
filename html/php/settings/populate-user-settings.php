@@ -75,13 +75,14 @@
 		</div>
 
 		<div id="propic-container">
-			<div id="propic-croppie-container" style="display: none;">
+			<div id="propic-croppie-container">
 				<div id="propic-croppie">
 				<button class="propic-result">Upload</button>
 				</div>
 			</div>
-			<input id="browse-propic" type="file" name="browse-propic">
-			<label for="browse-propic">Upload a Photo...</label>
+			<input id="upload" type="file" value="Choose a file" accept="image/*">
+			<div id="upload-demo">
+			</div>
 		</div>';
 
     }
