@@ -21,7 +21,8 @@
 		    }
 		    echo '
 		    <br>
-			<button onclick="setDefault()">Set Default</button><button>Delete</button><br>
+			<button onclick="setDefault()">Set Default</button>
+			<button onclick="deleteSelected()">Delete</button><br>
 			<form method="POST" id="vepics" enctype="multipart/form-data">
 			<input name="image[]" id="files" type="file" multiple>
 			<input type="hidden" name="carID" value="'.$carHash.'">

@@ -111,8 +111,28 @@
 
 <!--Manages default photo for vehicle -->
 <script type="text/javascript">
-var carId;
+
+//Global var for photo name
+//TODO: Get better var names here
+var carId ="";
+
+//Global var for Car UUID
 var vehicleHashForPhotos;
+
+function deleteSelected(){
+  if(carId != ""){
+    $.ajax({
+      url: 'php/settings/delete-vehicle-photo.php',
+      type: 'POST',
+      data: {carHash:vehicleHashForPhotos,
+        photoName:carId},
+      success:function(data)
+      {
+        console.log(data);
+      }
+    }); 
+  }
+}
 
 //Sets selected vehicle hash and highlights image
 function photoSelected(vehicleHash,elem){
@@ -127,8 +147,8 @@ function photoSelected(vehicleHash,elem){
 
 var basic;
 function setDefault() {
-  document.getElementById('croppie-container').style.display = "block";
-  if(carId != undefined){
+  if(carId != ""){
+    document.getElementById('croppie-container').style.display = "block";
       var $w = $('.basic-width'),
         $h = $('.basic-height'),
         basic = $('#demo-basic').croppie({
@@ -248,6 +268,7 @@ function carStuff(carHash){
   phprequest.send("hash="+carHash);
 
   window.setTimeout(loadFileSelect, 1000);
+  carId = "";
 
 
 }
