@@ -75,12 +75,11 @@
 		</div>
 
 		<div id="propic-container">
-			<div id="propic-croppie-container">
+		<input id="upload" type="file" value="Choose a file" accept="image/*">
 				<div id="propic-croppie">
+				<div id="upload-demo">
 				</div>
-			</div>
-			<input id="upload" type="file" value="Choose a file" accept="image/*">
-			<div id="upload-demo">
+				</div>
 			</div>
 		</div>';
 
