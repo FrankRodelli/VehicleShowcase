@@ -323,6 +323,25 @@ button:focus {
   background:rgba(0,0,0,0.6);
 }
 
+#propic-container input{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+#propic-container label {
+  margin-top: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7c8c;
+  display: inline-block;
+  position: absolute;
+  top: 300px;
+}
+
 .upload-result {
   position: fixed;
   top: 50%;

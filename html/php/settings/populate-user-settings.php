@@ -76,6 +76,7 @@
 
 		<div id="propic-container">
 		<input id="upload" type="file" value="Choose a file" accept="image/*">
+		<label for="upload">Upload Profile Picture...</label>
 				<div id="propic-croppie" style="display:none;">
 				<div id="upload-demo">
 				</div>

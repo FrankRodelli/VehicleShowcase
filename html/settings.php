@@ -370,15 +370,15 @@ $('#upload').change(function(){
 				src: resp
 			});
 			$.ajax({
-			url: 'php/settings/upload-default-vepic.php',
+			url: 'php/settings/upload-propic.php',
 			type: 'POST',
 
-			data: {imagebase64: resp,vehicleID: vehicleHashForPhotos},
+			data: {imagebase64: resp},
 			success:function(data)
 			{
 				console.log(data);
-				basic.croppie('destroy');
-				document.getElementById('croppie-container').style.display = "none";
+				$uploadCrop.croppie('destroy');
+				document.getElementById('propic-croppie').style.display = "none";
 			}
 		});
 		});
