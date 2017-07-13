@@ -380,9 +380,11 @@ var vehicleID;
 
 
 <script>
-function demoUpload() {
+//Launches croppie when file is selected
+jQuery("input#upload").change(function() {
+console.log('we here');
+window.setTimeout(startCroppie,5000);
 	var $uploadCrop;
-
 	function readFile(input) {
 		if (input.files && input.files[0]) {
 						var reader = new FileReader();
@@ -404,6 +406,8 @@ function demoUpload() {
 			}
 	}
 
+function startCroppie() {
+
 	$uploadCrop = $('#upload-demo').croppie({
 		viewport: {
 			width: 100,
@@ -424,7 +428,9 @@ function demoUpload() {
 			});
 		});
 	});
+
 }
 
+});
 
 </script>
