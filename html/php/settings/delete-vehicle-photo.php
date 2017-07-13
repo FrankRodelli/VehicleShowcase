@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "DELETE * FROM PhotoLink WHERE UNAME = '$carHash' AND FNAME = '$photoName'";
+$sql = "DELETE FROM PhotoLink WHERE UNAME = '$carHash' AND FNAME = '$photoName'";
 
 if($conn->query($sql) === TRUE){
 	echo 'Photo deleted';
