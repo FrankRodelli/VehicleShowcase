@@ -128,7 +128,15 @@ function deleteSelected(){
         photoName:carId},
       success:function(data)
       {
-        console.log(data);
+      $.ajax({
+        url: 'php/settings/populate-vehicle-photos.php',
+        type: 'POST',
+        data: {carHash:vehicleHashForPhotos},
+        success:function(data)
+        {
+            document.getElementById("vehicle-photos").innerHTML = (data);
+        }
+      }); 
       }
     }); 
   }
