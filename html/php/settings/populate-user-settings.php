@@ -80,6 +80,7 @@
 				<div id="upload-demo">
 				</div>
 				<div id="upload-propic-button">
+				<button class="upload-result">Upload!</button>
 				</div>
 				</div>
 		</div>';

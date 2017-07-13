@@ -299,6 +299,107 @@ function loadFileSelect(){
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 }
 
+var $uploadCrop;
+$('#upload').change(function(){
+
+	document.getElementById('propic-croppie').style.display = 'block';
+
+	function readFile(input) {
+		if (input.files && input.files[0]) {
+						var reader = new FileReader();
+
+						reader.onload = function (e) {
+				$('.upload-demo').addClass('ready');
+							$uploadCrop.croppie('bind', {
+								url: e.target.result
+							}).then(function(){
+								console.log('jQuery bind complete');
+							});
+
+						}
+
+						reader.readAsDataURL(input.files[0]);
+				}
+				else {
+					swal("Sorry - you're browser doesn't support the FileReader API");
+			}
+	}
+
+	function popupResult(result) {
+	var html;
+	if (result.html) {
+		html = result.html;
+	}
+	if (result.src) {
+		html = 'Default Photo Saved!<br><img src="' + result.src + '" />';
+	}
+	swal({
+		title: '',
+		html: true,
+		text: html,
+		allowOutsideClick: true
+	});
+	setTimeout(function(){
+		$('.sweet-alert').css('margin', function() {
+			var top = -1 * ($(this).height() / 2),
+				left = -1 * ($(this).width() / 2);
+
+			return top + 'px 0 0 ' + left + 'px';
+		});
+	}, 1);
+}
+
+	$uploadCrop = $('#upload-demo').croppie({
+			viewport: {
+				width: 500,
+				height: 500
+			},
+			boundary: {
+				width: 500,
+				height: 500
+			}
+	});
+
+	readFile(this);
+	$('.upload-result').on('click', function (ev) {
+		$uploadCrop.croppie('result', {
+			type: 'canvas',
+			size: 'viewport'
+		}).then(function (resp) {
+			popupResult({
+				src: resp
+			});
+			$.ajax({
+			url: 'php/settings/upload-default-vepic.php',
+			type: 'POST',
+
+			data: {imagebase64: resp,vehicleID: vehicleHashForPhotos},
+			success:function(data)
+			{
+				console.log(data);
+				basic.croppie('destroy');
+				document.getElementById('croppie-container').style.display = "none";
+			}
+		});
+		});
+	});
+});
+
+
+
+/*$(document).mouseup(function(e)
+{
+    var container = $("#upload-demo");
+		var hidecontainer = $("#propic-croppie");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        hidecontainer.hide();
+				console.log('it here');
+    }
+});*/
+
 
 </script>
 
@@ -371,82 +472,4 @@ div2.addEventListener("click", function() {
       });
     }
   }
-</script>
-
-<script type="text/javascript">
-var vehicleID;
-
-</script>
-
-
-<script>
-	var $uploadCrop;
-$('#upload').change(function(){
-
-	document.getElementById('propic-croppie').style.display = 'block';
-
-	function readFile(input) {
-		if (input.files && input.files[0]) {
-						var reader = new FileReader();
-
-						reader.onload = function (e) {
-				$('.upload-demo').addClass('ready');
-							$uploadCrop.croppie('bind', {
-								url: e.target.result
-							}).then(function(){
-								console.log('jQuery bind complete');
-							});
-
-						}
-
-						reader.readAsDataURL(input.files[0]);
-				}
-				else {
-					swal("Sorry - you're browser doesn't support the FileReader API");
-			}
-	}
-
-	$uploadCrop = $('#upload-demo').croppie({
-			viewport: {
-				width: 500,
-				height: 500
-			},
-			boundary: {
-				width: 500,
-				height: 500
-			}
-	});
-
-	readFile(this);
-	$('.upload-result').on('click', function (ev) {
-		$uploadCrop.croppie('result', {
-			type: 'canvas',
-			size: 'viewport'
-		}).then(function (resp) {
-			popupResult({
-				src: resp
-			});
-		});
-	});
-
-	document.getElementById('upload-propic-button').innerHTML =
-	'<button class=".upload-result">Upload!</button>';
-
-});
-
-
-
-/*$(document).mouseup(function(e)
-{
-    var container = $("#upload-demo");
-		var hidecontainer = $("#propic-croppie");
-
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0)
-    {
-        hidecontainer.hide();
-				console.log('it here');
-    }
-});*/
-
 </script>
