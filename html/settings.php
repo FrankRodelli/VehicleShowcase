@@ -121,6 +121,7 @@ var vehicleHashForPhotos;
 
 function deleteSelected(){
   if(carId != ""){
+    alert(carId);
     $.ajax({
       url: 'php/settings/delete-vehicle-photo.php',
       type: 'POST',
@@ -128,6 +129,7 @@ function deleteSelected(){
         photoName:carId},
       success:function(data)
       {
+        console.log(data);
       $.ajax({
         url: 'php/settings/populate-vehicle-photos.php',
         type: 'POST',
