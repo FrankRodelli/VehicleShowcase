@@ -381,6 +381,9 @@ var vehicleID;
 
 <script>
 	var $uploadCrop;
+$('#upload').change(function(){
+
+	document.getElementById('propic-croppie').style.display = 'block';
 
 	function readFile(input) {
 		if (input.files && input.files[0]) {
@@ -414,7 +417,7 @@ var vehicleID;
 			}
 	});
 
-	$('#upload').on('change', function () { readFile(this); });
+	readFile(this);
 	$('.upload-result').on('click', function (ev) {
 		$uploadCrop.croppie('result', {
 			type: 'canvas',
@@ -425,6 +428,18 @@ var vehicleID;
 			});
 		});
 	});
+});
 
+$(document).mouseup(function(e)
+{
+    var container = $("#propic-croppie");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.hide();
+				uploadCrop.croppie('destroy');
+    }
+});
 
 </script>

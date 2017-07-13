@@ -80,7 +80,6 @@
 				<div id="upload-demo">
 				</div>
 				</div>
-			</div>
 		</div>';
 
     }
