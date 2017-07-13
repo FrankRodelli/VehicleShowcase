@@ -225,7 +225,7 @@ function uploadVePic(){
         data: {carHash:vehicleHashForPhotos},
         success:function(data)
         {
-            document.getElementById("vehicles").innerHTML = (data);
+            document.getElementById("vehicle-photos").innerHTML = (data);
         }
       });  
     }

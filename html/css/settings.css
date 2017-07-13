@@ -29,7 +29,7 @@
 .form-style-2{
 	float: left;
     max-width: 500px;
-    padding: 20px 12px 10px 20px;
+    padding: 0 12px 10px 20px;
     font: 13px;
 }
 .form-style-2-heading{
@@ -130,7 +130,6 @@
 #vehicles {
     width: 100%;
     min-width: 500px;
-    padding-top: 20px;
 }
 #vehicle-item {
     height: 100px;
@@ -225,7 +224,7 @@ button:focus {
     width: 416px;
     position: fixed;
     right: 10%;
-    top: 90px;
+    top: 70px;
 }
 #vehicle-photos input{
     width: 0.1px;
