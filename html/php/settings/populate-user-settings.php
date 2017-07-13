@@ -77,7 +77,6 @@
 		<div id="propic-container">
 			<div id="propic-croppie-container">
 				<div id="propic-croppie">
-				<button class="propic-result">Upload</button>
 				</div>
 			</div>
 			<input id="upload" type="file" value="Choose a file" accept="image/*">
