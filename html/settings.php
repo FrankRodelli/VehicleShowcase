@@ -49,22 +49,6 @@
 
 
 <div id="edit-profile" style="display: block;">
-<div id="main">
-  <div class="demo">
-    <div class="actions">
-            <button class="file-btn">
-                <span>Browse</span>
-                <input type="file" id="upload" value="image" />
-            </button>
-            <div class="crop">
-        <div id="upload-demo"></div>
-        <button class="upload-result">Upload</button>
-      </div>
-      <div id="result"></div>
-        </div>
-  </div>
-</div>
-
 <div class="form-style-2">
 <div class="form-style-2-heading">Edit Profile</div>
 <form method = "POST" enctype = "multipart/form-data">
@@ -150,9 +134,9 @@ function deleteSelected(){
         {
             document.getElementById("vehicle-photos").innerHTML = (data);
         }
-      }); 
+      });
       }
-    }); 
+    });
   }
 }
 
@@ -269,7 +253,7 @@ function uploadVePic(){
         {
             document.getElementById("vehicle-photos").innerHTML = (data);
         }
-      });  
+      });
     }
   });
 
@@ -314,11 +298,11 @@ function loadFileSelect(){
         return function(e) {
           // Render thumbnail.
           var span = document.createElement('span');
-          span.innerHTML = 
+          span.innerHTML =
           [
-            '<img style="height: 75px; border: 1px solid #000; margin: 5px" src="', 
+            '<img style="height: 75px; border: 1px solid #000; margin: 5px" src="',
             e.target.result,
-            '" title="', escape(theFile.name), 
+            '" title="', escape(theFile.name),
             '"/>'
           ].join('');
           document.getElementById('list').insertBefore(span, null);
