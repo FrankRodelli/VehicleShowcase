@@ -92,7 +92,7 @@
 
     <div id="croppie-container" style="display: none;">
       <div id="demo-basic">
-      
+      <button class="basic-result">Save</button>
       </div>
       </div>
 
@@ -169,6 +169,7 @@ function setDefault() {
             data: {imagebase64: resp,vehicleID: vehicleID},
             success:function(data)
             {
+              console.log(data);
               basic.croppie('destroy');
               document.getElementById('croppie-container').style.display = "none";
             }
