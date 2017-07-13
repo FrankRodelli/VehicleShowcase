@@ -404,12 +404,14 @@ var vehicleID;
 	}
 
 	$uploadCrop = $('#upload-demo').croppie({
-		viewport: {
-			width: 100,
-			height: 100,
-			type: 'circle'
-		},
-		enableExif: true
+			viewport: {
+				width: 500,
+				height: 500
+			},
+			boundary: {
+				width: 500,
+				height: 500
+			}
 	});
 
 	$('#upload').on('change', function () { readFile(this); });
