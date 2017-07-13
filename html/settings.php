@@ -48,7 +48,6 @@
 </div>
 
 <div id="edit-profile" style="display: block;">
-
 <!--Populates values from previous entry-->
 <?php include("php/settings/populate-user-settings.php"); ?>
 <!--Posts values to database-->
@@ -63,18 +62,19 @@
 
 <div id="edit-vehicles" style="display: none;">
 	<?php include('php/settings/post-vehicle-settings.php'); ?>
-<div id="vehicles">
 
-</div>
+	<div id="vehicles">
+	</div>
 
     <div id="croppie-container" style="display: none;">
       <div id="demo-basic">
       <button class="basic-result">Save</button>
       </div>
-      </div>
+    </div>
 
+	</div>
 </div>
-</div>
+
 </div>
 </div>
 </div>
@@ -298,6 +298,7 @@ function loadFileSelect(){
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 }
+
 
 </script>
 

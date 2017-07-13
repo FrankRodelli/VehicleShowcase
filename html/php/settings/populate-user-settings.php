@@ -72,6 +72,12 @@
 		<label><span>&nbsp;</span>
 		<input name="addcar" type="submit" value="Save Changes" /></label>
 		</form>
+		</div>
+
+		<div id="propic-croppie-container" style="display: none;">
+			<div id="propic-croppie">
+			<button class="propic-result">Upload</button>
+			</div>
 		</div>';
 
     }
