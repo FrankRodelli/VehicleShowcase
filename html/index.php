@@ -57,7 +57,7 @@
 <img src="https://cdn.vertex42.com/calendars/2017/printable-2017-calendar-monthly-black.png" width="90%">
 </div>
 
-<div class="column" id="center-column">
+<div id="center-column">
 <?php include("php/home/post-form.php");?>
 
 </div>
@@ -105,11 +105,11 @@ function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
+        slides[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex> slides.length) {slideIndex = 1} 
-    slides[slideIndex-1].style.display = "block"; 
+    if (slideIndex> slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 </script>

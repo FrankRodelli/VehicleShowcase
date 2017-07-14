@@ -40,17 +40,17 @@ h2 {
 
 /*CSS for creating posts*/
 #make-post-container {
-	margin: 10px;
+	margin: 2%;
 	height: 100px;
-	width: 680px;
-	float: left;
+	width: 670px;
 	background-color: white;
 	border: 1px solid #ddd;
 	border-radius: 3px;
+	box-shadow: 0px 0px 10px 0px;
 }
 
 #upper-column {
-	
+
 	height: 60px;
 }
 
@@ -123,11 +123,14 @@ textarea:focus{
 #post-item {
 	margin: 2%;
 	height: 100%;
+	width: 670px;
 	overflow: hidden;
 	background-color: white;
 	border: 1px solid #ddd;
 	text-align: left;
 	border-radius: 3px;
+	box-shadow: 0px 0px 10px 0px;
+	float: left;
 }
 .post-pro-pic{
 	float: left;
@@ -137,6 +140,10 @@ textarea:focus{
 #post-info {
 	float: left;
 	margin-left: 5px;
+}
+#post-info a{
+	color: #6b7c8c;
+	font-weight: 900;
 }
 #top-post {
 	margin: 1%;
@@ -293,12 +300,12 @@ textarea:focus{
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
