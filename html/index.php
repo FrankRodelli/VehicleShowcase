@@ -31,16 +31,11 @@
 				<li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
 			</ul>
 
-
-
 			<div id="search-bar" style="display: none;">
 			Search here
 			</div>
 
 <?php include("php/header.php"); ?>
-
-
-
 		</div>
 	</div>
 </div>
@@ -48,7 +43,7 @@
 <div id="page-wrapper">
 <div id="page-container">
 
-	<video id="preview"></video>
+	<video id="qr-preview"></video>
 
 
 <div class="column" id="left-column">
@@ -120,8 +115,16 @@ function showSlides() {
 </script>
 
 <script type="text/javascript">
+var scanner;
 function openQRScanner(){
-	let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+
+	if(scanner = undefined){
+		console.log('already exists');
+	}else{
+		console.log('not running');
+	}
+
+	let scanner = new Instascan.Scanner({ video: document.getElementById('qr-preview') });
 	scanner.addListener('scan', function (content) {
 		console.log(content);
 	});
