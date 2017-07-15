@@ -43,7 +43,9 @@
 <div id="page-wrapper">
 <div id="page-container">
 
-	<video id="qr-preview" style="display:none;"></video>
+	<div id="qr-container" style="display:none;">
+		<video id="qr-preview"></video>
+	</div>
 
 
 <div class="column" id="left-column">
@@ -116,21 +118,22 @@ function showSlides() {
 
 <script type="text/javascript">
 var active = false;
-var qrPreview = document.getElementById('qr-preview');
+var qrContainer = document.getElementById('qr-container');
 function openQRScanner(){
-	if(qrPreview.style.display !== 'none'){
-		qrPreview.style.display = 'none';
+
+	//Manages displaying qr-view
+	if(qrContainer.style.display !== 'none'){
+		qrContainer.style.display = 'none';
 	}else{
-		qrPreview.style.display = 'block';
+		qrContainer.style.display = 'block';
 	}
 
-	if(active){
-		console.log("already running");
-	}else{
+	if(!active){
 		active = true;
 		let scanner = new Instascan.Scanner({ video: document.getElementById('qr-preview') });
 		scanner.addListener('scan', function (content) {
 			console.log(content);
+			window.location.href = content;
 		});
 		Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {
