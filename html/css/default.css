@@ -57,6 +57,7 @@ h1, h2, h3
     border-width:1px 0;
     list-style:none;
     margin:0;
+		margin-right: 54px;
     padding:0;
     text-align:center;
 	font-weight: 600;
@@ -200,7 +201,7 @@ h1, h2, h3
 	top: 35px;
 	border: 1px solid #ddd;
 	left: 50%;
-	margin-left: 7px;
+	margin-left: -21px;
 
 }
 #qr-preview {
