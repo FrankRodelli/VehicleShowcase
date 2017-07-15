@@ -44,6 +44,7 @@
 <div id="page-container">
 
 	<div id="qr-container" style="display:none;">
+		<h2>Scan QR Code</h2>
 		<video id="qr-preview"></video>
 	</div>
 
