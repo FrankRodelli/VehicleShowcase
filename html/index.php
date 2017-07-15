@@ -49,21 +49,7 @@
 <div id="page-container">
 
 	<video id="preview"></video>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
-        }
-      }).catch(function (e) {
-        console.error(e);
-      });
-    </script>
+
 
 <div class="column" id="left-column">
 <h2>Featured Vehicles</h2>
@@ -131,4 +117,22 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
+</script>
+
+<script type="text/javascript">
+function openQRScanner(){
+	let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+	scanner.addListener('scan', function (content) {
+		console.log(content);
+	});
+	Instascan.Camera.getCameras().then(function (cameras) {
+		if (cameras.length > 0) {
+			scanner.start(cameras[0]);
+		} else {
+			console.error('No cameras found.');
+		}
+	}).catch(function (e) {
+		console.error(e);
+	});
+	}
 </script>
