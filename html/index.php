@@ -116,7 +116,14 @@ function showSlides() {
 
 <script type="text/javascript">
 var active = false;
+var qrPreview = document.getElementById('qr-preview');
 function openQRScanner(){
+	if(qrPreview.style.display !== 'none'){
+		qrPreview.style.display = 'none';
+	}else{
+		qrPreview.style.display = 'block';
+	}
+
 	if(active){
 		console.log("already running");
 	}else{
