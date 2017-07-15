@@ -24,6 +24,7 @@
 			<ul class="nav">
 				<li class="active"><a href="index.php" accesskey="1" title="">Home</a></li>
 				<li><a href="browse.php" accesskey="2" title="">Browse</a></li>
+				<li><a href=""><img class="qr" src="https://www.qrstuff.com/images/sample.png" height="20px"></a></li>
 				<li><a href="events.php" accesskey="3" title="">Events</a></li>
 				<li><a href="about.php" accesskey="4" title="">About</a></li>
 				<li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
