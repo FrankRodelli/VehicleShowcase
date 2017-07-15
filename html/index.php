@@ -139,8 +139,9 @@ function openQRScanner(){
 		Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {
 				scanner.start(cameras[0]);
-			} else {
-				console.error('No cameras found.');
+			} else {a
+				alert('No camera found');
+				qrContainer.style.display = 'none';
 			}
 		}).catch(function (e) {
 			console.error(e);
