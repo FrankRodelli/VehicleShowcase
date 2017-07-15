@@ -11,6 +11,7 @@
 <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script type="text/javascript" src="js/instascan.min.js"></script>
 
 
 </head>
@@ -46,6 +47,23 @@
 
 <div id="page-wrapper">
 <div id="page-container">
+
+	<video id="preview"></video>
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
 
 <div class="column" id="left-column">
 <h2>Featured Vehicles</h2>
