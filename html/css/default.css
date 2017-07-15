@@ -184,7 +184,7 @@ h1, h2, h3
 	color: #000000;
 }
 #copyright {
-	position: relative;
+	position: fixed;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -193,4 +193,13 @@ h1, h2, h3
 	font-size:75%;
 	color: black;
 	left:1%;
+}
+
+.qr {
+	position: fixed;
+	top: 35px;
+	border: 1px solid #ddd;
+	left: 50%;
+	margin-left: 7px;
+
 }
