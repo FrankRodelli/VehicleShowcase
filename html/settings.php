@@ -42,12 +42,12 @@
 <div id="container">
 
 <div id="select-category">
-<a href="#" onclick="showSetting('profile');">Edit Profile</a><br>
-<a href="#" onclick="showSetting('following');">Edit Following</a><br>
-<a href="#" onclick="showSetting('vehicles');">Edit Vehicles</a><br>
+<a href="#profile" onclick="showSetting('profile');">Edit Profile</a><br>
+<a href="#following" onclick="showSetting('following');">Edit Following</a><br>
+<a href="#vehicles" onclick="showSetting('vehicles');">Edit Vehicles</a><br>
 </div>
 
-<div id="edit-profile" style="display: block;">
+<div id="edit-profile" style="display: none;">
 <!--Populates values from previous entry-->
 <?php include("php/settings/populate-user-settings.php"); ?>
 <!--Posts values to database-->
@@ -435,12 +435,19 @@ div2.addEventListener("click", function() {
 
 
 <script type="text/javascript">
+
   var profile = document.getElementById('edit-profile');
   var following = document.getElementById('edit-following');
   var vehicles = document.getElementById('edit-vehicles');
+	var currentSettingPage = window.location.href.split('#')[1];
+
+	//Calls show setting passing the current page string on load
+	showSetting(currentSettingPage);
+
+
 
   function showSetting(target){
-    if(target == "profile"){
+    if(target == "profile" || target == undefined){
       profile.style.display = 'block';
       following.style.display = 'none';
       vehicles.style.display = 'none';

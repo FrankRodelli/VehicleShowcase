@@ -26,8 +26,8 @@ if(isset($_POST['edit'])){
 	    		echo '<img src="../images/DEFAULT-CAR.png" height="100">';
 	    	}
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
-	        <a href="#" onclick="carStuff('; 
-	        echo "'".$rowcars['HASH']."'"; 
+	        <a href="#vehicles" onclick="carStuff('; 
+	        echo "'".$rowcars['HASH']."'";
 	        echo')">Edit</a>
 
 	        </div></div>';
@@ -65,7 +65,7 @@ if(isset($_POST['update-car-settings'])){
 	// Check connection
 	if ($conntwo->connect_error) {
 	    die("Connection failed: " . $conntwo->connect_error);
-	} 
+	}
 
 	$sql2 = "UPDATE Cars SET MAKE='$make',MODEL='$model',DATE='$year',DISPLACEMENT='$displacement',
 	HP='$horsepower',TORQUE='$torque',CYLINDERS='$cylinders',FUELTYPE='$fueltype',MODS='$mods',
