@@ -10,10 +10,14 @@
 $(document).ready(function() {
   var event = new Object;
   event.title = "some text";
-  event.start = new Date(2017,07,18);
-  event.allDay = false;
+  event.start = new Date("July 18, 2017 11:13:00");
+  event.end = new Date("July 18, 2017 12:13:00");
+  event.start = moment(event.start).format('2017/07/18 12h:00');
+  event.end = moment(event.end).format('2017/07/18 12h:30');
 
-  $('#calendar').fullCalendar('renderEvent', event);
+  var myCalendar = $('#calendar');
+  myCalendar.fullCalendar();
+  myCalendar.fullCalendar('renderEvent', event);
 });
 
 </script>
