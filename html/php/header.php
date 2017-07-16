@@ -30,7 +30,7 @@
 
 			<div id="popout-menu" style="display: none;">
 				<ul class="popout-menu-ul">
-					<li><a href="../mycars.php" accesskey="1" title="">My Vehicles</a></li>
+					<li><a href="../settings.php#vehicles" accesskey="1" title="">My Vehicles</a></li>
 					<li><a href="../add.php" accesskey="2" title="">Add Vehicles</a></li>
 					<li><a href="../user.php/?u='.$loggedinuser .'" accesskey="3" title="">Profile</a></li>
 					<li><a href="../settings.php" accesskey="4" title="">Settings</a></li>
