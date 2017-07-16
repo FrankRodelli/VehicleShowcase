@@ -26,7 +26,7 @@
 				<li><a href="../about.php" accesskey="4" title="">About</a></li>
 			</ul>
 
-			<img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> 
+			<img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px">
 
 			<div id="search-bar" style="display: none;">
 			Search here
@@ -78,6 +78,33 @@
 </div>';
 }
 ?>
+
+<?php
+
+// Create connection
+$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
+
+// Check connection
+if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	//Check if credentials match database and login accordingly
+$sql = "SELECT * FROM UserLis";
+
+//set querry data to result variable
+$result = $conn->query($sql);
+
+$emptyArray = array();
+
+//If there are results, run
+if($result->num_rows == 1){
+	//Assigns row data to $row array
+	while($row = $result->fetch_assoc($result)){
+		$emptyArray[] = $row;
+	}
+
+	?>
 
 <div id="copyright">
 <p>&copy; 2017 FBMotors Inc. All Rights Reserved.</p>
