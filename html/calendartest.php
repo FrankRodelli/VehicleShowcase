@@ -8,6 +8,12 @@
 
 <script>
 $(document).ready(function() {
+  var event = [1];
+  event[0] = "title";
+  event[1] = new Date(y,m,d);
+  console.log(event + 'hey');
+
+
 
     // page is now ready, initialize the calendar...
 
@@ -16,4 +22,6 @@ $(document).ready(function() {
     })
 
 });
+
+.fullCalendar( 'renderEvent', event [, stick ] );
 </script>
