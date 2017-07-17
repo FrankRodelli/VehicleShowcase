@@ -61,7 +61,6 @@
 </div>
 
 <div class="column" id="right-column">
-<h2>Upcoming Events</h2>
 <div id='calendar'></div>
 </div>
 
