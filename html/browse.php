@@ -1,4 +1,4 @@
-<?php/*
+<?php
 // Create connection
 $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 
@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 		echo 'connected successfuly';
 	}
 
-	$sql = "SELECT * FROM UserList";
+	$sql = "SELECT * FROM event";
 	$result = $conn->query($sql);
 
 $emptyArray = array();
@@ -21,5 +21,6 @@ if($result->num_rows > 0){
 		$emptyArray[] = $row;
 	}
 	echo json_encode($emptyArray);
+  echo $emptyArray[1].title;
 }
 ?>
