@@ -220,7 +220,7 @@ h1, h2, h3
 .mask a:focus{
   background-position: 10px 0;
   /*change speed to see in slow motion*/
-  transition: all .5s;
+  transition: all .3s;
 }
 .mask a::after{
   content:'';
