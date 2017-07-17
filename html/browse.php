@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 	}else{
 	}
 
-	$sql = "SELECT * FROM event";
+	$sql = "SELECT * FROM Events";
 	$result = $conn->query($sql);
 
 $emptyArray = array();

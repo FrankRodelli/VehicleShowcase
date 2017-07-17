@@ -38,16 +38,15 @@ $(document).ready(function() {
           type : 'post',
           dataType: 'json',
           success: function(e){
-            console.log(e);
+            console.log(e[0].title);
             var events = [];
-            $.each(e.events,function(index,value){
-              console.log(value.title + 'this');
+            for(var i = 0; i < e.length; i++){
                 events.push({
-                    title : value.title,
-                    start : moment(value.start).toDate('2017/07/18 12h:00'),
-                    end : moment(value.end).toDate('2017/07/18 12h:30'),
+                    title : e[i].title,
+                    start : moment(e[i].start).toDate('2017/07/18 12h:00'),
+                    end : moment(e[i].end).toDate('2017/07/18 12h:30'),
                 });
-            });
+              }
             console.log(events);
             calendar.fullCalendar( 'addEventSource', events);
           }
