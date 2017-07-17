@@ -231,3 +231,6 @@ h1, h2, h3
 	width: initial;
 	border: none;
 }
+.fc-scroller {
+	height: auto !important;
+}

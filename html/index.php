@@ -17,16 +17,12 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css">
 <link rel="stylesheet" type="text/css" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
 </head>
 
 <body>
-	<div id="eventContent" title="Event Details">
-    <div id="eventInfo"></div>
-    <p><strong><a id="eventLink" target="_blank">Read More</a></strong></p>
-</div>
-
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="menu">
@@ -179,7 +175,13 @@ $(document).ready(function() {
         editable : false,
         eventLimit: true,
         eventClick: function(calEvent, jsEvent, view, element) {
-					console.log('it was clicked' + element.title);
+					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
+					swal({
+							title: calEvent.title,
+							html: true,
+							text: inner,
+							allowOutsideClick: true
+					});
         },
         eventRender: function(event, element) {
             element.attr("data-id",event.id);
