@@ -6,7 +6,6 @@ $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}else{
-		echo 'connected successfuly';
 	}
 
 	$sql = "SELECT * FROM event";
@@ -15,14 +14,12 @@ if ($conn->connect_error) {
 $emptyArray = array();
 //If there are results, run
 if($result->num_rows > 0){
-	echo 'what about here';
 	//Assigns row data to $row array
 	while($row = $result->fetch_assoc()) {
 		$emptyArray[] = $row;
 	}
 	$json = json_encode($emptyArray);
 
-  echo '<pre>' . print_r($emptyArray, true) . '</pre>';
-
+  return $json;
 }
 ?>
