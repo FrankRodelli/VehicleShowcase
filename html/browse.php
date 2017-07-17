@@ -20,7 +20,9 @@ if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()) {
 		$emptyArray[] = $row;
 	}
-	echo json_encode($emptyArray);
-  echo $emptyArray[1].title;
+	$json = json_encode($emptyArray);
+
+  echo '<pre>' . print_r($emptyArray, true) . '</pre>';
+
 }
 ?>
