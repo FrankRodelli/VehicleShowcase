@@ -20,6 +20,6 @@ if($result->num_rows > 0){
 	}
 	$json = json_encode($emptyArray);
 
-  return $json;
+  echo $json;
 }
 ?>
