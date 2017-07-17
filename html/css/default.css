@@ -199,6 +199,9 @@ h1, h2, h3
 .qr {
 
 }
+.qrli {
+	position: absolute;
+}
 .mask a{
   position: relative;
   width:40px;

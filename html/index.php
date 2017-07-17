@@ -31,7 +31,7 @@
 			<ul class="nav">
 				<li class="active"><a href="index.php" accesskey="1" title="">Home</a></li>
 				<li><a href="browse.php" accesskey="2" title="">Browse</a></li>
-				<li>
+				<li class="qrli">
 					<div class="mask pseudo">
 						<a href="#" onclick="openQRScanner()"><img class="qr" src="https://www.qrstuff.com/images/sample.png" height="40px"></a>
 					</div>
