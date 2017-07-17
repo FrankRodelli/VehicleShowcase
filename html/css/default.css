@@ -234,3 +234,7 @@ h1, h2, h3
 .fc-scroller {
 	height: auto !important;
 }
+
+.fc-event-container {
+	cursor: pointer;
+}

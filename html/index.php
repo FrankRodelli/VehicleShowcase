@@ -183,6 +183,9 @@ $(document).ready(function() {
 							allowOutsideClick: true
 					});
         },
+				dayClick: function(dayEvent, jsEvent, view, element){
+					console.log(dayEvent);
+				},
         eventRender: function(event, element) {
             element.attr("data-id",event.id);
         },
