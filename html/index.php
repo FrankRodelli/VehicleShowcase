@@ -167,8 +167,9 @@ $(document).ready(function() {
             }
         },
          header: {
-            left: 'prev,next today myCustomButton',
-            center: 'title'
+            left: 'prev',
+            center: 'title',
+            right: 'next'
         },
         editable : false,
         eventLimit: true,

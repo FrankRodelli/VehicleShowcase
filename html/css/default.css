@@ -222,3 +222,7 @@ h1, h2, h3
 	color: #f2f2f2;
 	width: 200px;
 }
+
+.fc .fc-toolbar>*>:first-child {
+	margin-left: .75em !important;
+}
