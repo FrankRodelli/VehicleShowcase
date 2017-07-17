@@ -22,6 +22,11 @@
 </head>
 
 <body>
+	<div id="eventContent" title="Event Details">
+    <div id="eventInfo"></div>
+    <p><strong><a id="eventLink" target="_blank">Read More</a></strong></p>
+</div>
+
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="menu">
@@ -174,6 +179,7 @@ $(document).ready(function() {
         editable : false,
         eventLimit: true,
         eventClick: function(calEvent, jsEvent, view, element) {
+					console.log('it was clicked' + element.title);
         },
         eventRender: function(event, element) {
             element.attr("data-id",event.id);

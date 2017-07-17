@@ -224,5 +224,10 @@ h1, h2, h3
 }
 
 .fc .fc-toolbar>*>:first-child {
-	margin-left: .75em !important;
+	margin-left: 0;
+}
+
+.fc-center h2 {
+	width: initial;
+	border: none;
 }
