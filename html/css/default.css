@@ -197,21 +197,16 @@ h1, h2, h3
 }
 
 .qr {
-	position: fixed;
-	top: 35px;
-	border: 1px solid #ddd;
-	left: 50%;
-	margin-left: -21px;
+
 }
 .mask a{
   position: relative;
-  display:block;
   width:40px;
   height: 40px;
   text-align:center;
-  margin: 50px auto;
   background: ;
   -webkit-filter: drop-shadow(1px 1px 2px rgba(0,0,0,.5));
+	padding: 0;
 }
 .mask a{
   background-position: -140px 0;
