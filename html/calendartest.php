@@ -9,31 +9,47 @@
 <script>
 $(document).ready(function() {
 
-  var myCalendar = $('#calendar');
-  myCalendar.fullCalendar();
+  var calendar = $('#calendar').fullCalendar({
+        customButtons: {
+            myCustomButton: {
+                text: 'Add Event',
+                click: function() {
+
+                }
+            }
+        },
+         header: {
+            left: 'prev,next today myCustomButton',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        editable : false,
+        eventLimit: true,
+        eventClick: function(calEvent, jsEvent, view, element) {
+        },
+        eventRender: function(event, element) {
+            element.attr("data-id",event.id);
+        },
+
+    });
 
   $.ajax({
           url : 'https://showmeyouraxels.me/browse.php',
           type : 'post',
           dataType: 'json',
           success: function(e){
-            console.log('is it here');
             console.log(e);
-              if(e.success){
-                console.log('here');
-                  var events = [];
-                  $.each(e.events,function(index,value){
-                      events.push({
-                          title : value.title,
-                          start : moment(value.start).toDate('2017/07/18 12h:00'),
-                          end : moment(value.end).toDate('2017/07/18 12h:30'),
-                      });
-                  });
-                  console.log(events);
-                  console.log('anything');
-                  alert('sofwe1');
-                  calendar.fullCalendar( 'addEventSource', events);
-              }
+            var events = [];
+            $.each(e.events,function(index,value){
+              console.log(value.title + 'this');
+                events.push({
+                    title : value.title,
+                    start : moment(value.start).toDate('2017/07/18 12h:00'),
+                    end : moment(value.end).toDate('2017/07/18 12h:30'),
+                });
+            });
+            console.log(events);
+            calendar.fullCalendar( 'addEventSource', events);
           }
       });
 });
