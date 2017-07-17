@@ -168,8 +168,7 @@ $(document).ready(function() {
         },
          header: {
             left: 'prev,next today myCustomButton',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            center: 'title'
         },
         editable : false,
         eventLimit: true,
