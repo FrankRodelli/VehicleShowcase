@@ -178,6 +178,7 @@ $(document).ready(function() {
         },
         editable : false,
         eventLimit: true,
+				eventLimitText: '<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="20px"/>',
         eventClick: function(calEvent, jsEvent, view, element) {
 					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
 					swal({
@@ -191,8 +192,9 @@ $(document).ready(function() {
 					console.log(dayEvent);
 				},
         eventRender: function(event, element) {
+					element.find('.fc-more-cell').html('literally anything here');
 					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="20px"/>');
-					element.find('.fc-more').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="15px"/>');
+
         },
 
     });
