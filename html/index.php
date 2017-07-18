@@ -177,9 +177,11 @@ $.ajax({
 							});
 						}
 					console.log(events);
-					calendar.fullCalendar( 'addEventSource', events);
+					createCalendar();
 				}
 		});
+function createCalendar(){
+
   var calendar = $('#calendar').fullCalendar({
         customButtons: {
             myCustomButton: {
@@ -208,10 +210,6 @@ $.ajax({
         },
 				dayRender: function (date, cell) {
 
-	        if ( !dateHasEvent(date,events) )
-	            cell.css("border-color", "red");
-	        else if ( dateHasEvent(date) )
-	            cell.css("border-color", "yellow");
 	    	},
 				dayClick: function(dayEvent, jsEvent, view, element){
 					console.log(dayEvent);
@@ -220,16 +218,13 @@ $.ajax({
 					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="10px"/><br>' +event.title);
 
         },
-
     });
+		calendar.fullCalendar( 'addEventSource', events);
+	}
 
-function dateHasEvent(date,events) {
-	var hasEvent = false;
-	console.log(events.length);
-   for(var i = 0; i < events.length; i++){
-		 console.log('something');
-	 }
-}
+	function dateHasEvent(date) {
+   console.log(events.length);
+	}
 
 });
 </script>
