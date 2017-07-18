@@ -266,7 +266,7 @@ h1, h2, h3
 .fc-event-container {
 	cursor: pointer;
 }
-
-.eventDate {
-	border: 5px solid #ddd;
+.fc-event {
+	border: none !important;
+	background-color: initial !important;
 }

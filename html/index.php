@@ -191,7 +191,8 @@ $(document).ready(function() {
 					console.log(dayEvent);
 				},
         eventRender: function(event, element) {
-					element.find('.fc-title').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" heigh="5px"/>');
+					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="20px"/>');
+					element.find('.fc-more').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="15px"/>');
         },
 
     });
