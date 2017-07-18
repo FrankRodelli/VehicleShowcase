@@ -191,7 +191,10 @@ $(document).ready(function() {
 					console.log(dayEvent);
 				},
         eventRender: function(event, element) {
-            element.attr("data-id",event.id);
+					if(event.icon){
+						element.find(".fc-title").prepend("<i class='fa fa-"+event.icon+"'></i>");
+					}
+
         },
 
     });
@@ -208,6 +211,7 @@ $(document).ready(function() {
                     title : e[i].title,
                     start : moment(e[i].start).toDate('2017/07/18 12h:00'),
                     end : moment(e[i].end).toDate('2017/07/18 12h:30'),
+										icon: "http://simpleicon.com/wp-content/uploads/flag.svg",
                 });
               }
             console.log(events);
