@@ -227,8 +227,12 @@ function createCalendar(){
 
 	function dateHasEvent(date) {
 	 for(var i = 0; i < events.length; i++){
-		 console.log('THIS' +date.toDate('2017/07/18'));
-		 console.log('THAT' +events[i].start);
+		 /*console.log('THIS' +date.toDate('2017/07/18'));
+		 console.log('THAT' +events[i].start);*/
+		 var d = date.toDate().toString();
+		 d = d.split(' ')[0+1];
+		 console.log(d);
+
 	 }
 	}
 
