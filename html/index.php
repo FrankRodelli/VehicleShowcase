@@ -161,7 +161,25 @@ function openQRScanner(){
 
 <script>
 $(document).ready(function() {
-
+var events = [];
+$.ajax({
+				url : 'https://showmeyouraxels.me/browse.php',
+				type : 'post',
+				dataType: 'json',
+				success: function(e){
+					console.log(e[0].title);
+					for(var i = 0; i < e.length; i++){
+							events.push({
+									title : e[i].title,
+									start : moment(e[i].start).toDate('2017/07/18 12h:00'),
+									end : moment(e[i].end).toDate('2017/07/18 12h:30'),
+									icon: "https://www.qrstuff.com/images/sample.png",
+							});
+						}
+					console.log(events);
+					calendar.fullCalendar( 'addEventSource', events);
+				}
+		});
   var calendar = $('#calendar').fullCalendar({
         customButtons: {
             myCustomButton: {
@@ -190,7 +208,7 @@ $(document).ready(function() {
         },
 				dayRender: function (date, cell) {
 
-	        if ( !dateHasEvent(date) )
+	        if ( !dateHasEvent(date,events) )
 	            cell.css("border-color", "red");
 	        else if ( dateHasEvent(date) )
 	            cell.css("border-color", "yellow");
@@ -205,32 +223,12 @@ $(document).ready(function() {
 
     });
 
-		var events = [];
-		  $.ajax({
-		          url : 'https://showmeyouraxels.me/browse.php',
-		          type : 'post',
-		          dataType: 'json',
-		          success: function(e){
-		            console.log(e[0].title);
-		            for(var i = 0; i < e.length; i++){
-		                events.push({
-		                    title : e[i].title,
-		                    start : moment(e[i].start).toDate('2017/07/18 12h:00'),
-		                    end : moment(e[i].end).toDate('2017/07/18 12h:30'),
-												icon: "https://www.qrstuff.com/images/sample.png",
-		                });
-		              }
-		            console.log(events);
-		            calendar.fullCalendar( 'addEventSource', events);
-		          }
-		      });
-					console.log('these are the events' +events);
-
-function dateHasEvent(date) {
-	/*var hasEvent = false;
+function dateHasEvent(date,events) {
+	var hasEvent = false;
+	console.log(events.length);
    for(var i = 0; i < events.length; i++){
-		 console.log(date);
-	 }*/
+		 console.log('something');
+	 }
 }
 
 });
