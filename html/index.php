@@ -189,6 +189,7 @@ $(document).ready(function() {
         },
 				dayClick: function(dayEvent, jsEvent, view, element){
 					console.log(dayEvent);
+					element.innerHTML = 'etwer';
 				},
         eventRender: function(event, element) {
             element.attr("data-id",event.id);
