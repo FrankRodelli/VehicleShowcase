@@ -209,10 +209,9 @@ function createCalendar(){
 					});
         },
 				dayRender: function (date, cell) {
-					if ( !dateHasEvent(date) )
-							cell.css("background-color", "red");
-					else if ( dateHasEvent(date) )
-							cell.css("background-color", "yellow");
+					if ( dateHasEvent(date) )
+							cell.css("background-color-color", "#6b7c8c");
+							console.log('yea');
 	    	},
 				dayClick: function(dayEvent, jsEvent, view, element){
 					console.log(dayEvent);
@@ -226,14 +225,21 @@ function createCalendar(){
 	}
 
 	function dateHasEvent(date) {
-	 for(var i = 0; i < events.length; i++){
-		 /*console.log('THIS' +date.toDate('2017/07/18'));
-		 console.log('THAT' +events[i].start);*/
-		 var d = date.toDate().toString();
-		 d = d.split(' ')[0+1];
-		 console.log(d);
+		var hasEvent = false;
+		for(var i = 0; i < events.length; i++){
+		 var thatDate = events[i].start.toString();
+		 thatDate = thatDate.split(' ');
+		 thatDate = thatDate[1] +' '+thatDate[2] +' '+thatDate[3];
 
-	 }
+		 var thisDate = date.toDate().toString();
+		 thisDate = thisDate.split(' ');
+		 thisDate = thisDate[1] +' '+thisDate[2] +' '+thisDate[3];
+
+		 if(thisDate == thatDate){
+			 hasEvent = true;
+			}
+		}
+		return hasEvent;
 	}
 
 });
