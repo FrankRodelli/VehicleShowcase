@@ -209,7 +209,10 @@ function createCalendar(){
 					});
         },
 				dayRender: function (date, cell) {
-
+					if ( !dateHasEvent(date) )
+							cell.css("background-color", "red");
+					else if ( dateHasEvent(date) )
+							cell.css("background-color", "yellow");
 	    	},
 				dayClick: function(dayEvent, jsEvent, view, element){
 					console.log(dayEvent);
@@ -223,7 +226,10 @@ function createCalendar(){
 	}
 
 	function dateHasEvent(date) {
-   console.log(events.length);
+	 for(var i = 0; i < events.length; i++){
+		 console.log('THIS' +date.toDate('2017/07/18'));
+		 console.log('THAT' +events[i].start);
+	 }
 	}
 
 });
