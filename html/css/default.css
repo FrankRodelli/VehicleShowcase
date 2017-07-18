@@ -269,4 +269,5 @@ h1, h2, h3
 .fc-event {
 	border: none !important;
 	background-color: initial !important;
+	color: #000 !important;
 }
