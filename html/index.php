@@ -191,10 +191,7 @@ $(document).ready(function() {
 					console.log(dayEvent);
 				},
         eventRender: function(event, element) {
-					if(event.icon){
-						element.find(".fc-title").prepend("<i class='fa fa-"+event.icon+"'></i>");
-					}
-
+					element.find('.fc-title').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" heigh="5px"/>');
         },
 
     });
@@ -211,7 +208,7 @@ $(document).ready(function() {
                     title : e[i].title,
                     start : moment(e[i].start).toDate('2017/07/18 12h:00'),
                     end : moment(e[i].end).toDate('2017/07/18 12h:30'),
-										icon: "http://simpleicon.com/wp-content/uploads/flag.svg",
+										icon: "https://www.qrstuff.com/images/sample.png",
                 });
               }
             console.log(events);
