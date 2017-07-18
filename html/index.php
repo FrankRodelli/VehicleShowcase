@@ -199,6 +199,13 @@ function createCalendar(){
         editable : false,
         eventLimit: true,
 				eventLimitText: '',
+				dayRender: function (date, cell) {
+					if ( !dateHasEvent(date) )
+							cell.css("background-color", "initial");
+					else if ( dateHasEvent(date) )
+							cell.css("background-color", "#6b7c8c");
+				},
+				
         eventClick: function(calEvent, jsEvent, view, element) {
 					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
 					swal({
@@ -208,11 +215,6 @@ function createCalendar(){
 							allowOutsideClick: true
 					});
         },
-				dayRender: function (date, cell) {
-					if ( dateHasEvent(date) )
-							cell.css("background-color-color", "#6b7c8c");
-							console.log('yea');
-	    	},
 				dayClick: function(dayEvent, jsEvent, view, element){
 					console.log(dayEvent);
 				},
