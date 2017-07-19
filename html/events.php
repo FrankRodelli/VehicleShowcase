@@ -51,27 +51,15 @@
 </div>
 
 <div id="page-wrapper">
-<div id="page-container">
+  <div id="page-container">
 
-	<div id="qr-container" style="display:none;">
-		<h2>Scan QR Code</h2>
-		<video id="qr-preview"></video>
-	</div>
+  	<div id="qr-container" style="display:none;">
+  		<h2>Scan QR Code</h2>
+  		<video id="qr-preview"></video>
+  	</div>
 
 
-<div class="column" id="left-column">
-
-</div>
-
-<div class="column" id="right-column">
-
-</div>
-
-<div id="center-column">
-
-</div>
-
-</div>
+  </div>
 </div>
 
 <div id="copyright">
