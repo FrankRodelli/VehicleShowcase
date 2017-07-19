@@ -1,17 +1,39 @@
+#options {
+	border-bottom: solid 2px #ddd;
+	width: 800px;
+	margin: auto;
+	padding-top: 20px;
+}
+
 .options a {
-	font-size: 90%;
+	font-size: 15px;
 	display:inline-block;
-	padding:10px;
+	width: 264px;
 	font-family: 'Noto Sans', sans-serif;
 	text-decoration: none;
-	color: #6b7c8c;
+	color: #808080;
 	transition: .5s;
+}
+.options .active a
+{
+	background: #000;
+	border-radius: 5px;
+	color: #FFFFFF;;
+}
+.options .active a:hover
+{
+	background-color: #808080;
+	color: #fff;
+}
+.options a:hover{
+	text-decoration: none;
+	transition: .5s;
+	background-color: #ddd;
 }
 .options {
 	border-width:1px 0;
 	list-style:none;
 	margin:0;
-	margin-right: 54px;
 	padding:0;
 	text-align:center;
 	font-weight: 600;
