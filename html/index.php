@@ -224,6 +224,14 @@ function createCalendar(){
 				},
         eventRender: function(event, element) {
 					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="10px"/><br>' +event.title);
+					var eventStart = moment(event.start);
+var eventEnd = event._end === null ? eventStart : moment(event.end);
+var diffInDays = eventEnd.diff(eventStart, 'days');
+$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('border-color','pink','background-color','black');
+for(var i = 1; i < diffInDays; i++) {
+		eventStart.add(1,'day');
+		$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('border-color','pink','background-color','black');
+}
 
         },
     });
