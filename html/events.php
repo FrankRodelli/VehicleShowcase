@@ -89,7 +89,7 @@
           <textarea name="specialin" class="textarea-field" cols="750"></textarea></label>
 
       <label><span>&nbsp;</span>
-        <input name="addevent" type="submit" value="Add Event" /></label>
+        <input name="addevent" type="button" value="Add Event" onclick="addEvent()" /></label>
       </div>
     </div>
 

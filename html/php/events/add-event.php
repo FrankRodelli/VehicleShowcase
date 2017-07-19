@@ -21,7 +21,14 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO `Events` (`id`, `title`, `start`,`end`,`description`,
   `location`,`owner`,`specialInstructions`)
-  VALUES ('$eventID',)";
+  VALUES ('$eventID','$title','$start','$end','$description','$location',
+    '$owner','$specialInstructions')";
+
+    if($conn->query($sql) === TRUE){
+      echo 'event created successfully';
+    }else{
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
 
  ?>
