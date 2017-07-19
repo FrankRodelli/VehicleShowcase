@@ -123,16 +123,7 @@ function addEvent() {
       cache: false,
       processData: false,
       success: function(data) {
-          $.ajax({
-              url: 'php/settings/populate-vehicle-photos.php',
-              type: 'POST',
-              data: {
-                  carHash: vehicleHashForPhotos
-              },
-              success: function(data) {
-                  document.getElementById("vehicle-photos").innerHTML = (data);
-              }
-          });
+        console.log(data);
       }
   });
 }
