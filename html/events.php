@@ -58,6 +58,21 @@
   		<video id="qr-preview"></video>
   	</div>
 
+    <div id="main">
+      <br>
+      <a href="#add" onclick="addEvent()">Add Event</a><br>
+      <a href="#edit" onclick="editEvent()">Edit Your Events</a><br>
+      <a href="#" onclick="manageEvents()">Manage Events You're Going To</a>
+    </div>
+
+    <div id="add-event">
+    </div>
+
+    <div id="edit-event">
+    </div>
+
+    <div id="manage-events">
+    </div>
 
   </div>
 </div>
@@ -125,4 +140,12 @@ function openQRScanner(){
 		});
 		}
 	}
+</script>
+
+<script type="text/javascript">
+
+function addEvent() {
+
+}
+
 </script>
