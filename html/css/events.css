@@ -7,6 +7,19 @@
 	color: #6b7c8c;
 	transition: .5s;
 }
+.options {
+	border-width:1px 0;
+	list-style:none;
+	margin:0;
+	margin-right: 54px;
+	padding:0;
+	text-align:center;
+	font-weight: 600;
+	margin-bottom: .5%;
+}
+.options li{
+	display: inline;
+}
 .form-style-2{
 	float: left;
     max-width: 500px;
