@@ -58,11 +58,11 @@
   		<video id="qr-preview"></video>
   	</div>
 
-    <div id="main">
-      <br>
-      <a href="#add" onclick="addEvent()">Add Event</a><br>
-      <a href="#edit" onclick="editEvent()">Edit Your Events</a><br>
-      <a href="#" onclick="manageEvents()">Manage Events You're Going To</a>
+    <div id="options">
+      <ul class="options">
+        <li><a href="#add" onclick="addEvent()">Add Event</a><br></li>
+        <li><a href="#edit" onclick="editEvent()">Edit Your Events</a><br></li>
+        <li><a href="#" onclick="manageEvents()">Manage Events You're Going To</a></li>
     </div>
 
     <div id="add-event">

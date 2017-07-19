@@ -1,3 +1,12 @@
+.options a {
+	font-size: 90%;
+	display:inline-block;
+	padding:10px;
+	font-family: 'Noto Sans', sans-serif;
+	text-decoration: none;
+	color: #6b7c8c;
+	transition: .5s;
+}
 .form-style-2{
 	float: left;
     max-width: 500px;
