@@ -7,23 +7,24 @@
 
 .options a {
 	font-size: 15px;
+	padding: 10px 0;
 	display:inline-block;
 	width: 264px;
 	font-family: 'Noto Sans', sans-serif;
 	text-decoration: none;
 	color: #808080;
 	transition: .5s;
+	border-radius: 3px;
 }
 .options .active a
 {
-	background: #000;
-	border-radius: 5px;
-	color: #FFFFFF;;
+	background: #808080;
+	color: #f2f2f2;;
 }
 .options .active a:hover
 {
-	background-color: #808080;
-	color: #fff;
+	background-color: #ddd;
+	color: #f2f2f2;
 }
 .options a:hover{
 	text-decoration: none;
@@ -41,6 +42,12 @@
 }
 .options li{
 	display: inline;
+}
+
+#add-event {
+	width: 500px;
+	margin: auto;
+	padding-top: 20px;
 }
 .form-style-2{
 	float: left;

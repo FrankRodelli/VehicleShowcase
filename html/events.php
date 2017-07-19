@@ -60,14 +60,13 @@
 
     <div id="options">
       <ul class="options">
-        <li><a href="#add" onclick="addEvent()">Add Event</a></li>
+        <li class="active"><a href="#add" onclick="addEvent()">Add Event</a></li>
         <li><a href="#edit" onclick="editEvent()">Edit Your Events</a></li>
         <li><a href="#" onclick="manageEvents()">Manage Events You're Going To</a></li>
     </div>
 
     <div id="add-event">
       <div class="form-style-2">
-      <div class="form-style-2-heading">Add Event</div>
       <form id="add-event-form" method ="POST" enctype = "multipart/form-data">
 
       <label for="title"><span>Title <span class="required">*</span></span>
