@@ -227,10 +227,10 @@ function createCalendar(){
 					var eventStart = moment(event.start);
 var eventEnd = event._end === null ? eventStart : moment(event.end);
 var diffInDays = eventEnd.diff(eventStart, 'days');
-$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','rgba(107, 124, 140, 0.36)');
+$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
 for(var i = 1; i < diffInDays; i++) {
 		eventStart.add(1,'day');
-		$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','rgba(107, 124, 140, 0.36)');
+		$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
 }
 
         },
