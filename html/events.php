@@ -60,9 +60,9 @@
 
     <div id="options">
       <ul class="options">
-        <li class="active"><a href="#add" onclick="addEvent()">Add Event</a></li>
-        <li><a href="#edit" onclick="editEvent()">Edit Your Events</a></li>
-        <li><a href="#" onclick="manageEvents()">Manage Events You're Going To</a></li>
+        <li class="active"><a href="#add" onclick="showSetting('add')">Add Event</a></li>
+        <li><a href="#edit" onclick="showSetting('edit')">Edit Your Events</a></li>
+        <li><a href="#" onclick="showSetting('manage')">Manage Events You're Going To</a></li>
     </div>
 
     <div id="add-event">
@@ -125,6 +125,36 @@ function addEvent() {
         console.log(data);
       }
   });
+}
+
+</script>
+
+<script type="text/javascript">
+
+var add_event = document.getElementById('add-event');
+var edit_event = document.getElementById('edit-event');
+var manage_events = document.getElementById('manage-events');
+var currentSettingPage = window.location.href.split('#')[1];
+
+//Calls show setting passing the current page string on load
+showSetting(currentSettingPage);
+
+//Displays setting category based on value and uses xhr
+//request to load data
+function showSetting(target) {
+    if (target == "add" || target == undefined) {
+        add_event.style.display = 'block';
+        edit_event.style.display = 'none';
+        manage_events.style.display = 'none';
+    } else if (target == "edit") {
+        add_event.style.display = 'none';
+        edit_event.style.display = 'block';
+        manage_events.style.display = 'none';
+    } else if (target == "manage") {
+        add_event.style.display = 'none';
+        edit_event.style.display = 'none';
+        manage_events.style.display = 'block';
+    }
 }
 
 </script>
