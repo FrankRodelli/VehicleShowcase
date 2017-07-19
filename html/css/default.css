@@ -271,3 +271,10 @@ h1, h2, h3
 	background-color: initial !important;
 	color: #000 !important;
 }
+.fc {
+	text-align: center !important;
+}
+
+tr:first-child>td>.fc-day-grid-event{
+	margin-top: -3px !important;
+}
