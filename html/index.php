@@ -200,12 +200,16 @@ function createCalendar(){
         eventLimit: true,
 				eventLimitText: '',
 				dayRender: function (date, cell) {
-					if ( !dateHasEvent(date) )
+					if ( !dateHasEvent(date) ){
 							cell.css("background-color", "initial");
-					else if ( dateHasEvent(date) )
+							console.log('no event ' + date.toDate());
+					}
+					else if ( dateHasEvent(date) ){
 							cell.css("background-color", "#6b7c8c");
+							console.log('event ' + date.toDate());
+					}
 				},
-				
+
         eventClick: function(calEvent, jsEvent, view, element) {
 					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
 					swal({
