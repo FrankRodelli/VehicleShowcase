@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/events.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
 <script type="text/javascript" src="js/instascan.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -66,8 +66,9 @@
     </div>
 
     <div id="add-event">
-      <div class="form-style-2-heading">Basic Information</div>
-      <form method = "POST" enctype = "multipart/form-data">
+      <div class="form-style-2">
+      <div class="form-style-2-heading">Add Event</div>
+      <form id="add-event-form" method ="POST" enctype = "multipart/form-data">
 
       <label for="title"><span>Title <span class="required">*</span></span>
         <input type="text" class="input-field" name="title" value="" /></label>
@@ -107,6 +108,37 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+
+function addEvent() {
+  var formData = new FormData($("#add-event-form")[0]);
+
+  $.ajax({
+      url: 'php/events/add-event.php',
+      type: 'POST',
+      data: formData,
+      mimeType: "multipart/form-data",
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+          $.ajax({
+              url: 'php/settings/populate-vehicle-photos.php',
+              type: 'POST',
+              data: {
+                  carHash: vehicleHashForPhotos
+              },
+              success: function(data) {
+                  document.getElementById("vehicle-photos").innerHTML = (data);
+              }
+          });
+      }
+  });
+}
+
+</script>
+
 
 <script type="text/javascript">
 var div1 = document.getElementById('propic');
@@ -164,12 +196,4 @@ function openQRScanner(){
 		});
 		}
 	}
-</script>
-
-<script type="text/javascript">
-
-function addEvent() {
-
-}
-
 </script>
