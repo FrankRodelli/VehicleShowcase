@@ -58,6 +58,38 @@
 		<video id="qr-preview"></video>
 	</div>
 
+	<div id="add-event-container" style="display: none;">
+
+		<h2>Create Event</h2>
+		<div id="add-event">
+			<div class="form-style-2">
+			<form id="add-event-form" method ="POST" enctype = "multipart/form-data">
+
+			<label for="title"><span>Title <span class="required">*</span></span>
+				<input type="text" class="input-field" name="title" value="" /></label>
+
+			<label for="start"><span>Start Time <span class="required">*</span></span>
+				<input type="datetime-local" class="input-field" name="start" value="" /></label>
+
+			<label for="end"><span>End Time <span class="required">*</span></span>
+				<input type="datetime-local" class="input-field" name="end" value="" /></label>
+
+			<label for="location"><span>Location </span>
+				<input type="text" class="input-field" name="location" value="" /></label>
+
+			<label for="desc"><span>Description </span>
+				<textarea name="desc" class="textarea-field" cols="750"></textarea></label>
+
+				<label for="specialin"><span>Special Instructions </span>
+					<textarea name="specialin" class="textarea-field" cols="750"></textarea></label>
+
+			<label><span>&nbsp;</span>
+				<input name="addevent" type="button" value="Add Event" onclick="addEvent()" /></label>
+			</div>
+		</div>
+
+	</div>
+
 
 <div class="column" id="left-column">
 <h2>Featured Vehicles</h2>
@@ -187,6 +219,7 @@ function createCalendar(){
             myCustomButton: {
                 text: 'Add Event',
                 click: function() {
+									document.getElementById('add-event-container').style.display = 'block';
                 }
             }
         },
