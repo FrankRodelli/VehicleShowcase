@@ -193,7 +193,7 @@ function createCalendar(){
         },
          header: {
             left: 'prev',
-            center: 'title',
+            center: 'title , myCustomButton',
             right: 'next'
         },
         editable : false,

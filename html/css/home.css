@@ -316,3 +316,6 @@ textarea:focus{
 #like {
 	margin: 5px;
 }
+.fc-myCustomButton-button{
+	width: 100% !important;
+}
