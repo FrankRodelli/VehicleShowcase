@@ -36,7 +36,7 @@
 						<a href="#" onclick="openQRScanner()"><img class="qr" src="https://www.qrstuff.com/images/sample.png" height="40px"></a>
 					</div>
 				</li>
-				<li class="active"><a href="events.php" accesskey="3" title="">Events</a></li>
+				<li><a href="events.php" accesskey="3" title="">Events</a></li>
 				<li><a href="about.php" accesskey="4" title="">About</a></li>
 				<li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
 			</ul>
@@ -62,7 +62,7 @@
       <ul class="options">
         <li class="active"><a href="#add" onclick="showSetting('add')">Add Event</a></li>
         <li><a href="#edit" onclick="showSetting('edit')">Edit Your Events</a></li>
-        <li><a href="#" onclick="showSetting('manage')">Manage Events You're Going To</a></li>
+        <li><a href="#manage" onclick="showSetting('manage')">Manage Events You're Going To</a></li>
     </div>
 
     <div id="add-event">
