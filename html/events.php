@@ -60,10 +60,12 @@
 
     <div id="options">
       <ul class="options">
-        <li class="active"><a href="#add" onclick="showSetting('add')">Add Event</a></li>
+        <li><a href="#add" onclick="showSetting('add')">Add Event</a></li>
         <li><a href="#edit" onclick="showSetting('edit')">Edit Your Events</a></li>
         <li><a href="#manage" onclick="showSetting('manage')">Manage Events You're Going To</a></li>
     </div>
+
+    <div id='calendar'></div>
 
   <div id="options-wrapper" style="display: none;">
       <div id="add-event">
@@ -219,4 +221,103 @@ function openQRScanner(){
 		});
 		}
 	}
+</script>
+<script>
+$(document).ready(function() {
+var events = [];
+$.ajax({
+				url : 'https://showmeyouraxels.me/browse.php',
+				type : 'post',
+				dataType: 'json',
+				success: function(e){
+					console.log(e[0].title);
+					for(var i = 0; i < e.length; i++){
+							events.push({
+									title : e[i].title,
+									start : moment(e[i].start).toDate('2017/07/18 12h:00'),
+									end : moment(e[i].end).toDate('2017/07/18 12h:30'),
+									icon: "https://www.qrstuff.com/images/sample.png",
+							});
+						}
+					console.log(events);
+					createCalendar();
+				}
+		});
+function createCalendar(){
+
+  var calendar = $('#calendar').fullCalendar({
+        customButtons: {
+            myCustomButton: {
+                text: 'Add Event',
+                click: function() {
+                  alert('add event');
+                }
+            }
+        },
+         header: {
+            left: 'prev',
+            center: 'title',
+            right: 'next'
+        },
+        editable : false,
+        eventLimit: true,
+				eventLimitText: '',
+				dayRender: function (date, cell) {
+					/*if ( !dateHasEvent(date) ){
+							cell.css("background-color", "initial");
+							console.log('no event ' + date.toDate());
+					}
+					else if ( dateHasEvent(date) ){
+							cell.css("background-color", "#6b7c8c");
+							console.log('event ' + date.toDate());
+					}*/
+				},
+
+        eventClick: function(calEvent, jsEvent, view, element) {
+					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
+					swal({
+							title: calEvent.title,
+							html: true,
+							text: inner,
+							allowOutsideClick: true
+					});
+        },
+				dayClick: function(dayEvent, jsEvent, view, element){
+					console.log(dayEvent);
+				},
+        eventRender: function(event, element) {
+					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="10px"/><br>' +event.title);
+					var eventStart = moment(event.start);
+var eventEnd = event._end === null ? eventStart : moment(event.end);
+var diffInDays = eventEnd.diff(eventStart, 'days');
+$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
+for(var i = 1; i < diffInDays; i++) {
+		eventStart.add(1,'day');
+		$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
+}
+
+        },
+    });
+		calendar.fullCalendar( 'addEventSource', events);
+	}
+
+	function dateHasEvent(date) {
+		var hasEvent = false;
+		for(var i = 0; i < events.length; i++){
+		 var thatDate = events[i].start.toString();
+		 thatDate = thatDate.split(' ');
+		 thatDate = thatDate[1] +' '+thatDate[2] +' '+thatDate[3];
+
+		 var thisDate = date.toDate().toString();
+		 thisDate = thisDate.split(' ');
+		 thisDate = thisDate[1] +' '+thisDate[2] +' '+thisDate[3];
+
+		 if(thisDate == thatDate){
+			 hasEvent = true;
+			}
+		}
+		return hasEvent;
+	}
+
+});
 </script>

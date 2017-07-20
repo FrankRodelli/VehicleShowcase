@@ -45,6 +45,13 @@
 	display: inline;
 }
 
+#calendar {
+	width: 1115px;
+	float: left;
+	margin-left: 105px;
+	margin-top: 20px;
+}
+
 #add-event {
 	width: 500px;
 	margin: auto;
