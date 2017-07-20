@@ -187,7 +187,6 @@ function createCalendar(){
             myCustomButton: {
                 text: 'Add Event',
                 click: function() {
-                  alert('add event');
                 }
             }
         },
