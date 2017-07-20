@@ -317,5 +317,14 @@ textarea:focus{
 	margin: 5px;
 }
 .fc-myCustomButton-button{
-	width: 100% !important;
+	position: absolute !important;
+	margin-top: 27px !important;
+	margin-left: -80px !important;
+}
+
+.fc-toolbar.fc-header-toolbar{
+	margin-bottom: 2em !important;
+}
+..fc .fc-toolbar>*>*{
+	float: none !important;
 }
