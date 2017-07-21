@@ -134,14 +134,20 @@ div2.addEventListener("click", function() {
     		if(data2.style.display !== 'none'){
 			data2.style.display = 'none';
 			$("#search-button").animate({
-				right: "+=200px",
+				right: "+=260px",
+			}, 'slow' );
+			$("#search-bar").animate({
+				width: "-=250px",
 			}, 'slow' );
 		}
 		else{
 			data2.style.display = 'block';
 			$("#search-button").animate({
-        right: "-=200px",
+        right: "-=260px",
       }, 'slow' );
+			$("#search-bar").animate({
+				width: "+=250px",
+			}, 'slow' );
 		}
 }, false);
 </script>

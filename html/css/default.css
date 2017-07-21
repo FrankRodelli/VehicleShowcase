@@ -118,9 +118,11 @@ h1, h2, h3
 }
 #search-bar {
 	position: fixed;
-	min-height: 25px;
-	min-width: 25%;
-	margin: 0 25% 0 50%;
+	height: 25px;
+	top: 13px;
+	left: 1075px;
+	width: 0px;
+	overflow: hidden;
 	background-color: white;
 }
 .propic-click{
