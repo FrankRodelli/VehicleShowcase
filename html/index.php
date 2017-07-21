@@ -281,7 +281,7 @@ function createCalendar(){
 					console.log(dayEvent);
 				},
         eventRender: function(event, element) {
-					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="10px"/><br>' +event.title);
+					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="20px"/><br>' +event.title);
 					var eventStart = moment(event.start);
 					var eventEnd = event._end === null ? eventStart : moment(event.end);
 					var diffInDays = eventEnd.diff(eventStart, 'days');
