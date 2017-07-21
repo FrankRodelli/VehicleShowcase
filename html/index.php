@@ -304,3 +304,24 @@ for(var i = 1; i < diffInDays; i++) {
 
 });
 </script>
+<script type="text/javascript">
+function addEvent() {
+  var formData = new FormData($("#add-event-form")[0]);
+
+  $.ajax({
+      url: 'php/events/add-event.php',
+      type: 'POST',
+      data: formData,
+      mimeType: "multipart/form-data",
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        console.log(data);
+      }
+  });
+	document.getElementById('add-event-container').style.display = 'none';
+	document.body.style.overflow = 'auto';
+}
+
+</script>
