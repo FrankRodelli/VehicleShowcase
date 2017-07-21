@@ -133,9 +133,15 @@ var data2 = document.getElementById('search-bar');
 div2.addEventListener("click", function() {
     		if(data2.style.display !== 'none'){
 			data2.style.display = 'none';
+			$("#search-button").animate({
+				right: "+=200px",
+			}, 'slow' );
 		}
 		else{
 			data2.style.display = 'block';
+			$("#search-button").animate({
+        right: "-=200px",
+      }, 'slow' );
 		}
 }, false);
 </script>

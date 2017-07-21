@@ -1,6 +1,3 @@
-html {
-	overflow: auto;
-}
 #page-container {
 	margin: auto;
 	width: 1350px;
@@ -401,9 +398,9 @@ tr:first-child>td>.fc-day-grid-event{
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(255,0,0,0.8);
+    background: #ddd;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,0,0,0.4);
+	background: #ddd;
 }
