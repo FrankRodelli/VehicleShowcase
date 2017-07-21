@@ -101,7 +101,7 @@ if($_POST && isset($_POST['addcar'])){
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
-	} 
+	}
 
 	$sql = "INSERT INTO `Cars` (`HASH`, `DATE`, `MAKE`, `MODEL`, `UUID`, `PHOTO`, `DISPLACEMENT`, `HP`, `TORQUE`, `CYLINDERS`, `FUELTYPE`, `MODS`, `TRANS`, `060`, `0100`, `14MILE`, `TOPSPEED`, `MPG`, `WRITEUP`) VALUES ('$carhash', '$year', '$make', '$model', '$user', '', '$displacement', '$horsepower', '$torque', '$cylinders', '$fueltype', '$mods', '$transmission', '$zerosixty', '$zerohundred', '$quartermile', '$topspeed', '$mpg', '$writeup')";
 
@@ -128,17 +128,17 @@ if(isset($_FILES['image'])){
       $filename = uniqid();
       $temp = explode(".", $_FILES["image"]["name"][$i]);
 	  $newfilename = $filename . '.' . end($temp);
-      
+
       $expensions= array("jpeg","jpg","png");
-      
+
       if(in_array($file_ext,$expensions)=== false){
          $errors[]="extension not allowed, please choose a JPEG or PNG file.";
       }
-      
+
       if($file_size > 2097152) {
          $errors[]='File size must be excately 2 MB';
       }
-      
+
       if(empty($errors)==true) {
 
         //move_uploaded_file($file_tmp,"uploads/images/".$file_name);
@@ -150,7 +150,7 @@ if(isset($_FILES['image'])){
 		// Check connection
 		if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
-		} 
+		}
 		$date = date("Y/m/d");
 		$sql = "INSERT INTO `Photos` (`NAME`, `DATE`) VALUES ('$newfilename','$date')";
 
@@ -187,4 +187,3 @@ if(isset($_FILES['image'])){
 
 </body>
 </html>
-
