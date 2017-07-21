@@ -355,7 +355,7 @@ textarea:focus{
 }
 
 tr:first-child>td>.fc-day-grid-event{
-	margin-top: -3px !important;
+	margin-top: 3px !important;
 }
 
 #add-event {
