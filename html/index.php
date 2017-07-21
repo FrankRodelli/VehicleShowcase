@@ -41,7 +41,7 @@
 				<li><img id="search-button" class="search" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/search-128.png" height="20px"> </li>
 			</ul>
 
-			<div id="search-bar" style="display: none;">
+			<div id="search-bar">
 			Search here
 			</div>
 
@@ -130,25 +130,27 @@ div1.addEventListener("click", function() {
 <script type="text/javascript">
 var div2 = document.getElementById('search-button');
 var data2 = document.getElementById('search-bar');
+var isOpen = false;
 div2.addEventListener("click", function() {
-    		if(data2.style.display !== 'none'){
-			data2.style.display = 'none';
-			$("#search-button").animate({
-				right: "+=260px",
-			}, 'slow' );
-			$("#search-bar").animate({
-				width: "-=250px",
-			}, 'slow' );
-		}
-		else{
-			data2.style.display = 'block';
-			$("#search-button").animate({
-        right: "-=260px",
-      }, 'slow' );
-			$("#search-bar").animate({
-				width: "+=250px",
-			}, 'slow' );
-		}
+	if(isOpen){
+		$("#search-button").animate({
+			right: "+=260px",
+		}, 'slow' );
+		$("#search-bar").animate({
+			width: "-=250px",
+		}, 'slow' );
+		isOpen = false;
+	}else{
+		$("#search-button").animate({
+	    right: "-=260px",
+	  }, 'slow' );
+		$("#search-bar").animate({
+			width: "+=250px",
+		}, 'slow' );
+		isOpen = true;
+	}
+
+
 }, false);
 </script>
 
