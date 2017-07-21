@@ -18,10 +18,16 @@ echo '<div class="slideshow-container">';
 while($row= $result->fetch_assoc()){
 	//This is where the slideshow will be built when above mentioned is complete
 	echo '
-		<div class="mySlides fade">
-	  <img src="http://www.feslerbuilt.com/Site/images/gallery/1969%20Camaro%20Draco/Img0003.jpg">
-	  <div class="text">1969 Cheverolet Camaro</div>
-	  </div>'
+		<div class="mySlides fade">';
+		if($row['PHOTO'] == '' ){
+			echo '<img src="../../images/DEFAULT-CAR.png">';
+		}else{
+			echo '<img src="../../uploads/vehicles/'.$row['PHOTO'].'">';
+		}
+
+		echo '
+	  <div class="text">'.$row['DATE'].' '.$row['MAKE'].' '.$row['MODEL'].'</div>
+	  </div>';
 }
 
 
