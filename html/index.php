@@ -224,8 +224,8 @@ function getEvents(){
 							}
 						console.log(events);
 						if(hasLoaded){
-							$('#calendar').fullCalendar( 'removeEventSource', source );
-							$('#calendar').fullCalendar( 'addEventSource', source );
+							$('#calendar').fullCalendar( 'destroy');
+							createCalendar();
 						}else{
 							hasLoaded = true;
 						createCalendar();
