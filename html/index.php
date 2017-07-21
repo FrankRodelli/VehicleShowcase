@@ -205,26 +205,35 @@ function openQRScanner(){
 </script>
 
 <script>
-$(document).ready(function() {
 var events = [];
-$.ajax({
-				url : 'https://showmeyouraxels.me/browse.php',
-				type : 'post',
-				dataType: 'json',
-				success: function(e){
-					console.log(e[0].title);
-					for(var i = 0; i < e.length; i++){
-							events.push({
-									title : e[i].title,
-									start : moment(e[i].start).toDate('2017/07/18 12h:00'),
-									end : moment(e[i].end).toDate('2017/07/18 12h:30'),
-									icon: "https://www.qrstuff.com/images/sample.png",
-							});
+var hasLoaded = false;
+function getEvents(){
+	$.ajax({
+					url : 'https://showmeyouraxels.me/browse.php',
+					type : 'post',
+					dataType: 'json',
+					success: function(e){
+						console.log(e[0].title);
+						for(var i = 0; i < e.length; i++){
+								events.push({
+										title : e[i].title,
+										start : moment(e[i].start).toDate('2017/07/18 12h:00'),
+										end : moment(e[i].end).toDate('2017/07/18 12h:30'),
+										icon: "https://www.qrstuff.com/images/sample.png",
+								});
+							}
+						console.log(events);
+						if(hasLoaded){
+							$('#calendar').fullCalendar( 'removeEventSource', source );
+							$('#calendar').fullCalendar( 'addEventSource', source );
+						}else{
+							hasLoaded = true;
+						createCalendar();
 						}
-					console.log(events);
-					createCalendar();
-				}
-		});
+					}
+			});
+}
+
 function createCalendar(){
 
   var calendar = $('#calendar').fullCalendar({
@@ -271,58 +280,40 @@ function createCalendar(){
         eventRender: function(event, element) {
 					element.find('.fc-content').html('<img src="http://simpleicon.com/wp-content/uploads/flag.svg" height="10px"/><br>' +event.title);
 					var eventStart = moment(event.start);
-var eventEnd = event._end === null ? eventStart : moment(event.end);
-var diffInDays = eventEnd.diff(eventStart, 'days');
-$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
-for(var i = 1; i < diffInDays; i++) {
-		eventStart.add(1,'day');
-		$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
-}
+					var eventEnd = event._end === null ? eventStart : moment(event.end);
+					var diffInDays = eventEnd.diff(eventStart, 'days');
+					$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
+					for(var i = 1; i < diffInDays; i++) {
+							eventStart.add(1,'day');
+							$("td[data-date='" + eventStart.format('YYYY-MM-DD') + "']").css('background-color','#dddddd');
+					}
 
         },
     });
 		calendar.fullCalendar( 'addEventSource', events);
 	}
 
-	function dateHasEvent(date) {
-		var hasEvent = false;
-		for(var i = 0; i < events.length; i++){
-		 var thatDate = events[i].start.toString();
-		 thatDate = thatDate.split(' ');
-		 thatDate = thatDate[1] +' '+thatDate[2] +' '+thatDate[3];
+	function addEvent() {
+		var formData = new FormData($("#add-event-form")[0]);
 
-		 var thisDate = date.toDate().toString();
-		 thisDate = thisDate.split(' ');
-		 thisDate = thisDate[1] +' '+thisDate[2] +' '+thisDate[3];
-
-		 if(thisDate == thatDate){
-			 hasEvent = true;
-			}
-		}
-		return hasEvent;
+		$.ajax({
+				url: 'php/events/add-event.php',
+				type: 'POST',
+				data: formData,
+				mimeType: "multipart/form-data",
+				contentType: false,
+				cache: false,
+				processData: false,
+				success: function(data) {
+					console.log(data);
+				}
+		});
+		document.getElementById('add-event-container').style.display = 'none';
+		document.body.style.overflow = 'auto';
+		getEvents();
 	}
 
+	getEvents();
 
 
-});
-
-function addEvent() {
-	var formData = new FormData($("#add-event-form")[0]);
-
-	$.ajax({
-			url: 'php/events/add-event.php',
-			type: 'POST',
-			data: formData,
-			mimeType: "multipart/form-data",
-			contentType: false,
-			cache: false,
-			processData: false,
-			success: function(data) {
-				console.log(data);
-			}
-	});
-	document.getElementById('add-event-container').style.display = 'none';
-	document.body.style.overflow = 'auto';
-	$('#calendar').fullCalendar( 'refetchEvents' );
-}
 </script>
