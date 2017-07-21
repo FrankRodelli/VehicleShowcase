@@ -223,6 +223,7 @@ textarea:focus{
 .slideshow-container img {
 	height: 150px;
 	width: 100%;
+	border-radius: 3px;
 }
 
 .mySlides {

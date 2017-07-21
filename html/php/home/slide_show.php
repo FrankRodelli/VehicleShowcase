@@ -18,7 +18,7 @@ echo '<div class="slideshow-container">';
 while($row= $result->fetch_assoc()){
 	//This is where the slideshow will be built when above mentioned is complete
 	echo '
-		<div class="mySlides fade">';
+		<div class="mySlides fade"><a href="../../vehicle.php?c='.$row['HASH'].'">';
 		if($row['PHOTO'] == '' ){
 			echo '<img src="../../images/DEFAULT-CAR.png">';
 		}else{
@@ -26,6 +26,7 @@ while($row= $result->fetch_assoc()){
 		}
 
 		echo '
+		</a>
 	  <div class="text">'.$row['DATE'].' '.$row['MAKE'].' '.$row['MODEL'].'</div>
 	  </div>';
 }
