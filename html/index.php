@@ -208,6 +208,7 @@ function openQRScanner(){
 var events = [];
 var hasLoaded = false;
 function getEvents(){
+	events = [];
 	$.ajax({
 					url : 'https://showmeyouraxels.me/browse.php',
 					type : 'post',
@@ -224,14 +225,16 @@ function getEvents(){
 							}
 						console.log(events);
 						if(hasLoaded){
-							$('#calendar').fullCalendar( 'destroy');
-							createCalendar();
+							//If calendar has loaded, remove the old source and push the new one
+							$('#calendar').fullCalendar( 'removeEventSources');
+							$('#calendar').fullCalendar( 'addEventSource', events )
 						}else{
 							hasLoaded = true;
 						createCalendar();
 						}
 					}
 			});
+			createCalendar();
 }
 
 function createCalendar(){
