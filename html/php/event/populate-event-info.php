@@ -17,18 +17,23 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $eventDateStart = date_create($row['start']);
   $eventDateEnd = date_create($row['end']);
+  $eventOwner = $row['owner'];
 
   echo '
   <img class="eventImage" src="
   http://moxiefestival.com/wp-content/uploads/2013/01/CarShowField.jpg"
   width="100%">
 
-  <h2>'.$row['title'].'</h2>
+  <h2>'.$row['title'].'</h2>';
 
-  <a>Hosted by: </a><a href="';
+  $usersql = "SELECT * FROM UserList WHERE UUID = '$eventOwner'";
+  $userResult = $conn->query($usersql);
 
-  echo '"></a>
-
+  if($userResult->num_rows > 0){
+    $userrow = $userResult->fetch_assoc();
+    echo '<a>Hosted by: </a><a href="../user.php?u='.$userrow['UUID'].'">'.$userrow['FIRSTNAME'].' '.$userrow['LASTNAME'].'</a>';
+  }
+  echo '
   <div id="eventDate">'.
   $eventDateStart->format("M d H:i a").
   '<br>To<br>'.
@@ -40,8 +45,11 @@ if ($result->num_rows > 0) {
   $row['description'].
 
   '<div id="eventInstructions">
-  <h2>Instructions</h2>'.
-  $row['specialInstructions'];
+  <h2>Special Requests/Instructions</h2>'.
+  $row['specialInstructions'].
+
+  '<h2>Location</h2>'.
+  $row['location'];
 
 }
 
