@@ -18,8 +18,9 @@ if ($result->num_rows > 0) {
   echo '<img src="
   http://moxiefestival.com/wp-content/uploads/2013/01/CarShowField.jpg"
   width="100%"><h2>'
-  .$row['title'].'</h2>'
-  .$row['start'];
+  .$row['title'].'</h2>';
+  $d = DateTime::createFromFormat("YmdHis", $row['start']);
+  echo $d->format("d/m/Y H:i:s");
 
 }
 
