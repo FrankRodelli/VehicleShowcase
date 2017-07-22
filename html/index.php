@@ -218,6 +218,7 @@ function getEvents(){
 						for(var i = 0; i < e.length; i++){
 								events.push({
 										title : e[i].title,
+										id: e[i].id,
 										start : moment(e[i].start).toDate('2017/07/18 12h:00'),
 										end : moment(e[i].end).toDate('2017/07/18 12h:30'),
 										icon: "https://www.qrstuff.com/images/sample.png",
@@ -269,7 +270,7 @@ function createCalendar(){
 				},
 
         eventClick: function(calEvent, jsEvent, view, element) {
-					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end);
+					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end)+'<br><a href="event.php?e=' +calEvent.id+'">Go to Event Page</a>';
 					swal({
 							title: calEvent.title,
 							html: true,
