@@ -15,12 +15,20 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
-  echo '<img src="
+  $eventDateStart = date_create($row['start']);
+  $eventDateEnd = date_create($row['end']);
+
+  echo '
+  <img class="eventImage" src="
   http://moxiefestival.com/wp-content/uploads/2013/01/CarShowField.jpg"
-  width="100%"><h2>'
-  .$row['title'].'</h2>';
-  $d = DateTime::createFromFormat("YmdHis", $row['start']);
-  echo $d->format("d/m/Y H:i:s");
+  width="100%">
+
+  <h2>'.$row['title'].'</h2>
+  <div id="eventDate">'.
+  $eventDateStart->format("M d H:i a").
+  '<br>To<br>'.
+  $eventDateEnd->format("M d H:i a").
+  '</div>';
 
 }
 
