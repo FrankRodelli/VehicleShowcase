@@ -24,11 +24,24 @@ if ($result->num_rows > 0) {
   width="100%">
 
   <h2>'.$row['title'].'</h2>
+
+  <a>Hosted by: </a><a href="';
+
+  echo '"></a>
+
   <div id="eventDate">'.
   $eventDateStart->format("M d H:i a").
   '<br>To<br>'.
   $eventDateEnd->format("M d H:i a").
-  '</div>';
+  '</div>
+
+  <div id="eventDetails">
+  <h2>Details</h2>'.
+  $row['description'].
+
+  '<div id="eventInstructions">
+  <h2>Instructions</h2>'.
+  $row['specialInstructions'];
 
 }
 
