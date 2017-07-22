@@ -14,12 +14,13 @@ $sql = "SELECT * FROM Events WHERE id = '$eventID'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  echo '<img src="
+  http://moxiefestival.com/wp-content/uploads/2013/01/CarShowField.jpg"
+  width="100%"><h2>'
+  .$row['title'].'</h2>'
+  .$row['start'];
 
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo $row['title'];
-
-  }
 }
 
  ?>
