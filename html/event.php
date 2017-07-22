@@ -100,6 +100,7 @@
 
 <div id="center-column">
 <h2>Event information here</h2>
+<?php include('php/event/populate-event-info.php'); ?>
 </div>
 
 </div>
