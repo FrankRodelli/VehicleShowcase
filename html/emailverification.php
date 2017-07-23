@@ -18,9 +18,14 @@
         }
 
     $emailcode = $conn->real_escape_string($_GET['v']);
-    echo $emailcode;
 
-    $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='' AND VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
+    $sql = "SELECT * FROM UserList WHERE VERIFICATIONLINKCODE = '$emailcode'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $uuid = $row['UUID'];
+    echo $uuid;
+
+    $sql = "UPDATE `UserList` SET VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
     if($conn->query($sql) === TRUE){
         echo 'done';
 
