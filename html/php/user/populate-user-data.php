@@ -32,8 +32,8 @@ if($result->num_rows == 1){
 	<a>'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
 	<a>'.$age.'</a><br>
 	<a>'.$row["OCCUPATION"] .'</a><br>';
-	
-	$followers = 0; 
+
+	$followers = 0;
 	$following = 0;
 
 	//Gets number of people user is following
@@ -63,7 +63,7 @@ if($result->num_rows == 1){
 		if ($result->num_rows > 0) {
 	    	// output data of each row
 	    	while($row1 = $result->fetch_assoc()) {
-	    		if($row1['USER'] = $loggedinuser){
+	    		if($row1['USER'] == $loggedinuser && $row1['FOLLOWING'] == $username){
 	    			$isUserFollowing = true;
 	    		}
 	    	}
