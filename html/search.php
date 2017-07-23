@@ -17,16 +17,16 @@ $conn2 = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles'
 		// Check connection
 		if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
-		} 
+		}
 		if ($conn2->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
-		} 
+		}
 if(isset($_POST['submit'])){
-// get the search term which was posted. 
+// get the search term which was posted.
 	$searchterm = $conn->real_escape_string($_POST['search_term']);
-//if the someone searches something, check it via their first name. 
-$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME='$searchterm' OR LASTNAME='$searchterm'";
-$sql2 = "SELECT * FROM `Cars` WHERE MAKE='$searchterm' OR MODEL='$searchterm'";
+//if the someone searches something, check it via their first name.
+$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%'";
+$sql2 = "SELECT * FROM `Cars` WHERE MAKE LIKE '%$searchterm%' OR MODEL LIKE '%$searchterm%'";
 $result = $conn->query($sql);
 $result2 = $conn2->query($sql2);
 if($result->num_rows == 1){
@@ -68,7 +68,7 @@ echo "<br>";
 
 
 }elseif($result2->num_rows > 0){
-	
+
 while($row = $result2->fetch_assoc()) {
 		$i++;
 		//if there's more than one car, while loop it
