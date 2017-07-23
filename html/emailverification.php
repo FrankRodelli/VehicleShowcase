@@ -16,12 +16,13 @@
             header("Location: blocked.php");
             }
         }
-        
+
     $emailcode = $conn->real_escape_string($_GET['v']);
+    echo $emailcode;
 
     $sql = "UPDATE `UserList` SET VERIFICATIONLINKCODE='' AND VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
     if($conn->query($sql) === TRUE){
-        header("Location: index.php");
+        echo 'done';
 
     }else{
         echo "Error: " . $sql . "<br>" . $conn->error;
