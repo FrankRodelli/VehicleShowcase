@@ -23,11 +23,10 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $uuid = $row['UUID'];
-    echo $uuid;
 
     $sql = "UPDATE `UserList` SET VERIFIEDEMAIL = 1 WHERE VERIFICATIONLINKCODE = '$emailcode'";
     if($conn->query($sql) === TRUE){
-        echo 'done';
+        header("Location: index.php#welcome");
 
     }else{
         echo "Error: " . $sql . "<br>" . $conn->error;
