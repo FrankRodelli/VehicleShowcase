@@ -49,8 +49,8 @@ if ($result->num_rows > 0) {
   <h2>Special Requests/Instructions</h2>'.
   $row['specialInstructions'].
 
-  '<h2>Location</h2>';
-
+  '<h2>Location</h2>
+  <div id="map_div" style="height: 400px;"></div>';
 }
 
  ?>

@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK3Lp9ohMSd_g5JLgaqt6mN3G9ZydA8xc&callback=initMap"
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfNCybgK_NXLduu4UPB92hKvtU9eCFixA"
  type="text/javascript"></script>
 
 </head>
@@ -314,6 +314,49 @@ $( document ).ready(function() {
 			 }, function (results, status) {
 					 if (status == google.maps.GeocoderStatus.OK) {
 							 console.log(results[0]);
+							 var map;
+								/*
+								 * use google maps api built-in mechanism to attach dom events
+								 */
+								 google.maps.event.addDomListener(window, "load", function () {
+
+								  /*
+								   * create map
+								   */
+								  var map = new google.maps.Map(document.getElementById("map_div"), {
+								    center: new google.maps.LatLng(28.184795, -82.54585399999996),
+								    zoom: 14,
+								    mapTypeId: google.maps.MapTypeId.ROADMAP
+								  });
+
+								  /*
+								   * create infowindow (which will be used by markers)
+								   */
+								  var infoWindow = new google.maps.InfoWindow();
+
+								  /*
+								   * marker creater function (acts as a closure for html parameter)
+								   */
+								  function createMarker(options, html) {
+								    var marker = new google.maps.Marker(options);
+								    if (html) {
+								      google.maps.event.addListener(marker, "click", function () {
+								        infoWindow.setContent(html);
+								        infoWindow.open(options.map, this);
+								      });
+								    }
+								    return marker;
+								  }
+
+								  /*
+								   * add markers to map
+								   */
+								  var marker0 = createMarker({
+								    position: new google.maps.LatLng(28.184795, -82.54585399999996),
+								    map: map,
+								    icon: "http://1.bp.blogspot.com/_GZzKwf6g1o8/S6xwK6CSghI/AAAAAAAAA98/_iA3r4Ehclk/s1600/marker-green.png"
+								  }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
+								});
 					 }
 			 });
 	 }
