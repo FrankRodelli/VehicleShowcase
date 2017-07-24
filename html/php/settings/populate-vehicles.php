@@ -28,7 +28,7 @@ if(isset($_POST['edit'])){
 				$urlHash = $rowcars['HASH'];
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
 					<img onclick="expandImage(';
-					echo "'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=showmeyouraxels.me/vehicle.php?c=".$urlHash."'";
+					echo "this";
 					echo ')" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=showmeyouraxels.me/vehicle.php?c=' . $rowcars['HASH'] .'"%2F&choe=UTF-8" title="Link to Listing" style="height:50px;"/>
 	        <a href="#vehicles" onclick="carStuff(';
 	        echo "'".$rowcars['HASH']."'";
