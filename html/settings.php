@@ -35,19 +35,19 @@
                 <?php include("php/header.php"); ?>
                 <div id="page-wrapper">
 
-                  <div id="myModal" class="modal">
-
-                  <!-- The Close Button -->
-                  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-
-                  <!-- Modal Content (The Image) -->
-                  <img class="modal-content" id="img01">
-
-                  <!-- Modal Caption (Image Text) -->
-                  <div id="caption"></div>
-                </div>
-
                     <div id="container">
+                      <div id="myModal" class="modal">
+
+                      <!-- The Close Button -->
+                      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                      <!-- Modal Content (The Image) -->
+                      <img class="modal-content" id="img01">
+
+                      <!-- Modal Caption (Image Text) -->
+                      <div id="caption"></div>
+                    </div>
+
                         <div id="select-category">
                             <a href="#profile" onclick="showSetting('profile');">Edit Profile</a><br>
                             <a href="#following" onclick="showSetting('following');">Edit Following</a><br>
@@ -469,10 +469,11 @@ var modal = document.getElementById('myModal');
 var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
+
+function expandImage(imageSource){
+
+      modal.style.display = "block";
+      captionText.innerHTML = '<img src="'+imageSource+'">';
 }
 
 // Get the <span> element that closes the modal

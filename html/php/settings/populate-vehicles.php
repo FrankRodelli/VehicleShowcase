@@ -25,8 +25,11 @@ if(isset($_POST['edit'])){
 	    	}else{
 	    		echo '<img src="../images/DEFAULT-CAR.png" height="100">';
 	    	}
+				$urlHash = $rowcars['HASH'];
 	        echo '<div id="title">' . $rowcars["DATE"] . " " . $rowcars["MAKE"] . " " . $rowcars["MODEL"] . '</div><div id="options">
-					<img id="myImage" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=showmeyouraxels.me/vehicle.php?c=' . $rowcars['HASH'] .'"%2F&choe=UTF-8" title="Link to Listing" style="height:50px;"/>
+					<img onclick="expandImage(';
+					echo "'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=showmeyouraxels.me/vehicle.php?c=".$urlHash."'";
+					echo ')" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=showmeyouraxels.me/vehicle.php?c=' . $rowcars['HASH'] .'"%2F&choe=UTF-8" title="Link to Listing" style="height:50px;"/>
 	        <a href="#vehicles" onclick="carStuff(';
 	        echo "'".$rowcars['HASH']."'";
 	        echo')">Edit</a>
