@@ -25,10 +25,12 @@ if(isset($_POST['submit'])){
 // get the search term which was posted.
 	$searchterm = $conn->real_escape_string($_POST['search_term']);
 //if the someone searches something, check it via their first name.
-$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%'";
+$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
+$event = "SELECT * FROM `Events` WHERE title LIKE '%$searchterm%' OR description LIKE '%$searchterm%'";
 $sql2 = "SELECT * FROM `Cars` WHERE MAKE LIKE '%$searchterm%' OR MODEL LIKE '%$searchterm%'";
 $result = $conn->query($sql);
 $result2 = $conn2->query($sql2);
+$result3 = $conn->query($event);
 if($result->num_rows == 1){
 
 $row = $result->fetch_assoc();
