@@ -12,19 +12,29 @@
 
 <?php
 	$resultCounter = 0;
+	$resultArray = array();
 	$connUsers = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
-	$connVehicles = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 
 	// Check connection
 	if ($connUsers->connect_error) {
 	  die("Connection failed: " . $conn->connect_error);
 	}
+
+	// Check connection
+	$connVehicles = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
 	if ($connVehicles->connect_error) {
 	  die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
+
 	if(isset($_POST['submit'])){
+		$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
+		$result = $conn->query($sql);
+		if($result->num_rows > 0){
+			while($row = $result->fetch_assoc() === TRUE){
+				array_push($resultArray,$row);
+			}
+		}
 
 	}else{
 		echo "No results found";
