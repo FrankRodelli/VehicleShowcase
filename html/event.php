@@ -313,7 +313,8 @@ $( document ).ready(function() {
 					 'address': address
 			 }, function (results, status) {
 					 if (status == google.maps.GeocoderStatus.OK) {
-							 console.log(results[0]);
+							 var latt = results[0].geometry.location.lat();
+							 var longg = results[0].geometry.location.lng();
 							 var map;
 								/*
 								 * use google maps api built-in mechanism to attach dom events
@@ -324,7 +325,7 @@ $( document ).ready(function() {
 								   * create map
 								   */
 								  var map = new google.maps.Map(document.getElementById("map_div"), {
-								    center: new google.maps.LatLng(28.184795, -82.54585399999996),
+								    center: new google.maps.LatLng(latt,longg),
 								    zoom: 14,
 								    mapTypeId: google.maps.MapTypeId.ROADMAP
 								  });
@@ -352,7 +353,7 @@ $( document ).ready(function() {
 								   * add markers to map
 								   */
 								  var marker0 = createMarker({
-								    position: new google.maps.LatLng(28.184795, -82.54585399999996),
+								    position: new google.maps.LatLng(latt,longg),
 								    map: map,
 								    icon: "http://1.bp.blogspot.com/_GZzKwf6g1o8/S6xwK6CSghI/AAAAAAAAA98/_iA3r4Ehclk/s1600/marker-green.png"
 								  }, "<h1>Marker 0</h1><p>This is the home marker.</p>");

@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
   $row['specialInstructions'].
 
   '<h2>Location</h2>
-  <div id="map_div" style="height: 400px;"></div>';
+  <div id="map_div" style="height: 200px;"></div>';
 }
 
  ?>
