@@ -165,6 +165,9 @@
     width: 100%;
     cursor: pointer;
 }
+#options img {
+  margin-top: 25px;
+}
 .delete-button {
     color: red;
 }
