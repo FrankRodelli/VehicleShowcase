@@ -11,17 +11,25 @@
 </body>
 
 <?php
-$i == 0;
-$conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
-$conn2 = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
-		if ($conn2->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
-if(isset($_POST['submit'])){
+	$resultCounter = 0;
+	$connUsers = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
+	$connVehicles = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles');
+
+	// Check connection
+	if ($connUsers->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
+	if ($connVehicles->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
+	if(isset($_POST['submit'])){
+
+	}else{
+		echo "No results found";
+	}
+/*
 // get the search term which was posted.
 	$searchterm = $conn->real_escape_string($_POST['search_term']);
 //if the someone searches something, check it via their first name.
@@ -85,9 +93,33 @@ echo "<br>";
     	}
 
 
-}else{
-	echo "No results found";
-}
+}elseif($result3->num_rows == 1){
+	$row = $result3->fetch_assoc();
+echo 'Result 1 of 1';
+//link the car page, so they can see said car
+echo '<a href="../event.php/?e='. $row["id"] .'"> ';
+echo $row["description"];
+echo "  ";
+echo $row["location"];
+//echo car make and model
+echo '</a>';
+echo "<br>";
 
-}
+
+}elseif($result3->num_rows > 0){
+
+while($row = $result3->fetch_assoc()) {
+		$i++;
+		//if there's more than one car, while loop it
+    		echo 'Result ' . $i . ' of ' . $result3->num_rows . ' ';
+    		echo '<a href="../event.php/?e='. $row["id"] .'"> ';
+    		echo $row["description"];
+echo "  ";
+echo $row["location"];
+// echo car make and model
+echo '</a>';
+echo "<br>";
+    	}
+
+*/
 		?>
