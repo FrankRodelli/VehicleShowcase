@@ -42,7 +42,9 @@
 			</ul>
 
 			<div id="search-bar">
-			Search here
+			<form method ="post" action="/search.php" target="_blank">
+			<input name="s" class="searchinput" type="text">
+		</form>
 			</div>
 
 <?php include("php/header.php"); ?>
@@ -319,5 +321,17 @@ function createCalendar(){
 
 	getEvents();
 
+
+</script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('.searchinput').keydown(function(event) {
+        if (event.keyCode == 13) {
+            this.form.submit();
+            return false;
+         }
+    });
+});
 
 </script>
