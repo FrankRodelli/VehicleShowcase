@@ -139,3 +139,8 @@
     background: #202020;
     color: #fff;
 }
+
+#map_div {
+	margin: auto;
+	width: 500px;
+}

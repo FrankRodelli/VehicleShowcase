@@ -92,7 +92,8 @@
 
 
 <div class="column" id="left-column">
-<h2>Other Events</h2>
+<h2>Map</h2>
+<div id="map_div" style="height: 280px; width: 280px;"></div>
 
 </div>
 
@@ -330,14 +331,8 @@ $( document ).ready(function() {
 								    mapTypeId: google.maps.MapTypeId.ROADMAP
 								  });
 
-								  /*
-								   * create infowindow (which will be used by markers)
-								   */
 								  var infoWindow = new google.maps.InfoWindow();
 
-								  /*
-								   * marker creater function (acts as a closure for html parameter)
-								   */
 								  function createMarker(options, html) {
 								    var marker = new google.maps.Marker(options);
 								    if (html) {
@@ -349,14 +344,11 @@ $( document ).ready(function() {
 								    return marker;
 								  }
 
-								  /*
-								   * add markers to map
-								   */
 								  var marker0 = createMarker({
 								    position: new google.maps.LatLng(latt,longg),
 								    map: map,
 								    icon: "http://1.bp.blogspot.com/_GZzKwf6g1o8/S6xwK6CSghI/AAAAAAAAA98/_iA3r4Ehclk/s1600/marker-green.png"
-								  }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
+								  }, "<p>"+address+"</p>");
 								});
 					 }
 			 });
