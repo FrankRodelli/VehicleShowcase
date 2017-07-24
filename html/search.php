@@ -35,6 +35,7 @@
 		if($result->num_rows > 0){
 			//Stores each row in array
 			while($resultArray[] = $result->fetch_assoc());
+			array_pop($resultArray);
 		}
 
 		//Second query
@@ -43,24 +44,34 @@
 		if($result->num_rows > 0){
 			//Stores each row in array
 			while($resultArray[] = $result->fetch_assoc());
+			array_pop($resultArray);
 		}
 
 		//Third query
 		$sql = "SELECT * FROM `Cars` WHERE MAKE LIKE '%$searchterm%' OR MODEL LIKE '%$searchterm%'";
-		$result = $connVehiclesr->query($sql);
+		$result = $connVehicles->query($sql);
 		if($result->num_rows > 0){
 			//Stores each row in array
 			while($resultArray[] = $result->fetch_assoc());
+			array_pop($resultArray);
 		}
 
 		$resultCounter = sizeof($resultArray);
 
 		//If there are results
 		if($resultCounter > 0){
+
 			//Loops through array and displays results
 			for($i = 0; $i < sizeof($resultArray);$i++){
-				echo $resultArray[$i];
-				echo $resultCounter;
+				if($resultArray[$i]['USERNAME'] != ''){
+					echo $resultArray[$i]['USERNAME'];
+				}
+				if($resultArray[$i]['MAKE'] != ''){
+					echo $resultArray[$i]['MAKE'];
+				}
+				if($resultArray[$i]['title'] != ''){
+					echo $resultArray[$i]['title'];
+				}
 			}
 		}
 
