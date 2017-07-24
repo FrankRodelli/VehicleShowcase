@@ -42,8 +42,8 @@
 			</ul>
 
 			<div id="search-bar">
-			<form method ="post" action="/search.php" target="_blank">
-			<input name="s" class="searchinput" type="text">
+			<form method="post" action="/search.php">
+			<input name="a" class="searchinput" type="text">
 		</form>
 			</div>
 
@@ -149,6 +149,7 @@ div2.addEventListener("click", function() {
 		$("#search-bar").animate({
 			width: "+=250px",
 		}, 'slow' );
+		$(".searchinput").focus();
 		isOpen = true;
 	}
 

@@ -11,6 +11,7 @@
 </body>
 
 <?php
+
 	$connUsers = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 
 	// Check connection
@@ -25,14 +26,14 @@
 	}
 
 
-	if(isset($_POST['submit']) || isset($_GET['s'])){
+	if(isset($_POST['submit']) || isset($_POST['a'])){
 
 		//Ensure that if the submit button is pressed, the url is ignored
 		if(isset($_POST['submit'])){
 			$searchterm = $connUsers->real_escape_string($_POST['search_term']);
 		}else{
-			if($_GET['s'] != ''){
-				$searchterm = $connUsers->real_escape_string($_GET['s']);
+			if($_POST['a'] != ''){
+				$searchterm = $connUsers->real_escape_string($_POST['a']);
 			}
 		}
 
