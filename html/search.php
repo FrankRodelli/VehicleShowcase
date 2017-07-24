@@ -25,8 +25,14 @@
 	}
 
 
-	if(isset($_POST['submit'])){
-		$searchterm = $connUsers->real_escape_string($_POST['search_term']);
+	if(isset($_POST['submit']) || isset($_GET['s'])){
+		if($_GET['s'] != ''){
+			$searchterm = $connUsers->real_escape_string($_GET['s']);
+			//TODO: CLEAR HEADER STRING AFTER SETTING searchterm
+		}else{
+			$searchterm = $connUsers->real_escape_string($_POST['search_term']);
+		}
+
 		$resultArray = array();
 
 		//query users
@@ -67,10 +73,10 @@
 					echo ($i+1).'. <a href="../user.php?u='.$resultArray[$i]['UUID'].'">'.$resultArray[$i]['FIRSTNAME'].' '.$resultArray[$i]['LASTNAME'].'</a><br>';
 				}
 				if($resultArray[$i]['MAKE'] != ''){
-					echo ($i+1).'. '.$resultArray[$i]['MAKE'].'<br>';
+					echo ($i+1).'. <a href="../vehicle.php?c='.$resultArray[$i]['HASH'].'">'.$resultArray[$i]['DATE'].' '.$resultArray[$i]['MAKE'].' '.$resultArray[$i]['MODEL'].'</a><br>';
 				}
 				if($resultArray[$i]['title'] != ''){
-					echo ($i+1).'. '.$resultArray[$i]['title'].'<br>';
+					echo ($i+1).'. <a href="../event.php?e='.$resultArray[$i]['id'].'">'.$resultArray[$i]['title'].'</a><br>';
 				}
 			}
 		}
