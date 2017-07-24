@@ -28,11 +28,15 @@
 
 
 	if(isset($_POST['submit'])){
+		$searchterm = $connUsers->real_escape_string($_POST['search_term']);
 		$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
-		$result = $conn->query($sql);
+		$result = $connUsers->query($sql);
 		if($result->num_rows > 0){
-			while($row = $result->fetch_assoc() === TRUE){
+			while($row = $result->fetch_assoc()){
 				array_push($resultArray,$row);
+			}
+			for($i = 0; $i > $resultArray.length;$i++){
+
 			}
 		}
 
