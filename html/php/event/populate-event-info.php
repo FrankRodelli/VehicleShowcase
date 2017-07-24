@@ -18,6 +18,7 @@ if ($result->num_rows > 0) {
   $eventDateStart = date_create($row['start']);
   $eventDateEnd = date_create($row['end']);
   $eventOwner = $row['owner'];
+  $location = $row['location'];
 
   echo '
   <img class="eventImage" src="
@@ -48,8 +49,7 @@ if ($result->num_rows > 0) {
   <h2>Special Requests/Instructions</h2>'.
   $row['specialInstructions'].
 
-  '<h2>Location</h2>'.
-  $row['location'];
+  '<h2>Location</h2>';
 
 }
 

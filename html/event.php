@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&key='AIzaSyCK3Lp9ohMSd_g5JLgaqt6mN3G9ZydA8xc'></script>
 
 </head>
 
@@ -299,4 +300,21 @@ function createCalendar(){
 	getEvents();
 
 
+</script>
+
+<script>
+$( document ).ready(function() {
+	var address = "<?php echo $location; ?>";
+	console.log(address);
+	geocoder = new google.maps.Geocoder();
+	 if (geocoder) {
+			 geocoder.geocode({
+					 'address': address
+			 }, function (results, status) {
+					 if (status == google.maps.GeocoderStatus.OK) {
+							 console.log(results[0]);
+					 }
+			 });
+	 }
+ });
 </script>
