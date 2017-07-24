@@ -54,7 +54,18 @@
 
 <div id="page-wrapper">
 <div id="page-container">
+	<div id="myModal" class="modal">
 
+	<!-- The Close Button -->
+	<span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+	<!-- Modal Content (The Image) -->
+	<img class="modal-content" id="img01">
+
+	<!-- Modal Caption (Image Text) -->
+	<div id="caption"></div>
+	</div>
+	
 	<div id="qr-container" style="display:none;">
 		<h2>Scan QR Code</h2>
 		<video id="qr-preview"></video>
@@ -335,4 +346,28 @@ $(document).ready(function() {
     });
 });
 
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+function expandImage(imageSource){
+
+      modal.style.display = "block";
+      modalImg.src = imageSource.src;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 </script>

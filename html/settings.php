@@ -473,7 +473,7 @@ var captionText = document.getElementById("caption");
 function expandImage(imageSource){
 
       modal.style.display = "block";
-      captionText.innerHTML = imageSource;
+      modalImg.src = imageSource.src;
 }
 
 // Get the <span> element that closes the modal

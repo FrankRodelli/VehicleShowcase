@@ -92,7 +92,7 @@ if($_POST['add-post']){
         }
 
       if(($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/gif")|| ($_FILES["file"]["type"] == "image/jpeg")){
-        
+
         $contentType = 'picture';
       }
       elseif ($_FILES["file"]["type"] == "video/mp4") {
@@ -105,7 +105,7 @@ if($_POST['add-post']){
       }
   }
 
-  //Adds file to database 
+  //Adds file to database
   if($contentType == 'picture'){
     $sql = "INSERT INTO `Posts` (`UUID`, `USER`, `TEXT`, `CONTENT`, `PHOTO`) VALUES ('$postid','$loggedinuser','$text','picture','$newfilename')";
 
@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
 		'.$row['TEXT'].'</a>';
 
         if($row["CONTENT"] == 'picture'){
-          echo '<img class="post-image" src="uploads/posts/'.$row['PHOTO'].'">';
+          echo '<img onclick="expandImage(this)" class="post-image" src="uploads/posts/'.$row['PHOTO'].'">';
         }
         else{
           if($row["CONTENT"] == 'video'){
@@ -241,7 +241,7 @@ if ($result->num_rows > 0) {
         }else{
           echo '<img class="post-pro-pic" src="images/DEFAULT-PROPIC.png">';
         }
-        
+
 
         echo '</a><a>'.$commentownerrow['FIRSTNAME'].' '.$commentownerrow['LASTNAME'].'
         </div>
@@ -250,7 +250,7 @@ if ($result->num_rows > 0) {
 
 }else{
 
- 
+
 }
 
     //Check if credentials match database and login accordingly
@@ -273,7 +273,7 @@ if ($result->num_rows > 0) {
       </form>
     </div>';
     }
-echo' 
+echo'
     </div>';
     }
 
