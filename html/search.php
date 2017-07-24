@@ -33,10 +33,11 @@
 		$result = $connUsers->query($sql);
 		if($result->num_rows > 0){
 			while($row = $result->fetch_assoc()){
-				array_push($resultArray,$row);
+				$resultArray[$resultCounter] = $row;
+				$resultCounter++;
 			}
-			for($i = 0; $i > $resultArray.length;$i++){
-
+			for($i = 0; $i > sizeof($resultArray);$i++){
+				echo $resultArray[i];
 			}
 		}
 
