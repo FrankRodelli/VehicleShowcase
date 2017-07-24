@@ -27,7 +27,7 @@ if($result->num_rows == 1){
 	$age = floor((time() - strtotime($row["DOB"])) / 31556926);
 
 	echo '
-	<img class="propic-page" src="../uploads/users/'.$row["PICTURE"].'" height="150px"></a>
+	<img onclick="expandImage(this)" class="propic-page" src="../uploads/users/'.$row["PICTURE"].'" height="150px"></a>
 	<div id="user-data">
 	<a>'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
 	<a>'.$age.'</a><br>

@@ -8,9 +8,9 @@ $conn = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Vehicles')
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
-//Selects vehicle based on UUID in URL 
+//Selects vehicle based on UUID in URL
 $sql = "SELECT * FROM Cars WHERE HASH = '$uuid' LIMIT 1";
 $result = $conn->query($sql);
 
@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
 
     	if($row['PHOTO'] != ""){
     		//Obtains main picture for header
-    		 echo '<img src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" >';
+    		 echo '<img onclick="expandImage(this)" src="../uploads/vehicles/'. $row["PHOTO"] . '" width = "200" >';
     	}else{
     		echo '<img src="../images/DEFAULT-CAR.png" width="200">';
     	}
@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 
 		<div id="engine" class="side-data">
 		<h2>Engine</h2>
-		' . $row["DISPLACEMENT"] . ' ' . $row["CYLINDERS"] . ' Cylinder<br>' . $row["HP"] 
+		' . $row["DISPLACEMENT"] . ' ' . $row["CYLINDERS"] . ' Cylinder<br>' . $row["HP"]
 		. ' Horsepower<br>' . $row["TORQUE"] . ' lb/ft Torque<br>' . $row["FUELTYPE"] . '
 		</div>
 
@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
 		$photosql = "SELECT * FROM PhotoLink WHERE UNAME = '$uuid'";
     	$photoresult = $conn->query($photosql);
 		while($photorow = $photoresult->fetch_assoc()){
-			echo '<img class="photos-inrow" src="../uploads/vehicles/'. $photorow["FNAME"] . '">';
+			echo '<img onclick="expandImage(this)" class="photos-inrow" src="../uploads/vehicles/'. $photorow["FNAME"] . '">';
 		}
 		echo '
 		</div>
