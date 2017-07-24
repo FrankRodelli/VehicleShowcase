@@ -24,7 +24,7 @@ if($result->num_rows == 1){
 
 echo '
 <div id="make-post-container">
-<div id="upper-column">
+<div class="post-text" id="upper-column">
     <a href="user.php/?u='.$row['UUID'].'"><img src="uploads/users/'.$row["PICTURE"].'"/></a>
 <form method = "POST" enctype = "multipart/form-data" class="post-text">
  	<textarea name="post-text-content" placeholder="Update us on your ride!"></textarea><input name="add-post" type="submit" value="Submit" />
