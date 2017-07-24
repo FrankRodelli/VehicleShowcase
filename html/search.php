@@ -83,9 +83,8 @@
 					echo ($i+1).'. <a href="../event.php?e='.$resultArray[$i]['id'].'">'.$resultArray[$i]['title'].'</a><br>';
 				}
 			}
+		}else{
+			echo "No results found";
 		}
-
-	}else{
-		echo "No results found";
 	}
 ?>
