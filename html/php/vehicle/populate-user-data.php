@@ -41,13 +41,13 @@ if($result->num_rows == 1){
 	$age = floor((time() - strtotime($row["DOB"])) / 31556926);
 
 	echo '
-	<img class="propic-page" src="../uploads/users/'.$row["PICTURE"].'" height="150px"></a>
+	<a href="../user.php?u='.$row['UUID'].'"><img class="propic-page" src="../uploads/users/'.$row["PICTURE"].'" height="150px"></a>
 	<div id="user-data">
-	<a>'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
+	<a href="../user.php?u='.$row['UUID'].'">'.$row["FIRSTNAME"].' ' .$row["LASTNAME"] .'</a><br>
 	<a>'.$age.'</a><br>
 	<a>'.$row["OCCUPATION"] .'</a><br>';
-	
-	$followers = 0; 
+
+	$followers = 0;
 	$following = 0;
 
 	//Gets number of people user is following

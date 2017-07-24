@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfNCybgK_NXLduu4UPB92hKvtU9eCFixA"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfNCybgK_NXLduu4UPB92hKvtU9eCFixA"
  type="text/javascript"></script>
 
 </head>
