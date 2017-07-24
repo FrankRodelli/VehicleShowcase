@@ -11,8 +11,6 @@
 </body>
 
 <?php
-	$resultCounter = 0;
-	$resultArray = array();
 	$connUsers = new mysqli('localhost', 'root', 'f44V3A0i4RYLv^xI$VI2@d4f' , 'Users');
 
 	// Check connection
@@ -29,15 +27,20 @@
 
 	if(isset($_POST['submit'])){
 		$searchterm = $connUsers->real_escape_string($_POST['search_term']);
+		$resultCounter = 0;
+		$resultArray = array();
+
+		//First query
 		$sql = "SELECT * FROM `UserList` WHERE FIRSTNAME LIKE '%$searchterm%' OR  LASTNAME LIKE '%$searchterm%' OR USERNAME LIKE '%$searchterm%'";
 		$result = $connUsers->query($sql);
 		if($result->num_rows > 0){
-			while($row = $result->fetch_assoc()){
-				$resultArray[$resultCounter] = $row;
-				$resultCounter++;
+			//Stores each row in array
+			while($resultArray[] = $result->fetch_assoc()){
 			}
-			for($i = 0; $i > sizeof($resultArray);$i++){
-				echo $resultArray[i];
+
+			//Loops through array and displays results
+			for($i = 0; $i < sizeof($resultArray);$i++){
+				echo $resultArray[$i]['USERNAME'];
 			}
 		}
 
