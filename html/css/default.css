@@ -439,3 +439,11 @@ h1, h2, h3
 	padding: 10px 0;
 	text-align: left;
 }
+.closeCalendar {
+	position: absolute;
+	top: 50px;
+	right: 75px;
+	color: #000;
+	font-size: 40px;
+	font-weight: bold;
+}

@@ -110,7 +110,10 @@
 </div>
 
 <div class="column" id="right-column">
-<div id='calendar'  style="display:none;"></div>
+	<div id='calendar'  style="display:none;">
+		<span class="closeCalendar" onclick="changeCalendarView">&times;</span>
+	</div>
+
 <div id='upcomingEvents' style="display:block;">
 <h2>Upcoming Events</h2>
 <img onclick="changeCalendarView()" src="images/calendar.png" class="calendarIcon">
