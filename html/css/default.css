@@ -441,9 +441,10 @@ h1, h2, h3
 }
 .closeCalendar {
 	position: absolute;
-	top: 50px;
-	right: 75px;
+	margin-top: -435px;
+	margin-left: 145px;
 	color: #000;
 	font-size: 40px;
 	font-weight: bold;
+	cursor: pointer;
 }
