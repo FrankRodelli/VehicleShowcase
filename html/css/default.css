@@ -426,3 +426,11 @@ h1, h2, h3
         width: 100%;
     }
 }
+
+.calendarIcon {
+	position: absolute;
+	margin-top: -28px;
+	margin-left: 100px;
+	width: 25px;
+	cursor: pointer;
+}

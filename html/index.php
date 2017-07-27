@@ -112,6 +112,7 @@
 <div class="column" id="right-column">
 <div id='calendar'  style="display:none;"></div>
 <h2>Upcoming Events</h2>
+<img src="images/calendar.png" class="calendarIcon">
 </div>
 
 <div id="center-column">
