@@ -434,3 +434,8 @@ h1, h2, h3
 	width: 25px;
 	cursor: pointer;
 }
+.eventLI {
+	list-style: none;
+	padding: 10px 0;
+	text-align: left;
+}

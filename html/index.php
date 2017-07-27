@@ -114,8 +114,9 @@
 <div id='upcomingEvents'>
 <h2>Upcoming Events</h2>
 <img src="images/calendar.png" class="calendarIcon">
+<ul>
 <?php include('php/populate-upcoming-events.php'); ?>
-</h2>
+</ul>
 </div>
 </div>
 

@@ -7,13 +7,18 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Events";
+$sql = "SELECT * FROM Events LIMIT 7";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
-    echo $row['title'];
+    $eventDateStart = date_create($row['start']);
+
+    echo '<div id="eventDateList"><a id="monthDate">'.
+    $eventDateStart->format("F").'</a><a id="dayDate">'.
+    $eventDateStart->format("d").'</a></div><a href="../event.php?e='.
+    $row['id'].'"><li class="eventLI">'.$row['title'].'</li></a>';
   }
 }else{
 }
