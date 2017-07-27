@@ -15,10 +15,11 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
     $eventDateStart = date_create($row['start']);
 
-    echo '<div id="eventDateList"><a id="monthDate">'.
+    echo '<li class="eventLI"><div id="eventDateList"><a id="monthDate">'.
     $eventDateStart->format("F").'</a><a id="dayDate">'.
-    $eventDateStart->format("d").'</a></div><a href="../event.php?e='.
-    $row['id'].'"><li class="eventLI">'.$row['title'].'</li></a>';
+    $eventDateStart->format("d").
+    '</a></div><a href="../event.php?e='.
+    $row['id'].'">'.$row['title'].'</a></li>';
   }
 }else{
 }

@@ -113,7 +113,7 @@
 <div id='calendar'  style="display:none;"></div>
 <div id='upcomingEvents'>
 <h2>Upcoming Events</h2>
-<img src="images/calendar.png" class="calendarIcon">
+<img onclick="changeCalendarView()" src="images/calendar.png" class="calendarIcon">
 <ul>
 <?php include('php/populate-upcoming-events.php'); ?>
 </ul>
@@ -377,4 +377,21 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
 }
+</script>
+
+<script type="text/javascript">
+
+
+function changeCalendarView(){
+	var $calendarView = $('#calendar');
+	var $eventView = $('#upcomingEvents');
+
+	if($calendarView.style.display !== 'none'){
+		$eventView.style.display = 'none';
+	}else{
+		$eventView.style.display = 'block';
+	}
+
+}
+
 </script>
