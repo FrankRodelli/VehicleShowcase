@@ -65,7 +65,7 @@
 	<!-- Modal Caption (Image Text) -->
 	<div id="caption"></div>
 	</div>
-	
+
 	<div id="qr-container" style="display:none;">
 		<h2>Scan QR Code</h2>
 		<video id="qr-preview"></video>
@@ -202,7 +202,7 @@ function openQRScanner(){
 		let scanner = new Instascan.Scanner({ video: document.getElementById('qr-preview') });
 		scanner.addListener('scan', function (content) {
 			console.log(content);
-			window.location.href = content;
+			window.location.href.replace = content;
 		});
 		Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {
