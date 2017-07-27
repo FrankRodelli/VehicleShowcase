@@ -111,8 +111,12 @@
 
 <div class="column" id="right-column">
 <div id='calendar'  style="display:none;"></div>
+<div id='upcomingEvents'>
 <h2>Upcoming Events</h2>
 <img src="images/calendar.png" class="calendarIcon">
+<?php include('php/populate-upcoming-events.php'); ?>
+</h2>
+</div>
 </div>
 
 <div id="center-column">
