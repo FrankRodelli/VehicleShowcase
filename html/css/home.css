@@ -358,6 +358,13 @@ tr:first-child>td>.fc-day-grid-event{
 	margin-top: 3px !important;
 }
 
+.fc-left {
+	margin-top: 28px;
+}
+.fc-right {
+	margin-top: 28px;
+}
+
 #add-event {
 	width: 500px;
 	height: 550px;
