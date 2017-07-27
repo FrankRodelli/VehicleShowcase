@@ -110,7 +110,8 @@
 </div>
 
 <div class="column" id="right-column">
-<div id='calendar'></div>
+<div id='calendar'  style="display:none;"></div>
+<h2>Upcoming Events</h2>
 </div>
 
 <div id="center-column">
