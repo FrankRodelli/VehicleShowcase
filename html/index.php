@@ -111,7 +111,7 @@
 
 <div class="column" id="right-column">
 <div id='calendar'  style="display:none;"></div>
-<div id='upcomingEvents'>
+<div id='upcomingEvents' style="display:block;">
 <h2>Upcoming Events</h2>
 <img onclick="changeCalendarView()" src="images/calendar.png" class="calendarIcon">
 <ul>
@@ -341,6 +341,23 @@ function createCalendar(){
 	getEvents();
 
 
+	var calendarView = document.getElementById('calendar');
+	var eventView = document.getElementById('upcomingEvents');
+
+	function changeCalendarView(){
+
+		if(eventView.style.display !== 'none'){
+			calendarView.style.display = 'block';
+			eventView.style.display = 'none';
+			$('#calendar').fullCalendar('render');
+		}else{
+			eventView.style.display = 'block';
+			calendarView.style.display = 'none';
+		}
+
+	}
+
+
 </script>
 <script type="text/javascript">
 
@@ -381,17 +398,5 @@ span.onclick = function() {
 
 <script type="text/javascript">
 
-
-function changeCalendarView(){
-	var $calendarView = $('#calendar');
-	var $eventView = $('#upcomingEvents');
-
-	if($calendarView.style.display !== 'none'){
-		$eventView.style.display = 'none';
-	}else{
-		$eventView.style.display = 'block';
-	}
-
-}
 
 </script>
