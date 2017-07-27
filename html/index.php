@@ -346,14 +346,17 @@ function createCalendar(){
 
 	function changeCalendarView(){
 
+
 		if(eventView.style.display !== 'none'){
-			calendarView.style.display = 'block';
-			eventView.style.display = 'none';
+			$('#calendar').fadeIn('slow');
+			$('#upcomingEvents').hide();
 			$('#calendar').fullCalendar('render');
 		}else{
-			eventView.style.display = 'block';
-			calendarView.style.display = 'none';
+			$('#upcomingEvents').fadeIn('slow');
+			$('#calendar').hide();
 		}
+
+
 
 	}
 
