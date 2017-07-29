@@ -177,9 +177,9 @@ div2.addEventListener("click", function() {
 
 <script>
 var slideIndex = 0;
-showSlides();
+showSlides1();
 
-function showSlides() {
+function showSlides1() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     for (i = 0; i < slides.length; i++) {
@@ -188,7 +188,24 @@ function showSlides() {
     slideIndex++;
     if (slideIndex> slides.length) {slideIndex = 1}
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 4000); // Change image every 2 seconds
+    setTimeout(showSlides1, 4000); // Change image every 2 seconds
+}
+</script>
+
+<script>
+var slideIndex = 0;
+showSlides2();
+
+function showSlides2() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides2");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides2, 4000); // Change image every 2 seconds
 }
 </script>
 

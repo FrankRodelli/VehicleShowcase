@@ -41,14 +41,14 @@ echo '
 	<span class="dot" onclick="currentSlide(5)"></span>
 </div>';
 
-$sql = "SELECT * FROM Cars LIMIT 5";
+$sql = "SELECT * FROM Cars ORDER BY CREATED LIMIT 5";
 $result = $conn->query($sql);
 
 //Creates Second Slideshow
 echo '<h2>Recently Added Vehicles</h2><div class="slideshow-container">';
 while($row= $result->fetch_assoc()){
 	echo '
-		<div class="mySlides fade"><a href="../../vehicle.php?c='.$row['HASH'].'">';
+		<div class="mySlides2 fade"><a href="../../vehicle.php?c='.$row['HASH'].'">';
 		if($row['PHOTO'] == '' ){
 			echo '<img src="../../images/DEFAULT-CAR.png">';
 		}else{
