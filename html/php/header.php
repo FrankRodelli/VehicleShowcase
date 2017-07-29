@@ -24,7 +24,7 @@
 				echo '<div id="user-header">
 				<a class="propic-click" href ="../user.php/?u='.$loggedinuser .'">
 				<img class="propic-header" src="../uploads/users/'.$row["PICTURE"].'" height="30px"></a>
-				<a>Welcome '. $row["FIRSTNAME"] . '!</a><a>'.
+				<a id="welcomeText">Welcome '. $row["FIRSTNAME"] . '!</a><a id="pointsText">'.
 				$row['POINTS'].' Points </a>
 				<img id="propic" class="menu-icon" src="../images/menu.png">
 				</div>

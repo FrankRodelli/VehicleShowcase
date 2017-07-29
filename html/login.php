@@ -105,7 +105,7 @@
 				$uuid = $row['UUID'];
 				$sql = "INSERT INTO `ActivityLog` (`Username`,`UUID`,`IP`) VALUES ('$username','$uuid','$ip')";
 				$result = $conn->query($sql);
-				$sql = "UPDATE UserList SET POINTS = 1 WHERE UUID = $uuid ";
+				$sql = "UPDATE `UserList` SET `POINTS` = POINTS + 1 WHERE `UUID` = '$uuid' ";
 				$result = $conn->query($sql);
 				header("Location: index.php");
 				// this should make it so every time someone logs in, it clears it OR after 4 logins, it would ban them and suspend the account they are logging in with, however, this could cause a hacker to be able to

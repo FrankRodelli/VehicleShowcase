@@ -98,14 +98,17 @@ h1, h2, h3
 }
 #user-header a{
 	padding: 0 40px 0 40px;
-	margin-top: 2%;
 	float: left;
 	color: #f2f2f2;
 }
 .menu-icon {
 		float: right !important;
-		padding-top: 4%;
+		margin-top: -10px;
 		cursor: pointer;
+}
+#pointsText {
+	padding: 0 70px !important;
+	font-size: 10px;
 }
 .propic-header {
 	float:left;
