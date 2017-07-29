@@ -11,12 +11,10 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM Cars LIMIT 5";
 $result = $conn->query($sql);
 
-echo '<div class="slideshow-container">';
+echo '<h2>Featured Vehicles</h2><div class="slideshow-container">';
 
-//Need to implement getting photo by using PHOTO in Cars table when default photo feature is added
-//This will not be used until that is implemented in the settings/addcar
+//Creates first slideshow
 while($row= $result->fetch_assoc()){
-	//This is where the slideshow will be built when above mentioned is complete
 	echo '
 		<div class="mySlides fade"><a href="../../vehicle.php?c='.$row['HASH'].'">';
 		if($row['PHOTO'] == '' ){
@@ -42,5 +40,38 @@ echo '
 	<span class="dot" onclick="currentSlide(4)"></span>
 	<span class="dot" onclick="currentSlide(5)"></span>
 </div>';
+
+$sql = "SELECT * FROM Cars LIMIT 5";
+$result = $conn->query($sql);
+
+//Creates Second Slideshow
+echo '<h2>Recently Added Vehicles</h2><div class="slideshow-container">';
+while($row= $result->fetch_assoc()){
+	echo '
+		<div class="mySlides fade"><a href="../../vehicle.php?c='.$row['HASH'].'">';
+		if($row['PHOTO'] == '' ){
+			echo '<img src="../../images/DEFAULT-CAR.png">';
+		}else{
+			echo '<img src="../../uploads/vehicles/'.$row['PHOTO'].'">';
+		}
+
+		echo '
+		</a>
+	  <div class="text">'.$row['DATE'].' '.$row['MAKE'].' '.$row['MODEL'].'</div>
+	  </div>';
+}
+
+
+echo '
+</div>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+	<span class="dot" onclick="currentSlide(4)"></span>
+	<span class="dot" onclick="currentSlide(5)"></span>
+</div>';
+
 
 ?>

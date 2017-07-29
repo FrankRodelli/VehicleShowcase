@@ -104,7 +104,6 @@
 
 
 <div class="column" id="left-column">
-<h2>Featured Vehicles</h2>
 <?php include('php/home/slide_show.php');?>
 
 </div>
