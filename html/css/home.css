@@ -144,6 +144,7 @@ textarea:focus{
 #post-info a{
 	color: #6b7c8c;
 	font-weight: 900;
+	text-decoration: none;
 }
 #top-post {
 	margin: 1%;
