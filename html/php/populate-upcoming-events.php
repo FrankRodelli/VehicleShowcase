@@ -12,15 +12,17 @@ $sql = "SELECT * FROM Events LIMIT 7";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+  echo '<ul>';
   while($row = $result->fetch_assoc()){
     $eventDateStart = date_create($row['start']);
 
     echo '<li class="eventLI"><div id="eventDateList"><a id="monthDate">'.
     $eventDateStart->format("F").'</a><a id="dayDate">'.
     $eventDateStart->format("d").
-    '</a></div><a href="../event.php?e='.
+    '</a></div><a id="eventListTitle" href="../event.php?e='.
     $row['id'].'">'.$row['title'].'</a></li>';
   }
+  echo '</ul>';
 }else{
 }
 
