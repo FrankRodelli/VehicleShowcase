@@ -30,7 +30,7 @@
 		<h1>FBMotors</h1>
 			<ul class="nav">
 				<li class="active"><a href="index.php" accesskey="1" title="">Home</a></li>
-				<li><a href="search.php" accesskey="2" title="">Discover</a></li>
+				<li><a href="discover.php" accesskey="2" title="">Discover</a></li>
 				<li class="qrli">
 					<div class="mask pseudo">
 						<a href="#" onclick="openQRScanner()"><img class="qr" src="https://www.qrstuff.com/images/sample.png" height="40px"></a>
@@ -42,7 +42,7 @@
 			</ul>
 
 			<div id="search-bar">
-			<form method="post" action="/search.php">
+			<form method="post" action="/discover.php">
 			<input name="a" class="searchinput" type="text">
 		</form>
 			</div>
@@ -232,7 +232,7 @@ var hasLoaded = false;
 function getEvents(){
 	events = [];
 	$.ajax({
-					url : 'https://showmeyouraxels.me/browse.php',
+					url : 'https://showmeyouraxels.me/getEvents.php',
 					type : 'post',
 					dataType: 'json',
 					success: function(e){
@@ -280,17 +280,6 @@ function createCalendar(){
         editable : false,
         eventLimit: true,
 				eventLimitText: '',
-				dayRender: function (date, cell) {
-					/*if ( !dateHasEvent(date) ){
-							cell.css("background-color", "initial");
-							console.log('no event ' + date.toDate());
-					}
-					else if ( dateHasEvent(date) ){
-							cell.css("background-color", "#6b7c8c");
-							console.log('event ' + date.toDate());
-					}*/
-				},
-
         eventClick: function(calEvent, jsEvent, view, element) {
 					var inner = new Date(calEvent.start) + ' to ' + new Date(calEvent.end)+'<br><a href="event.php?e=' +calEvent.id+'">Go to Event Page</a>';
 					swal({
