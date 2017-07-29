@@ -30,7 +30,7 @@
 		<h1>FBMotors</h1>
 			<ul class="nav">
 				<li class="active"><a href="index.php" accesskey="1" title="">Home</a></li>
-				<li><a href="browse.php" accesskey="2" title="">Discover</a></li>
+				<li><a href="search.php" accesskey="2" title="">Discover</a></li>
 				<li class="qrli">
 					<div class="mask pseudo">
 						<a href="#" onclick="openQRScanner()"><img class="qr" src="https://www.qrstuff.com/images/sample.png" height="40px"></a>
@@ -117,9 +117,7 @@
 <div id='upcomingEvents' style="display:block;">
 <h2>Upcoming Events</h2>
 <img onclick="changeCalendarView()" src="images/calendar.png" class="calendarIcon">
-<ul>
 <?php include('php/populate-upcoming-events.php'); ?>
-</ul>
 </div>
 </div>
 
@@ -358,13 +356,9 @@ function createCalendar(){
 			$('#upcomingEvents').fadeIn('slow');
 			$('#calendar').hide();
 		}
-
-
-
 	}
-
-
 </script>
+
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -379,10 +373,8 @@ $(document).ready(function() {
 </script>
 
 <script>
-// Get the modal
 var modal = document.getElementById('myModal');
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");

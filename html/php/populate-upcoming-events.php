@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     '</a></div><a id="eventListTitle" href="../event.php?e='.
     $row['id'].'">'.$row['title'].'</a></li>';
   }
-  echo '</ul>';
+  echo '</ul><a href="../events.php" style="font-size:10px">See More</a>';
 }else{
 }
 
